@@ -1,0 +1,181 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/translations';
+
+const t = useTranslations('en');
+
+const steps = [
+  {
+    number: 1,
+    title: 'Find a recipe you love',
+    description: "Could be anywhere—your favorite food blog, that New York Times recipe your friend won't stop talking about, a random YouTube video, or even a recipe your grandmother texted you. If it's on the web, Kitchenote can save it.",
+    tip: 'Pro tip: Works with 95% of recipe sites, including protected ones that usually block copying.'
+  },
+  {
+    number: 2,
+    title: 'Share it to Kitchenote',
+    description: "Hit the share button (you know, that little arrow icon) and pick Kitchenote from the list. Or just copy the URL and paste it into the app. Either way, it takes about two seconds. We time it.",
+    tip: 'The share sheet method is faster, but pasting works great too.'
+  },
+  {
+    number: 3,
+    title: 'Watch the magic happen',
+    description: "Kitchenote reads the page and pulls out exactly what matters—title, ingredients, instructions, cook time, and photos. All the stuff you need, none of the stuff you don't (goodbye, 12-paragraph intro about autumn in Vermont).",
+    tip: 'You can always edit or add notes to any recipe after saving.'
+  },
+  {
+    number: 4,
+    title: 'Cook whenever you\'re ready',
+    description: "Your recipes are saved, organized, and waiting. Open Cook Mode when it's time to actually make something, and everything's right there—big text, step-by-step, no distractions. Just you and the food.",
+    tip: 'All recipes work offline. No WiFi in the kitchen? No problem.'
+  }
+];
+---
+
+<Layout title="How It Works" description="Learn how Kitchenote makes saving and organizing recipes effortless. Four simple steps from finding a recipe to cooking it.">
+
+  <!-- Hero -->
+  <section class="py-16 md:py-24">
+    <div class="container-narrow text-center">
+      <h1 class="mb-6">How Kitchenote works</h1>
+      <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+        We could write a lot here, but honestly? It's pretty simple. Four steps. You'll figure it out in about 30 seconds.
+      </p>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="pb-20">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto">
+        <div class="relative">
+          <!-- Vertical line -->
+          <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-cream-200 hidden md:block"></div>
+
+          <div class="space-y-12 md:space-y-16">
+            {steps.map((step, index) => (
+              <div class="relative flex gap-6 md:gap-10">
+                <!-- Step number -->
+                <div class="relative z-10 flex-shrink-0">
+                  <div class="w-12 h-12 rounded-full bg-primary-500 text-white flex items-center justify-center font-display font-bold text-xl shadow-lg shadow-primary-200">
+                    {step.number}
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <div class="flex-1 pb-8">
+                  <h2 class="text-xl md:text-2xl font-display font-bold mb-3">
+                    {step.title}
+                  </h2>
+                  <p class="text-neutral-600 leading-relaxed mb-4">
+                    {step.description}
+                  </p>
+                  <div class="flex items-start gap-2 p-3 rounded-lg bg-sage-50 text-sage-700 text-sm">
+                    <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{step.tip}</span>
+                  </div>
+
+                  {index < steps.length - 1 && (
+                    <div class="mt-8 aspect-video rounded-xl bg-gradient-to-br from-cream-100 to-cream-200 border border-cream-300 flex items-center justify-center md:hidden">
+                      <span class="text-neutral-400 text-sm">Step {step.number} demo</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo video placeholder -->
+  <section class="py-16 bg-white">
+    <div class="container-wide">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-display font-bold text-center mb-8">
+          See it in action
+        </h2>
+        <div class="aspect-video rounded-2xl bg-neutral-900 flex items-center justify-center">
+          <div class="text-center text-neutral-400">
+            <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Demo video coming soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ quick section -->
+  <section class="py-16">
+    <div class="container-narrow">
+      <h2 class="text-2xl font-display font-bold text-center mb-8">
+        Quick questions
+      </h2>
+      <div class="space-y-4">
+        <details class="group card">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            What if a recipe doesn't import correctly?
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-3 text-neutral-600">
+            Happens occasionally with unusual page layouts. You can always edit any recipe manually, or just paste the content directly. We're constantly improving our parser too—it gets better every week.
+          </p>
+        </details>
+
+        <details class="group card">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            Can I add my own recipes?
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-3 text-neutral-600">
+            Absolutely. Create a recipe from scratch anytime. Great for family recipes, your own creations, or that thing you made up while cleaning out the fridge.
+          </p>
+        </details>
+
+        <details class="group card">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            Does it work with sites that require login?
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-3 text-neutral-600">
+            Most of the time, yes! We use your browser session, so if you can see the recipe, we can usually save it. Some heavily protected sites might not work, but we're always adding support for more.
+          </p>
+        </details>
+      </div>
+
+      <p class="text-center mt-8">
+        <a href="/en/support" class="text-primary-600 hover:text-primary-700 font-medium">
+          More questions? Check out our full FAQ →
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary-50 border-y border-primary-100">
+    <div class="container-narrow text-center">
+      <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">
+        Simple enough, right?
+      </h2>
+      <p class="text-neutral-600 mb-8">
+        Try it out. We're pretty confident you'll get the hang of it.
+      </p>
+      <a href="#download" class="btn-primary">
+        Get Kitchenote Free
+      </a>
+    </div>
+  </section>
+
+</Layout>

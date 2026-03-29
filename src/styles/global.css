@@ -1,0 +1,303 @@
+@import "tailwindcss";
+
+/* Kitchenote Brand Colors */
+@theme {
+  /* Primary - Terracotta/Coral */
+  --color-primary-50: #fef5f2;
+  --color-primary-100: #fde8e1;
+  --color-primary-200: #fcd4c8;
+  --color-primary-300: #f9b5a1;
+  --color-primary-400: #f48d6e;
+  --color-primary-500: #e86f4c;
+  --color-primary-600: #d5532e;
+  --color-primary-700: #b24224;
+  --color-primary-800: #933922;
+  --color-primary-900: #7a3322;
+  --color-primary-950: #42170d;
+
+  /* Cream - Warm backgrounds */
+  --color-cream-50: #fefdfb;
+  --color-cream-100: #fcf9f4;
+  --color-cream-200: #f9f2e7;
+  --color-cream-300: #f3e5d0;
+  --color-cream-400: #ebd3b3;
+  --color-cream-500: #e0be95;
+  --color-cream-600: #d4a673;
+  --color-cream-700: #c28c56;
+  --color-cream-800: #a17347;
+  --color-cream-900: #845f3d;
+  --color-cream-950: #47301e;
+
+  /* Sage - Accent green */
+  --color-sage-50: #f6f7f4;
+  --color-sage-100: #e9ede4;
+  --color-sage-200: #d4dcca;
+  --color-sage-300: #b5c4a4;
+  --color-sage-400: #96a97f;
+  --color-sage-500: #788d61;
+  --color-sage-600: #5d714a;
+  --color-sage-700: #4a593c;
+  --color-sage-800: #3d4833;
+  --color-sage-900: #343d2d;
+  --color-sage-950: #1a2016;
+
+  /* Neutral - Text and borders */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f4f4f5;
+  --color-neutral-200: #e4e4e7;
+  --color-neutral-300: #d4d4d8;
+  --color-neutral-400: #a1a1aa;
+  --color-neutral-500: #71717a;
+  --color-neutral-600: #52525b;
+  --color-neutral-700: #3f3f46;
+  --color-neutral-800: #27272a;
+  --color-neutral-900: #18181b;
+  --color-neutral-950: #09090b;
+
+  /* Typography */
+  --font-display: 'Nunito', ui-rounded, system-ui, sans-serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* Spacing */
+  --spacing-section: 5rem;
+  --spacing-section-mobile: 3rem;
+}
+
+/* Base styles */
+@layer base {
+  html {
+    font-family: var(--font-body);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cream-50);
+    color: var(--color-neutral-800);
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-neutral-900);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    letter-spacing: -0.025em;
+  }
+
+  h2 {
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: var(--color-primary-600);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  a:hover {
+    color: var(--color-primary-700);
+  }
+
+  /* Focus styles for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
+  }
+}
+
+/* Component styles */
+@layer components {
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background-color: var(--color-primary-500);
+    color: white;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-600);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(232, 111, 76, 0.3);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background-color: white;
+    color: var(--color-primary-600);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 9999px;
+    border: 2px solid var(--color-primary-200);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-primary-400);
+    background-color: var(--color-primary-50);
+  }
+
+  .section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    text-align: center;
+    color: var(--color-neutral-600);
+    max-width: 36rem;
+    margin: 0 auto 3rem;
+  }
+
+  .card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-cream-200);
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .container-narrow {
+    max-width: 48rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  .container-wide {
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-700));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Responsive typography */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Japanese-specific typography adjustments */
+:lang(ja) {
+  word-break: break-all;
+  line-height: 1.8;
+}
+
+:lang(ja) h1, :lang(ja) h2, :lang(ja) h3 {
+  letter-spacing: 0.05em;
+}
+
+/* Prose typography for legal/blog content */
+.prose h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-neutral-900);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h3 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-neutral-800);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose p {
+  color: var(--color-neutral-700);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-neutral-700);
+}
+
+.prose ul li {
+  margin-bottom: 0.25rem;
+}
+
+.prose a {
+  color: var(--color-primary-600);
+  transition: color 0.15s ease;
+}
+
+.prose a:hover {
+  color: var(--color-primary-700);
+}
+
+.prose-lg h2 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.prose-lg p {
+  font-size: 1.0625rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose-lg ul li {
+  margin-bottom: 0.5rem;
+}

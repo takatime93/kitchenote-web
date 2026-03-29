@@ -1,0 +1,143 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const post = {
+  title: 'Why recipe websites are so annoying (and what we\'re doing about it)',
+  date: '2024-01-15',
+  readTime: '4 min read',
+  category: 'Thoughts'
+};
+
+function formatDate(dateString: string): string {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+---
+
+<Layout title={post.title} description="You just want to make cookies. You don't need 2,000 words about someone's grandmother.">
+
+  <article class="py-16 md:py-24">
+    <div class="container-narrow">
+      <!-- Header -->
+      <header class="text-center mb-12">
+        <div class="mb-4">
+          <span class="inline-block px-3 py-1 text-xs font-medium text-sage-700 bg-sage-50 rounded-full">
+            {post.category}
+          </span>
+        </div>
+        <h1 class="text-3xl md:text-4xl mb-4">{post.title}</h1>
+        <div class="flex items-center justify-center gap-4 text-neutral-500">
+          <time datetime={post.date}>{formatDate(post.date)}</time>
+          <span>·</span>
+          <span>{post.readTime}</span>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-neutral-600 mb-8">
+          You just want to know how much flour goes in the cookies. Instead, you're scrolling through someone's childhood memories of baking with their grandmother in a farmhouse kitchen where the morning light streamed through gingham curtains...
+        </p>
+
+        <p>We've all been there. And honestly? It's maddening.</p>
+
+        <h2>Why are recipe sites like this?</h2>
+
+        <p>
+          Here's the thing—it's not entirely the bloggers' fault. The internet economy made them do it.
+        </p>
+
+        <p>
+          Recipe bloggers make money from ads. More words on the page means more ad space. More time spent scrolling means more ad impressions. And Google's algorithm historically favored longer content, so a 2,000-word post about chocolate chip cookies ranked better than a 200-word one.
+        </p>
+
+        <p>
+          Then there's the "jump to recipe" button problem. Even when sites add one, it often doesn't work properly on mobile. Or it jumps to a weird recipe card that's hard to read. Or the page keeps loading ads that push the recipe around.
+        </p>
+
+        <p>
+          The incentives are completely misaligned with what you actually want: the recipe.
+        </p>
+
+        <h2>The popup apocalypse</h2>
+
+        <p>
+          Let's not forget the popups. Newsletter signup. Cookie consent. "Turn off your ad blocker." Some kind of video that auto-plays and follows you down the page. A message about their new cookbook. Another newsletter signup because maybe you missed the first one.
+        </p>
+
+        <p>
+          By the time you've closed everything, you've forgotten what you were trying to cook.
+        </p>
+
+        <h2>What we're doing about it</h2>
+
+        <p>
+          When you save a recipe to Kitchenote, we strip away everything except what matters:
+        </p>
+
+        <ul>
+          <li>The recipe title</li>
+          <li>Ingredients (properly parsed and organized)</li>
+          <li>Instructions (step by step)</li>
+          <li>Cook time and servings</li>
+          <li>Photos (just the food ones)</li>
+        </ul>
+
+        <p>
+          That's it. No life story. No popups. No ads. No autoplay videos. Just the recipe you came for.
+        </p>
+
+        <p>
+          And once it's saved, it's yours. Read it offline. Scale the servings. Use Cook Mode so you can actually follow along while your hands are covered in dough.
+        </p>
+
+        <h2>We're not against food bloggers</h2>
+
+        <p>
+          To be clear—we love that people share recipes online. Food blogging has democratized cooking knowledge in a way that's genuinely wonderful. Our grandparents had to buy cookbooks or hope a recipe got passed down. We can find a recipe for almost anything in seconds.
+        </p>
+
+        <p>
+          The problem isn't the bloggers. It's the system that forces them to bury recipes under mountains of content to make a living.
+        </p>
+
+        <p>
+          Kitchenote doesn't replace recipe sites. It just makes them actually usable.
+        </p>
+
+        <h2>Try it yourself</h2>
+
+        <p>
+          Next time you find a recipe you want to save, try importing it to Kitchenote. See what a recipe looks like when it's just... a recipe.
+        </p>
+
+        <p>
+          It's kind of refreshing, honestly.
+        </p>
+      </div>
+
+      <!-- Author/CTA -->
+      <footer class="mt-12 pt-8 border-t border-cream-200">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-sage-100 flex items-center justify-center">
+              <span class="text-sage-600 font-display font-bold">T</span>
+            </div>
+            <div>
+              <div class="font-medium text-neutral-900">Taka</div>
+              <div class="text-sm text-neutral-500">Kitchenote Team</div>
+            </div>
+          </div>
+          <a href="/en/blog" class="text-primary-600 hover:text-primary-700 font-medium">
+            ← Back to blog
+          </a>
+        </div>
+      </footer>
+    </div>
+  </article>
+
+</Layout>
+

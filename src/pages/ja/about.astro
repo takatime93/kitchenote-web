@@ -1,0 +1,120 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/translations';
+
+const t = useTranslations('ja');
+---
+
+<Layout title="About" description="Kitchenoteの物語。なぜレシピ管理アプリを作ったのか、そして家庭料理への想い。">
+
+  <!-- Hero -->
+  <section class="py-16 md:py-24">
+    <div class="container-narrow">
+      <h1 class="text-center mb-8">Kitchenoteについて</h1>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-neutral-600 text-center mb-12">
+          Kitchenoteは、多くのアプリと同じように始まりました—フラストレーションから。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="pb-20">
+    <div class="container-narrow">
+      <div class="space-y-8 text-neutral-700 leading-relaxed">
+        <h2 class="text-2xl font-display font-bold text-neutral-900">ストーリー</h2>
+
+        <p>
+          ある火曜日の夜のことでした。ブックマークしておいたタイカレーのレシピを作ろうとしていたのです。あの料理ブログにあったやつ……いや、YouTubeの動画だったかな？スクショしたかも？15分間ブックマークとスクショとPinterestボード（なぜPinterestを使っていたのか自分でも謎）を探し回った挙句、諦めてデリバリーを頼みました。
+        </p>
+
+        <p>
+          その瞬間、何かがおかしいと確信しました。
+        </p>
+
+        <p>
+          レシピアプリはたくさんあります。でもほとんどは、自分のレシピを保存するのではなく、そのアプリ内のレシピを見てほしいと思っている。インポート機能のないデジタル料理本のようなものだったり、複雑すぎてレシピの整理自体が一つの仕事になってしまったり。
+        </p>
+
+        <p>
+          私が欲しかったのは、違うものでした。ただ……動くもの。URLを貼って、きれいなレシピを取得して、自分なりに整理して、鶏肉で手がベトベトな時でも実際に使えるもの。
+        </p>
+
+        <p>
+          だから、作りました。
+        </p>
+
+        <h2 class="text-2xl font-display font-bold text-neutral-900 mt-12">私たちが信じること</h2>
+
+        <p>
+          家で料理することは、楽しいことであるべきで、イライラすることではありません。テクノロジーはそれを簡単にするべきで、難しくするべきではありません。そして、にんにくを何グラム使うか知るために、誰かのおばあちゃんについての2,000文字のエッセイを読む必要はないはずです。
+        </p>
+
+        <p>
+          私たちが信じていること：
+        </p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>機能より単純さ。</strong> Kitchenoteのすべての機能は、実際の問題を解決するために存在します。50のことを中途半端にやるより、5つのことを完璧にやりたい。</li>
+          <li><strong>データはあなたのもの。</strong> レシピはあなたのデバイスに保存されます。広告のために分析したり、第三者に売ったり、アカウント登録を必須にしたりしません。</li>
+          <li><strong>良いデザインは大事。</strong> 料理中に使うアプリは、読みやすく、レスポンシブで、邪魔にならないことが必要です。私たちがこうした細部にこだわるので、あなたはこだわらなくていい。</li>
+          <li><strong>料理は万国共通。</strong> だからKitchenoteは英語と日本語で動作し、他の言語も追加予定です。レシピはレシピ、どこにいても。</li>
+        </ul>
+
+        <h2 class="text-2xl font-display font-bold text-neutral-900 mt-12">これから</h2>
+
+        <p>
+          まだ始まったばかりです。献立計画、買い物リストとデリバリーの連携、より良い共有機能、料理好き同士がつながる方法……作りたいものはたくさんあります。でも、次に進む前に、それぞれの機能が本当に役立つものになるよう、ゆっくり進めています。
+        </p>
+
+        <p>
+          その間、私たちは毎日Kitchenoteを使って料理しています。あなたもそうしてくれたら嬉しいです。
+        </p>
+
+        <div class="mt-12 p-6 rounded-xl bg-cream-100 border border-cream-200">
+          <p class="text-neutral-600 mb-0">
+            フィードバック、アイデア、バグの報告など、何でもお気軽に。<a href="mailto:hello@kitchenote.app" class="text-primary-600 hover:text-primary-700">hello@kitchenote.app</a>までご連絡ください。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="py-16 bg-white">
+    <div class="container-narrow">
+      <h2 class="text-2xl font-display font-bold text-center mb-8">チーム</h2>
+
+      <div class="max-w-md mx-auto">
+        <div class="card text-center p-8">
+          <div class="w-24 h-24 rounded-full bg-sage-100 mx-auto mb-4 flex items-center justify-center">
+            <span class="text-sage-600 font-display font-bold text-3xl">T</span>
+          </div>
+          <h3 class="font-display font-bold text-lg mb-1">Taka</h3>
+          <p class="text-neutral-500 text-sm mb-4">Creator & Developer</p>
+          <p class="text-neutral-600 text-sm">
+            料理好き、アプリ開発者、そしてレシピのブックマーク管理を諦めた人。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary-50 border-y border-primary-100">
+    <div class="container-narrow text-center">
+      <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">
+        Kitchenoteを試してみる
+      </h2>
+      <p class="text-neutral-600 mb-8">
+        何がそんなに良いのか、ぜひ体験してみてください。無料で、アカウント登録も不要です。
+      </p>
+      <a href="#download" class="btn-primary">
+        Kitchenoteをダウンロード
+      </a>
+    </div>
+  </section>
+
+</Layout>

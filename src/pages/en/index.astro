@@ -1,0 +1,240 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+import StepCard from '../../components/StepCard.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import { useTranslations } from '../../i18n/translations';
+
+const t = useTranslations('en');
+
+const features = [
+  { icon: 'import' as const, titleKey: 'features.import.title', descKey: 'features.import.desc' },
+  { icon: 'organize' as const, titleKey: 'features.organize.title', descKey: 'features.organize.desc' },
+  { icon: 'cook' as const, titleKey: 'features.cook.title', descKey: 'features.cook.desc' },
+  { icon: 'scale' as const, titleKey: 'features.scale.title', descKey: 'features.scale.desc' },
+];
+
+const painPoints = [
+  { emoji: '🔖', text: t('pain.bookmark') },
+  { emoji: '📜', text: t('pain.scroll') },
+  { emoji: '📸', text: t('pain.screenshots') },
+  { emoji: '🌐', text: t('pain.tabs') },
+];
+
+const testimonials = [
+  {
+    quote: "Finally! I've been waiting for something like this. No more saving recipes to my camera roll like a savage.",
+    author: "Sarah M.",
+    role: "Home cook",
+    rating: 5
+  },
+  {
+    quote: "The scaling feature alone is worth it. I cook for a family of 6 and every recipe is always for 4. This just... fixes that.",
+    author: "David K.",
+    role: "Dad of 4",
+    rating: 5
+  },
+  {
+    quote: "I love that it strips out all the fluff. Just give me the ingredients and steps, you know?",
+    author: "Emily T.",
+    role: "Busy professional",
+    rating: 5
+  }
+];
+---
+
+<Layout title="Home" description="Save recipes from any website. Organize, scale, and cook with ease. Kitchenote is the recipe manager that gets out of your way.">
+
+  <!-- Hero Section -->
+  <section class="py-16 md:py-24 overflow-hidden">
+    <div class="container-wide">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="max-w-xl">
+          <p class="text-primary-600 font-display font-semibold mb-4">
+            {t('hero.tagline')}
+          </p>
+          <h1 class="text-balance mb-6">
+            {t('hero.headline')}
+          </h1>
+          <p class="text-lg text-neutral-600 mb-8 leading-relaxed">
+            {t('hero.subheadline')}
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#download" class="btn-primary">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+              </svg>
+              {t('hero.cta')}
+            </a>
+            <a href="/en/how-it-works" class="btn-secondary">
+              {t('hero.cta.secondary')}
+            </a>
+          </div>
+        </div>
+
+        <!-- App Preview -->
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary-100/50 to-sage-100/50 rounded-3xl -rotate-3 scale-105"></div>
+          <div class="relative bg-white rounded-2xl shadow-xl p-4 border border-cream-200">
+            <div class="aspect-[9/16] max-w-[280px] mx-auto bg-neutral-100 rounded-xl flex items-center justify-center">
+              <span class="text-neutral-400 text-sm">App Preview</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Points Section -->
+  <section class="py-16 bg-white">
+    <div class="container-wide">
+      <h2 class="section-title">{t('pain.title')}</h2>
+      <p class="section-subtitle">{t('pain.subtitle')}</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {painPoints.map(({ emoji, text }) => (
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-cream-50 border border-cream-200">
+            <span class="text-2xl">{emoji}</span>
+            <p class="text-neutral-700">{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20">
+    <div class="container-wide">
+      <h2 class="section-title">{t('features.title')}</h2>
+      <p class="section-subtitle">{t('features.subtitle')}</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {features.map(({ icon, titleKey, descKey }) => (
+          <FeatureCard
+            icon={icon}
+            title={t(titleKey)}
+            description={t(descKey)}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-20 bg-white">
+    <div class="container-narrow">
+      <h2 class="section-title">{t('how.title')}</h2>
+      <p class="section-subtitle">{t('how.subtitle')}</p>
+
+      <div class="space-y-8 md:space-y-12 pl-4">
+        <StepCard
+          number={1}
+          title={t('how.step1.title')}
+          description={t('how.step1.desc')}
+        />
+        <StepCard
+          number={2}
+          title={t('how.step2.title')}
+          description={t('how.step2.desc')}
+        />
+        <StepCard
+          number={3}
+          title={t('how.step3.title')}
+          description={t('how.step3.desc')}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Differentiators Section -->
+  <section class="py-20">
+    <div class="container-wide">
+      <h2 class="section-title">{t('diff.title')}</h2>
+      <p class="section-subtitle">{t('diff.subtitle')}</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card p-6 border-l-4 border-l-primary-400">
+          <h3 class="font-display font-bold text-lg mb-2">{t('diff.offline.title')}</h3>
+          <p class="text-neutral-600 text-sm">{t('diff.offline.desc')}</p>
+        </div>
+        <div class="card p-6 border-l-4 border-l-sage-400">
+          <h3 class="font-display font-bold text-lg mb-2">{t('diff.units.title')}</h3>
+          <p class="text-neutral-600 text-sm">{t('diff.units.desc')}</p>
+        </div>
+        <div class="card p-6 border-l-4 border-l-primary-400">
+          <h3 class="font-display font-bold text-lg mb-2">{t('diff.ocr.title')}</h3>
+          <p class="text-neutral-600 text-sm">{t('diff.ocr.desc')}</p>
+        </div>
+        <div class="card p-6 border-l-4 border-l-sage-400">
+          <h3 class="font-display font-bold text-lg mb-2">{t('diff.versions.title')}</h3>
+          <p class="text-neutral-600 text-sm">{t('diff.versions.desc')}</p>
+        </div>
+        <div class="card p-6 border-l-4 border-l-primary-400">
+          <h3 class="font-display font-bold text-lg mb-2">{t('diff.focus.title')}</h3>
+          <p class="text-neutral-600 text-sm">{t('diff.focus.desc')}</p>
+        </div>
+        <div class="card p-6 border-l-4 border-l-sage-400">
+          <h3 class="font-display font-bold text-lg mb-2">{t('diff.free.title')}</h3>
+          <p class="text-neutral-600 text-sm">{t('diff.free.desc')}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20">
+    <div class="container-wide">
+      <h2 class="section-title">{t('testimonials.title')}</h2>
+      <p class="section-subtitle">{t('testimonials.subtitle')}</p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {testimonials.map(testimonial => (
+          <TestimonialCard {...testimonial} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- International Support -->
+  <section class="py-20 bg-white">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="section-title">{t('intl.title')}</h2>
+        <p class="section-subtitle">{t('intl.subtitle')}</p>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <div class="flex items-center gap-3 px-6 py-3 rounded-full bg-cream-100 border border-cream-200">
+            <span class="text-2xl">🇺🇸</span>
+            <span class="font-medium text-neutral-700">{t('intl.en')}</span>
+          </div>
+          <div class="flex items-center gap-3 px-6 py-3 rounded-full bg-cream-100 border border-cream-200">
+            <span class="text-2xl">🇯🇵</span>
+            <span class="font-medium text-neutral-700">{t('intl.ja')}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section id="download" class="py-20 bg-gradient-to-br from-primary-500 to-primary-600 text-white">
+    <div class="container-narrow text-center">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 text-white">
+        {t('cta.title')}
+      </h2>
+      <p class="text-lg text-primary-100 mb-8 max-w-xl mx-auto">
+        {t('cta.subtitle')}
+      </p>
+      <a href="#" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary-600 font-display font-bold text-lg rounded-full hover:bg-cream-50 transition-colors shadow-lg">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        {t('cta.button')}
+      </a>
+      <p class="mt-4 text-sm text-primary-200">
+        {t('cta.note')}
+      </p>
+    </div>
+  </section>
+
+</Layout>

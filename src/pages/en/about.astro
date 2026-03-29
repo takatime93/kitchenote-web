@@ -1,0 +1,120 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/translations';
+
+const t = useTranslations('en');
+---
+
+<Layout title="About" description="The story behind Kitchenote. Why we built a recipe manager, and what we believe about cooking at home.">
+
+  <!-- Hero -->
+  <section class="py-16 md:py-24">
+    <div class="container-narrow">
+      <h1 class="text-center mb-8">About Kitchenote</h1>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-xl text-neutral-600 text-center mb-12">
+          Kitchenote started the way most apps do—with frustration.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="pb-20">
+    <div class="container-narrow">
+      <div class="space-y-8 text-neutral-700 leading-relaxed">
+        <h2 class="text-2xl font-display font-bold text-neutral-900">The story</h2>
+
+        <p>
+          It was a Tuesday night, and I was trying to make that Thai curry recipe I'd bookmarked. The one from... somewhere. Was it that food blog? A YouTube video? Maybe I screenshotted it? After 15 minutes of searching through bookmarks, screenshots, and Pinterest boards (why do I even have Pinterest?), I gave up and ordered takeout.
+        </p>
+
+        <p>
+          That was the moment I knew something was broken.
+        </p>
+
+        <p>
+          Here's the thing—there are plenty of recipe apps out there. But most of them want you to browse their recipes, not save your own. Or they're basically digital cookbooks with no import features. Or they're so complicated that organizing recipes becomes another chore.
+        </p>
+
+        <p>
+          I wanted something different. Something that would just... work. Paste a URL, get a clean recipe, organize it however makes sense, and actually be useful when I'm standing in the kitchen with chicken juice on my hands.
+        </p>
+
+        <p>
+          So I built it.
+        </p>
+
+        <h2 class="text-2xl font-display font-bold text-neutral-900 mt-12">What we believe</h2>
+
+        <p>
+          Cooking at home should be joyful, not frustrating. Technology should make it easier, not harder. And nobody needs to read a 2,000-word essay about someone's grandmother before they can find out how much garlic to use.
+        </p>
+
+        <p>
+          We believe in:
+        </p>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Simplicity over features.</strong> Every feature in Kitchenote exists because it solves a real problem. We'd rather do five things brilliantly than fifty things mediocrely.</li>
+          <li><strong>Your data is yours.</strong> Your recipes are stored on your device. We don't mine them for ads, we don't sell them to third parties, and we don't require an account to use the app.</li>
+          <li><strong>Good design matters.</strong> An app you use while cooking needs to be readable, responsive, and get out of the way. We obsess over these details so you don't have to.</li>
+          <li><strong>Cooking is universal.</strong> That's why Kitchenote works in English and Japanese, with more languages coming. A recipe is a recipe, wherever you are.</li>
+        </ul>
+
+        <h2 class="text-2xl font-display font-bold text-neutral-900 mt-12">The future</h2>
+
+        <p>
+          We're just getting started. There's so much more we want to build—meal planning, grocery delivery integration, better sharing features, maybe even a way to connect with other home cooks. But we're taking it slow, making sure each feature is genuinely useful before moving to the next.
+        </p>
+
+        <p>
+          In the meantime, we're cooking every day with Kitchenote. And we hope you will too.
+        </p>
+
+        <div class="mt-12 p-6 rounded-xl bg-cream-100 border border-cream-200">
+          <p class="text-neutral-600 mb-0">
+            Got feedback? Ideas? Found a bug? We genuinely want to hear from you. Drop us a line at <a href="mailto:hello@kitchenote.app" class="text-primary-600 hover:text-primary-700">hello@kitchenote.app</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="py-16 bg-white">
+    <div class="container-narrow">
+      <h2 class="text-2xl font-display font-bold text-center mb-8">The team</h2>
+
+      <div class="max-w-md mx-auto">
+        <div class="card text-center p-8">
+          <div class="w-24 h-24 rounded-full bg-sage-100 mx-auto mb-4 flex items-center justify-center">
+            <span class="text-sage-600 font-display font-bold text-3xl">T</span>
+          </div>
+          <h3 class="font-display font-bold text-lg mb-1">Taka</h3>
+          <p class="text-neutral-500 text-sm mb-4">Creator & Developer</p>
+          <p class="text-neutral-600 text-sm">
+            Home cook, app developer, and the person who gave up on recipe bookmarks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary-50 border-y border-primary-100">
+    <div class="container-narrow text-center">
+      <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">
+        Try Kitchenote yourself
+      </h2>
+      <p class="text-neutral-600 mb-8">
+        See what all the fuss is about. It's free, and no account required.
+      </p>
+      <a href="#download" class="btn-primary">
+        Download Kitchenote
+      </a>
+    </div>
+  </section>
+
+</Layout>

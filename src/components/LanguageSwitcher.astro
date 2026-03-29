@@ -1,0 +1,60 @@
+---
+import { getLangFromUrl, languages, getLocalizedPath } from '../i18n/translations';
+
+const lang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname.replace(/^\/(en|ja)/, '') || '/';
+---
+
+<div class="relative" id="lang-switcher">
+  <button
+    type="button"
+    class="flex items-center gap-1.5 px-2 py-1.5 text-sm text-neutral-600 hover:text-neutral-900 rounded-md hover:bg-cream-100 transition-colors"
+    aria-label="Select language"
+    id="lang-button"
+  >
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+    </svg>
+    <span class="hidden sm:inline">{languages[lang]}</span>
+    <span class="sm:hidden">{lang.toUpperCase()}</span>
+    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+
+  <div
+    id="lang-dropdown"
+    class="hidden absolute right-0 mt-1 py-1 w-32 bg-white rounded-lg shadow-lg border border-cream-200 z-50"
+  >
+    {Object.entries(languages).map(([code, name]) => (
+      <a
+        href={getLocalizedPath(currentPath, code as keyof typeof languages)}
+        class:list={[
+          'block px-4 py-2 text-sm transition-colors',
+          code === lang
+            ? 'bg-primary-50 text-primary-700 font-medium'
+            : 'text-neutral-600 hover:bg-cream-50 hover:text-neutral-900'
+        ]}
+      >
+        {name}
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  const button = document.getElementById('lang-button');
+  const dropdown = document.getElementById('lang-dropdown');
+
+  button?.addEventListener('click', () => {
+    dropdown?.classList.toggle('hidden');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    const switcher = document.getElementById('lang-switcher');
+    if (!switcher?.contains(e.target as Node)) {
+      dropdown?.classList.add('hidden');
+    }
+  });
+</script>

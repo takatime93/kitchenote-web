@@ -1,0 +1,181 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/translations';
+
+const t = useTranslations('ja');
+
+const steps = [
+  {
+    number: 1,
+    title: '好きなレシピを見つける',
+    description: "どこからでもOK。お気に入りの料理ブログ、友達がずっと話しているあのレシピ、YouTubeの動画、おばあちゃんがLINEで送ってくれたレシピ。ウェブにあるものなら、Kitchenoteで保存できます。",
+    tip: 'プロのコツ：コピー制限のある保護されたサイトを含め、95%のレシピサイトに対応しています。'
+  },
+  {
+    number: 2,
+    title: 'Kitchenoteにシェア',
+    description: "共有ボタン（あの小さな矢印のアイコン）をタップして、リストからKitchenoteを選ぶだけ。または、URLをコピーしてアプリに貼り付けてもOK。どちらでも2秒くらいで完了します。",
+    tip: '共有シートからの方が速いですが、コピペでも問題なく動きます。'
+  },
+  {
+    number: 3,
+    title: '魔法を見届ける',
+    description: "Kitchenoteがページを読み込み、必要な情報だけを抽出します—タイトル、材料、手順、調理時間、写真。必要なものだけ、余計なものは一切なし（バーモントの秋についての12段落の前置き、さようなら）。",
+    tip: '保存後はいつでも編集やメモの追加ができます。'
+  },
+  {
+    number: 4,
+    title: '好きな時に料理する',
+    description: "レシピは保存、整理され、いつでも待機状態。実際に作る時はクックモードを開けば、大きな文字でステップごとに表示。邪魔なものは何もなく、あなたと食材だけ。",
+    tip: 'すべてのレシピはオフラインで使えます。キッチンのWiFiが不安定？問題なし。'
+  }
+];
+---
+
+<Layout title="使い方" description="Kitchenoteでのレシピ保存と整理がいかに簡単か、4つのステップでご紹介します。">
+
+  <!-- Hero -->
+  <section class="py-16 md:py-24">
+    <div class="container-narrow text-center">
+      <h1 class="mb-6">Kitchenoteの使い方</h1>
+      <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+        長々と説明したいところですが、正直シンプルすぎて。4ステップ。30秒で分かります。
+      </p>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="pb-20">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto">
+        <div class="relative">
+          <!-- Vertical line -->
+          <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-cream-200 hidden md:block"></div>
+
+          <div class="space-y-12 md:space-y-16">
+            {steps.map((step, index) => (
+              <div class="relative flex gap-6 md:gap-10">
+                <!-- Step number -->
+                <div class="relative z-10 flex-shrink-0">
+                  <div class="w-12 h-12 rounded-full bg-primary-500 text-white flex items-center justify-center font-display font-bold text-xl shadow-lg shadow-primary-200">
+                    {step.number}
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <div class="flex-1 pb-8">
+                  <h2 class="text-xl md:text-2xl font-display font-bold mb-3">
+                    {step.title}
+                  </h2>
+                  <p class="text-neutral-600 leading-relaxed mb-4">
+                    {step.description}
+                  </p>
+                  <div class="flex items-start gap-2 p-3 rounded-lg bg-sage-50 text-sage-700 text-sm">
+                    <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{step.tip}</span>
+                  </div>
+
+                  {index < steps.length - 1 && (
+                    <div class="mt-8 aspect-video rounded-xl bg-gradient-to-br from-cream-100 to-cream-200 border border-cream-300 flex items-center justify-center md:hidden">
+                      <span class="text-neutral-400 text-sm">ステップ {step.number} デモ</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo video placeholder -->
+  <section class="py-16 bg-white">
+    <div class="container-wide">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-display font-bold text-center mb-8">
+          実際の動作を見る
+        </h2>
+        <div class="aspect-video rounded-2xl bg-neutral-900 flex items-center justify-center">
+          <div class="text-center text-neutral-400">
+            <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>デモ動画は近日公開予定</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ quick section -->
+  <section class="py-16">
+    <div class="container-narrow">
+      <h2 class="text-2xl font-display font-bold text-center mb-8">
+        よくある質問
+      </h2>
+      <div class="space-y-4">
+        <details class="group card">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            レシピが正しくインポートできない場合は？
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-3 text-neutral-600">
+            レイアウトが特殊なサイトでは、まれに正しく読み込めないことがあります。その場合は手動で編集できますし、問題のあるサイトをご報告いただければ対応を検討します。パーサーは常に改良を続けています。
+          </p>
+        </details>
+
+        <details class="group card">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            自分でレシピを作成できますか？
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-3 text-neutral-600">
+            もちろんです！いつでもゼロから新しいレシピを作成できます。家族のレシピ、自分のオリジナル、冷蔵庫の残り物で作ったあの一品など、何でもどうぞ。
+          </p>
+        </details>
+
+        <details class="group card">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            ログインが必要なサイトでも使えますか？
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="mt-3 text-neutral-600">
+            ほとんどの場合、はい！ブラウザのセッションを使用するので、あなたがレシピを見られれば、保存もできることがほとんどです。一部の強力に保護されたサイトは対応できない場合もありますが、対応サイトは常に増やしています。
+          </p>
+        </details>
+      </div>
+
+      <p class="text-center mt-8">
+        <a href="/ja/support" class="text-primary-600 hover:text-primary-700 font-medium">
+          他にも質問がありますか？よくある質問一覧へ →
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary-50 border-y border-primary-100">
+    <div class="container-narrow text-center">
+      <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">
+        シンプルでしょう？
+      </h2>
+      <p class="text-neutral-600 mb-8">
+        試してみてください。すぐに慣れると思いますよ。
+      </p>
+      <a href="#download" class="btn-primary">
+        Kitchenoteを無料で入手
+      </a>
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,133 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/translations';
+
+const t = useTranslations('en');
+
+const faqs = [
+  {
+    question: "How do I save a recipe from a website?",
+    answer: "Two ways! Either tap the share button on your browser and select Kitchenote, or copy the URL and paste it into the app. Both take about 2 seconds. The app will automatically extract the recipe title, ingredients, instructions, and photos."
+  },
+  {
+    question: "What if a recipe doesn't import correctly?",
+    answer: "Some websites have unusual layouts that our parser doesn't handle well yet. You can edit any recipe manually after importing—just tap the edit button. You can also report problematic sites to us and we'll work on improving support."
+  },
+  {
+    question: "Can I add my own recipes?",
+    answer: "Absolutely! Tap the + button and select 'Create new recipe'. You can type or paste ingredients and steps, add photos from your camera roll, and organize it just like imported recipes. Great for family recipes or your own creations."
+  },
+  {
+    question: "How do I organize my recipes?",
+    answer: "Use Collections to group recipes (like 'Weeknight Dinners' or 'Holiday Baking'), and Tags for flexible categorization (like 'vegetarian', 'quick', 'freezer-friendly'). You can also search by any word in the recipe title or ingredients."
+  },
+  {
+    question: "Does the app work offline?",
+    answer: "Yes! All your saved recipes are stored on your device, so you can access them anytime without internet. Perfect for when your kitchen WiFi is spotty (we know the feeling)."
+  },
+  {
+    question: "Can I share recipes with friends or family?",
+    answer: "You can share any recipe as a link or export it as a PDF. The person you share with can import it into their own Kitchenote app. We're working on even better sharing features for the future."
+  },
+  {
+    question: "Is my data private?",
+    answer: "Your recipes are stored locally on your device. We don't have access to them, we don't use them for advertising, and we never sell your data. See our Privacy Policy for full details."
+  },
+  {
+    question: "How do I scale a recipe?",
+    answer: "In any recipe, tap on the servings number (e.g., 'Serves 4'). Enter your desired servings and all ingredient quantities will recalculate automatically. Works with whole numbers, fractions, and metric units."
+  },
+  {
+    question: "What's Cook Mode?",
+    answer: "Cook Mode is optimized for actually cooking. It shows one step at a time in large, easy-to-read text, keeps your screen on, and lets you navigate with swipes (helpful when your hands are messy). Just tap the 'Start Cooking' button on any recipe."
+  },
+  {
+    question: "Is Kitchenote free?",
+    answer: "Yes, Kitchenote is free to download and use. We may add premium features in the future, but the core app—importing, organizing, and cooking from recipes—will always be free."
+  },
+  {
+    question: "Which languages are supported?",
+    answer: "Currently English and Japanese. The app can import recipes from websites in any language, and we're working on adding more interface languages. Let us know which language you'd like to see!"
+  },
+  {
+    question: "How do I contact support?",
+    answer: "Email us at hello@kitchenote.app. We read every message personally and try to respond within 24-48 hours. Include any screenshots if you're reporting a bug—it really helps!"
+  }
+];
+---
+
+<Layout title="Support" description="Get help with Kitchenote. Find answers to frequently asked questions or contact our support team.">
+
+  <!-- Hero -->
+  <section class="py-16 md:py-24">
+    <div class="container-narrow text-center">
+      <h1 class="mb-4">{t('support.title')}</h1>
+      <p class="text-lg text-neutral-600">
+        Got questions? We've got answers. And if you don't find what you're looking for, we're just an email away.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="pb-20">
+    <div class="container-narrow">
+      <h2 class="text-2xl font-display font-bold mb-8">{t('support.faq.title')}</h2>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <details class="group card">
+            <summary class="flex items-center justify-between cursor-pointer list-none font-medium text-neutral-900">
+              {faq.question}
+              <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-neutral-600 leading-relaxed">
+              {faq.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-16 bg-white">
+    <div class="container-narrow">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="text-2xl font-display font-bold mb-4">{t('support.contact.title')}</h2>
+        <p class="text-neutral-600 mb-8">
+          {t('support.contact.desc')}
+        </p>
+        <a href="mailto:hello@kitchenote.app" class="btn-primary">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          hello@kitchenote.app
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bug Report -->
+  <section class="py-16">
+    <div class="container-narrow">
+      <div class="card p-8 bg-sage-50 border-sage-200">
+        <h3 class="font-display font-bold text-lg mb-2">Found a bug?</h3>
+        <p class="text-neutral-600 mb-4">
+          If something's not working right, we want to know! When reporting a bug, please include:
+        </p>
+        <ul class="list-disc pl-6 text-neutral-600 space-y-1 text-sm">
+          <li>What you were trying to do</li>
+          <li>What happened instead</li>
+          <li>Your device model and iOS version</li>
+          <li>Screenshots if possible</li>
+        </ul>
+        <p class="text-neutral-600 mt-4 text-sm">
+          Send bug reports to <a href="mailto:bugs@kitchenote.app" class="text-primary-600 hover:text-primary-700">bugs@kitchenote.app</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</Layout>

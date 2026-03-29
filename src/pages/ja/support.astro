@@ -1,0 +1,133 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/translations';
+
+const t = useTranslations('ja');
+
+const faqs = [
+  {
+    question: "ウェブサイトからレシピを保存するには？",
+    answer: "2つの方法があります！ブラウザの共有ボタンをタップしてKitchenoteを選ぶか、URLをコピーしてアプリに貼り付けるだけです。どちらも約2秒で完了します。アプリが自動的にレシピのタイトル、材料、手順、写真を抽出します。"
+  },
+  {
+    question: "レシピが正しくインポートできない場合は？",
+    answer: "サイトによっては、レイアウトが特殊でうまく読み込めないことがあります。インポート後に手動で編集できますので、編集ボタンをタップしてください。問題のあるサイトをご報告いただければ、対応の改善に取り組みます。"
+  },
+  {
+    question: "自分でレシピを作成できますか？",
+    answer: "もちろんです！+ボタンをタップして「新規作成」を選択してください。材料と手順を入力したり、カメラロールから写真を追加したり、インポートしたレシピと同じように整理できます。家族のレシピや自分のオリジナル料理に最適です。"
+  },
+  {
+    question: "レシピをどうやって整理すればいい？",
+    answer: "コレクションを使ってレシピをグループ化（「平日夜の時短料理」「ホリデーベーキング」など）し、タグで柔軟に分類（「ベジタリアン」「時短」「冷凍可」など）できます。レシピのタイトルや材料の言葉で検索することもできます。"
+  },
+  {
+    question: "オフラインでも使えますか？",
+    answer: "はい！保存したレシピはすべてデバイスに保存されるので、インターネットなしでもいつでもアクセスできます。キッチンのWiFiが不安定な時も安心です（その気持ち、わかります）。"
+  },
+  {
+    question: "友達や家族とレシピを共有できますか？",
+    answer: "レシピをリンクとして共有したり、PDFとしてエクスポートできます。共有された人は、自分のKitchenoteアプリにインポートできます。将来的にはさらに良い共有機能を開発中です。"
+  },
+  {
+    question: "データのプライバシーは大丈夫？",
+    answer: "レシピはデバイスにローカル保存されます。私たちはそれにアクセスできませんし、広告にも使いませんし、データを販売することもありません。詳細はプライバシーポリシーをご覧ください。"
+  },
+  {
+    question: "分量を調整するには？",
+    answer: "レシピ内の人数表示（例：「4人分」）をタップしてください。希望の人数を入力すると、すべての材料の分量が自動的に再計算されます。整数、分数、メートル法の単位に対応しています。"
+  },
+  {
+    question: "クックモードって何？",
+    answer: "クックモードは実際に料理する時のために最適化されています。大きくて読みやすい文字で一度に1ステップずつ表示し、画面は常にオン、スワイプで操作できます（手が汚れている時に便利！）。レシピの「料理を始める」ボタンをタップしてください。"
+  },
+  {
+    question: "Kitchenoteは無料ですか？",
+    answer: "はい、Kitchenoteは無料でダウンロードして使用できます。将来的にプレミアム機能を追加する可能性はありますが、コア機能（インポート、整理、調理）は常に無料です。"
+  },
+  {
+    question: "対応している言語は？",
+    answer: "現在、英語と日本語に対応しています。アプリはどの言語のウェブサイトからもレシピをインポートでき、インターフェース言語も追加予定です。希望の言語があればお知らせください！"
+  },
+  {
+    question: "サポートへの連絡方法は？",
+    answer: "hello@kitchenote.app にメールしてください。すべてのメッセージを個人的に読み、24〜48時間以内に返信するよう努めています。バグ報告の場合はスクリーンショットを添付していただけると助かります！"
+  }
+];
+---
+
+<Layout title="サポート" description="Kitchenoteのヘルプ。よくある質問への回答やサポートチームへのお問い合わせ。">
+
+  <!-- Hero -->
+  <section class="py-16 md:py-24">
+    <div class="container-narrow text-center">
+      <h1 class="mb-4">{t('support.title')}</h1>
+      <p class="text-lg text-neutral-600">
+        ご質問がありますか？回答をご用意しています。見つからない場合は、メール1通で解決します。
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="pb-20">
+    <div class="container-narrow">
+      <h2 class="text-2xl font-display font-bold mb-8">{t('support.faq.title')}</h2>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <details class="group card">
+            <summary class="flex items-center justify-between cursor-pointer list-none font-medium text-neutral-900">
+              {faq.question}
+              <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="mt-4 text-neutral-600 leading-relaxed">
+              {faq.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-16 bg-white">
+    <div class="container-narrow">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="text-2xl font-display font-bold mb-4">{t('support.contact.title')}</h2>
+        <p class="text-neutral-600 mb-8">
+          {t('support.contact.desc')}
+        </p>
+        <a href="mailto:hello@kitchenote.app" class="btn-primary">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          hello@kitchenote.app
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bug Report -->
+  <section class="py-16">
+    <div class="container-narrow">
+      <div class="card p-8 bg-sage-50 border-sage-200">
+        <h3 class="font-display font-bold text-lg mb-2">バグを見つけましたか？</h3>
+        <p class="text-neutral-600 mb-4">
+          何かうまく動かないことがあれば、ぜひ教えてください！バグ報告の際は、以下をお知らせいただけると助かります：
+        </p>
+        <ul class="list-disc pl-6 text-neutral-600 space-y-1 text-sm">
+          <li>何をしようとしていたか</li>
+          <li>代わりに何が起こったか</li>
+          <li>デバイスのモデルとiOSバージョン</li>
+          <li>可能であればスクリーンショット</li>
+        </ul>
+        <p class="text-neutral-600 mt-4 text-sm">
+          バグ報告は <a href="mailto:bugs@kitchenote.app" class="text-primary-600 hover:text-primary-700">bugs@kitchenote.app</a> まで
+        </p>
+      </div>
+    </div>
+  </section>
+
+</Layout>
