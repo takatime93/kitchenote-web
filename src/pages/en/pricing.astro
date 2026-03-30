@@ -1,0 +1,416 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WaitlistForm from '../../components/WaitlistForm.astro';
+---
+
+<Layout title="Pricing" description="Kitchenote is free to use with generous features. Upgrade to Premium for shared cookbooks, AI assistant, OCR scanning, and more.">
+
+  <!-- Hero -->
+  <section class="py-16 md:py-24">
+    <div class="container-narrow text-center">
+      <h1 class="mb-4">Simple, honest pricing</h1>
+      <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+        Use Kitchenote free, forever. Upgrade when you want more power — not because we locked basic features behind a paywall.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section class="pb-20">
+    <div class="container-wide">
+      <div class="pricing-grid">
+
+        <!-- Free Tier -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <div class="pricing-plan-name">Free</div>
+            <div class="pricing-price">
+              <span class="price-amount">$0</span>
+              <span class="price-period">forever</span>
+            </div>
+            <p class="pricing-desc">Everything you need to save, organize, and cook your recipes.</p>
+          </div>
+          <div class="pricing-features">
+            <div class="pf-item">✓ Unlimited recipe imports</div>
+            <div class="pf-item">✓ Full organization (tags, groups)</div>
+            <div class="pf-item">✓ Cook Mode (step-by-step, timers)</div>
+            <div class="pf-item">✓ Instant serving scaling</div>
+            <div class="pf-item">✓ Offline access</div>
+            <div class="pf-item">✓ Full-text search</div>
+            <div class="pf-item">✓ Friends & social</div>
+            <div class="pf-item">✓ Shopping lists</div>
+            <div class="pf-item pf-limited">✓ 2 shared cookbooks</div>
+          </div>
+          <div class="pricing-cta">
+            <a href="#waitlist" class="btn-secondary w-full justify-center">Get Started Free</a>
+          </div>
+        </div>
+
+        <!-- Premium Tier -->
+        <div class="pricing-card pricing-card-premium">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-header">
+            <div class="pricing-plan-name">Premium</div>
+            <div class="pricing-toggle">
+              <button class="toggle-btn toggle-active" data-period="monthly">Monthly</button>
+              <button class="toggle-btn" data-period="yearly">Yearly <span class="toggle-save">Save 44%</span></button>
+            </div>
+            <div class="pricing-price">
+              <span class="price-amount" id="premium-price">$2.99</span>
+              <span class="price-period" id="premium-period">/month</span>
+            </div>
+            <p class="pricing-desc">For home cooks who share, collaborate, and want AI-powered help.</p>
+          </div>
+          <div class="pricing-features">
+            <div class="pf-item pf-highlight">Everything in Free, plus:</div>
+            <div class="pf-item">✓ Unlimited shared cookbooks</div>
+            <div class="pf-item">✓ Recipe versioning (fork & adapt)</div>
+            <div class="pf-item">✓ OCR / camera scanning</div>
+            <div class="pf-item">✓ Rich text notes & @mentions</div>
+            <div class="pf-item pf-new">
+              ✓ AI Assistant
+              <span class="pf-new-badge">New</span>
+            </div>
+            <div class="pf-sub">Dietary replacements & suggestions</div>
+            <div class="pf-sub">Smart recipe migration</div>
+            <div class="pf-sub">Ingredient research & alternatives</div>
+            <div class="pf-item">✓ Priority support</div>
+          </div>
+          <div class="pricing-cta">
+            <a href="#waitlist" class="btn-primary w-full justify-center">Start Free Trial</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="py-16 bg-white">
+    <div class="container-wide">
+      <h2 class="text-2xl font-display font-bold text-center mb-10">Compare plans</h2>
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Free</th>
+              <th class="th-premium">Premium</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Recipe imports (URL)</td><td>Unlimited</td><td>Unlimited</td></tr>
+            <tr><td>Organization & search</td><td>Full</td><td>Full</td></tr>
+            <tr><td>Cook Mode</td><td>Full</td><td>Full</td></tr>
+            <tr><td>Serving scaling</td><td>Full</td><td>Full</td></tr>
+            <tr><td>Offline access</td><td>Full</td><td>Full</td></tr>
+            <tr><td>Friends & social</td><td>Full</td><td>Full</td></tr>
+            <tr><td>Shopping lists</td><td>Full</td><td>Full</td></tr>
+            <tr><td>Shared cookbooks</td><td>2</td><td>Unlimited</td></tr>
+            <tr><td>Recipe versioning</td><td>—</td><td>✓</td></tr>
+            <tr><td>OCR / camera scan</td><td>—</td><td>✓</td></tr>
+            <tr><td>Rich text notes</td><td>—</td><td>✓</td></tr>
+            <tr><td>AI Assistant</td><td>—</td><td>✓</td></tr>
+            <tr><td>Priority support</td><td>—</td><td>✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16">
+    <div class="container-narrow">
+      <h2 class="text-2xl font-display font-bold text-center mb-10">Pricing FAQ</h2>
+      <div class="space-y-4">
+        <details class="group card">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            Is the free plan really free?
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <p class="mt-3 text-neutral-600">Yes. No hidden limits, no trial period, no "upgrade to continue" pop-ups. Unlimited recipes, full Cook Mode, offline access, and friends — all free, forever. We built Kitchenote because we wanted to use it ourselves.</p>
+        </details>
+        <details class="group card">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            Can I cancel anytime?
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <p class="mt-3 text-neutral-600">Absolutely. Cancel through the App Store anytime. You'll keep Premium features until the end of your billing cycle, then you're back on Free. No hard feelings.</p>
+        </details>
+        <details class="group card">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            What happens to my recipes if I downgrade?
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <p class="mt-3 text-neutral-600">All your recipes stay exactly where they are. You'll still see shared cookbooks beyond your 2-free limit, you just won't be able to create new ones. No data is ever deleted.</p>
+        </details>
+        <details class="group card">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
+            What does the AI Assistant do?
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <p class="mt-3 text-neutral-600">It helps you cook smarter. Need a dairy-free version of a recipe? It'll suggest substitutions. Wondering what to make with what's in your fridge? It has ideas. Moving recipes from another app? It handles the migration. Think of it as a knowledgeable kitchen friend.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="waitlist" class="py-20 bg-gradient-to-br from-primary-500 to-primary-600 text-white">
+    <div class="container-narrow text-center">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 text-white">Be the first to know</h2>
+      <p class="text-lg text-primary-100 mb-8 max-w-xl mx-auto">
+        Kitchenote is almost ready. Join the waitlist and we'll let you know the moment it launches.
+      </p>
+      <WaitlistForm />
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+  }
+
+  .pricing-card {
+    background: white;
+    border: 2px solid #e8e4de;
+    border-radius: 20px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .pricing-card-premium {
+    border-color: #e86f4c;
+    box-shadow: 0 8px 40px rgba(232, 111, 76, 0.15);
+    position: relative;
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #e86f4c;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .pricing-header {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #f0ebe6;
+  }
+
+  .pricing-plan-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #27272a;
+    margin-bottom: 8px;
+  }
+
+  .pricing-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .price-amount {
+    font-size: 40px;
+    font-weight: 800;
+    color: #27272a;
+    line-height: 1;
+  }
+
+  .price-period {
+    font-size: 15px;
+    color: #71717a;
+  }
+
+  .pricing-desc {
+    font-size: 14px;
+    color: #71717a;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .pricing-toggle {
+    display: flex;
+    gap: 4px;
+    background: #f4f4f5;
+    border-radius: 10px;
+    padding: 3px;
+    margin-bottom: 12px;
+  }
+
+  .toggle-btn {
+    flex: 1;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    color: #71717a;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+
+  .toggle-active {
+    background: white;
+    color: #27272a;
+    font-weight: 600;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  .toggle-save {
+    font-size: 10px;
+    color: #788d61;
+    font-weight: 700;
+  }
+
+  .pricing-features {
+    flex: 1;
+    margin-bottom: 24px;
+  }
+
+  .pf-item {
+    font-size: 14px;
+    color: #27272a;
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .pf-highlight {
+    font-weight: 600;
+    color: #e86f4c;
+    margin-bottom: 4px;
+  }
+
+  .pf-limited {
+    color: #71717a;
+  }
+
+  .pf-new {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pf-new-badge {
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+    background: #e86f4c;
+    padding: 1px 8px;
+    border-radius: 10px;
+  }
+
+  .pf-sub {
+    font-size: 12px;
+    color: #71717a;
+    padding: 2px 0 2px 22px;
+  }
+
+  .pricing-cta {
+    margin-top: auto;
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  /* Comparison table */
+  .comparison-table-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+    overflow-x: auto;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .comparison-table th {
+    text-align: left;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-bottom: 2px solid #e8e4de;
+    color: #27272a;
+  }
+
+  .comparison-table th:not(:first-child) {
+    text-align: center;
+    width: 100px;
+  }
+
+  .th-premium {
+    color: #e86f4c !important;
+  }
+
+  .comparison-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #f0ebe6;
+    color: #52525b;
+  }
+
+  .comparison-table td:not(:first-child) {
+    text-align: center;
+    color: #27272a;
+    font-weight: 500;
+  }
+
+  .comparison-table tr:hover {
+    background: #fefdfb;
+  }
+</style>
+
+<script>
+  const monthlyBtn = document.querySelector('[data-period="monthly"]');
+  const yearlyBtn = document.querySelector('[data-period="yearly"]');
+  const priceEl = document.getElementById('premium-price');
+  const periodEl = document.getElementById('premium-period');
+
+  monthlyBtn?.addEventListener('click', () => {
+    monthlyBtn.classList.add('toggle-active');
+    yearlyBtn?.classList.remove('toggle-active');
+    if (priceEl) priceEl.textContent = '$2.99';
+    if (periodEl) periodEl.textContent = '/month';
+  });
+
+  yearlyBtn?.addEventListener('click', () => {
+    yearlyBtn?.classList.add('toggle-active');
+    monthlyBtn?.classList.remove('toggle-active');
+    if (priceEl) priceEl.textContent = '$19.99';
+    if (periodEl) periodEl.textContent = '/year';
+  });
+</script>

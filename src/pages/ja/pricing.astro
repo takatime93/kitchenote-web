@@ -1,0 +1,189 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WaitlistForm from '../../components/WaitlistForm.astro';
+---
+
+<Layout title="料金" description="Kitchenoteは無料で使えます。プレミアムにアップグレードすると、共有レシピブック無制限、AIアシスタント、OCRスキャンなど。">
+
+  <section class="py-16 md:py-24">
+    <div class="container-narrow text-center">
+      <h1 class="mb-4">シンプルで正直な料金</h1>
+      <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+        Kitchenoteはずっと無料。基本機能をロックして課金させるようなことはしません。もっとパワーが欲しくなったらアップグレード。
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-20">
+    <div class="container-wide">
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <div class="pricing-plan-name">フリー</div>
+            <div class="pricing-price">
+              <span class="price-amount">¥0</span>
+              <span class="price-period">ずっと無料</span>
+            </div>
+            <p class="pricing-desc">レシピの保存、整理、調理に必要なすべてが揃っています。</p>
+          </div>
+          <div class="pricing-features">
+            <div class="pf-item">✓ レシピ無制限インポート</div>
+            <div class="pf-item">✓ フル整理機能（タグ、グループ）</div>
+            <div class="pf-item">✓ クックモード（ステップ表示、タイマー）</div>
+            <div class="pf-item">✓ 人数分の自動計算</div>
+            <div class="pf-item">✓ オフラインアクセス</div>
+            <div class="pf-item">✓ 全文検索</div>
+            <div class="pf-item">✓ フレンド＆ソーシャル</div>
+            <div class="pf-item">✓ 買い物リスト</div>
+            <div class="pf-item pf-limited">✓ 共有レシピブック 2冊</div>
+          </div>
+          <div class="pricing-cta">
+            <a href="#waitlist" class="btn-secondary w-full justify-center">無料で始める</a>
+          </div>
+        </div>
+
+        <div class="pricing-card pricing-card-premium">
+          <div class="pricing-badge">おすすめ</div>
+          <div class="pricing-header">
+            <div class="pricing-plan-name">プレミアム</div>
+            <div class="pricing-toggle">
+              <button class="toggle-btn toggle-active" data-period="monthly">月額</button>
+              <button class="toggle-btn" data-period="yearly">年額 <span class="toggle-save">44%お得</span></button>
+            </div>
+            <div class="pricing-price">
+              <span class="price-amount" id="premium-price">¥480</span>
+              <span class="price-period" id="premium-period">/月</span>
+            </div>
+            <p class="pricing-desc">共有、コラボ、AI機能で料理をもっと楽しく。</p>
+          </div>
+          <div class="pricing-features">
+            <div class="pf-item pf-highlight">フリーのすべてに加えて：</div>
+            <div class="pf-item">✓ 共有レシピブック無制限</div>
+            <div class="pf-item">✓ レシピバージョン管理</div>
+            <div class="pf-item">✓ OCR / カメラスキャン</div>
+            <div class="pf-item">✓ リッチテキストノート＆@メンション</div>
+            <div class="pf-item pf-new">
+              ✓ AIアシスタント
+              <span class="pf-new-badge">New</span>
+            </div>
+            <div class="pf-sub">食事制限の代替提案</div>
+            <div class="pf-sub">スマートレシピ移行</div>
+            <div class="pf-sub">食材リサーチ＆代替案</div>
+            <div class="pf-item">✓ 優先サポート</div>
+          </div>
+          <div class="pricing-cta">
+            <a href="#waitlist" class="btn-primary w-full justify-center">無料トライアル開始</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="container-wide">
+      <h2 class="text-2xl font-display font-bold text-center mb-10">プランを比較</h2>
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>機能</th><th>フリー</th><th class="th-premium">プレミアム</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>レシピインポート</td><td>無制限</td><td>無制限</td></tr>
+            <tr><td>整理＆検索</td><td>フル</td><td>フル</td></tr>
+            <tr><td>クックモード</td><td>フル</td><td>フル</td></tr>
+            <tr><td>人数調整</td><td>フル</td><td>フル</td></tr>
+            <tr><td>オフライン</td><td>フル</td><td>フル</td></tr>
+            <tr><td>フレンド＆ソーシャル</td><td>フル</td><td>フル</td></tr>
+            <tr><td>買い物リスト</td><td>フル</td><td>フル</td></tr>
+            <tr><td>共有レシピブック</td><td>2冊</td><td>無制限</td></tr>
+            <tr><td>レシピバージョン管理</td><td>—</td><td>✓</td></tr>
+            <tr><td>OCR / カメラスキャン</td><td>—</td><td>✓</td></tr>
+            <tr><td>リッチテキストノート</td><td>—</td><td>✓</td></tr>
+            <tr><td>AIアシスタント</td><td>—</td><td>✓</td></tr>
+            <tr><td>優先サポート</td><td>—</td><td>✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-narrow">
+      <h2 class="text-2xl font-display font-bold text-center mb-10">料金のよくある質問</h2>
+      <div class="space-y-4">
+        <details class="group card">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">本当に無料ですか？<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
+          <p class="mt-3 text-neutral-600">はい。隠れた制限も、試用期間も、「アップグレードしてください」のポップアップもありません。レシピ無制限、クックモード、オフラインアクセス、フレンド機能 — すべて無料、ずっと。</p>
+        </details>
+        <details class="group card">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">いつでもキャンセルできますか？<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
+          <p class="mt-3 text-neutral-600">もちろんです。App Storeからいつでもキャンセルできます。請求期間の終了までプレミアム機能を使い続けられ、その後はフリープランに戻ります。</p>
+        </details>
+        <details class="group card">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">ダウングレードしたらレシピはどうなりますか？<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
+          <p class="mt-3 text-neutral-600">すべてのレシピはそのまま残ります。2冊を超える共有レシピブックも閲覧は可能ですが、新規作成はできなくなります。データが削除されることはありません。</p>
+        </details>
+        <details class="group card">
+          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">AIアシスタントは何ができますか？<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
+          <p class="mt-3 text-neutral-600">もっと賢く料理するお手伝いをします。乳製品フリーのレシピが必要？代替品を提案します。冷蔵庫の残り物で何が作れる？アイデアがあります。他のアプリからのレシピ移行も対応。頼りになるキッチンの相棒です。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="waitlist" class="py-20 bg-gradient-to-br from-primary-500 to-primary-600 text-white">
+    <div class="container-narrow text-center">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 text-white">リリースをお知らせ</h2>
+      <p class="text-lg text-primary-100 mb-8 max-w-xl mx-auto">Kitchenoteはもうすぐ完成。App Storeに公開されたらすぐにお知らせします。</p>
+      <WaitlistForm />
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .pricing-grid { display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:800px;margin:0 auto;align-items:start; }
+  @media (max-width:768px) { .pricing-grid { grid-template-columns:1fr;max-width:400px; } }
+  .pricing-card { background:white;border:2px solid #e8e4de;border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;transition:transform 0.3s cubic-bezier(0.16,1,0.3,1); }
+  .pricing-card:hover { transform:translateY(-4px); }
+  .pricing-card-premium { border-color:#e86f4c;box-shadow:0 8px 40px rgba(232,111,76,0.15);position:relative; }
+  .pricing-badge { position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#e86f4c;color:white;font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;white-space:nowrap; }
+  .pricing-header { margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid #f0ebe6; }
+  .pricing-plan-name { font-size:20px;font-weight:700;color:#27272a;margin-bottom:8px; }
+  .pricing-price { display:flex;align-items:baseline;gap:4px;margin-bottom:8px; }
+  .price-amount { font-size:40px;font-weight:800;color:#27272a;line-height:1; }
+  .price-period { font-size:15px;color:#71717a; }
+  .pricing-desc { font-size:14px;color:#71717a;line-height:1.5;margin:0; }
+  .pricing-toggle { display:flex;gap:4px;background:#f4f4f5;border-radius:10px;padding:3px;margin-bottom:12px; }
+  .toggle-btn { flex:1;padding:6px 12px;border:none;border-radius:8px;background:transparent;font-size:13px;font-weight:500;color:#71717a;cursor:pointer;transition:all 0.2s;font-family:inherit; }
+  .toggle-active { background:white;color:#27272a;font-weight:600;box-shadow:0 1px 4px rgba(0,0,0,0.08); }
+  .toggle-save { font-size:10px;color:#788d61;font-weight:700; }
+  .pricing-features { flex:1;margin-bottom:24px; }
+  .pf-item { font-size:14px;color:#27272a;padding:6px 0;display:flex;align-items:center;gap:4px; }
+  .pf-highlight { font-weight:600;color:#e86f4c;margin-bottom:4px; }
+  .pf-limited { color:#71717a; }
+  .pf-new { display:flex;align-items:center;gap:8px; }
+  .pf-new-badge { font-size:10px;font-weight:700;color:white;background:#e86f4c;padding:1px 8px;border-radius:10px; }
+  .pf-sub { font-size:12px;color:#71717a;padding:2px 0 2px 22px; }
+  .pricing-cta { margin-top:auto; }
+  .w-full { width:100%; }
+  .comparison-table-wrapper { max-width:640px;margin:0 auto;overflow-x:auto; }
+  .comparison-table { width:100%;border-collapse:collapse;font-size:14px; }
+  .comparison-table th { text-align:left;font-weight:600;padding:10px 16px;border-bottom:2px solid #e8e4de;color:#27272a; }
+  .comparison-table th:not(:first-child) { text-align:center;width:100px; }
+  .th-premium { color:#e86f4c !important; }
+  .comparison-table td { padding:10px 16px;border-bottom:1px solid #f0ebe6;color:#52525b; }
+  .comparison-table td:not(:first-child) { text-align:center;color:#27272a;font-weight:500; }
+  .comparison-table tr:hover { background:#fefdfb; }
+</style>
+
+<script>
+  const monthlyBtn = document.querySelector('[data-period="monthly"]');
+  const yearlyBtn = document.querySelector('[data-period="yearly"]');
+  const priceEl = document.getElementById('premium-price');
+  const periodEl = document.getElementById('premium-period');
+  monthlyBtn?.addEventListener('click', () => { monthlyBtn.classList.add('toggle-active'); yearlyBtn?.classList.remove('toggle-active'); if(priceEl) priceEl.textContent='¥480'; if(periodEl) periodEl.textContent='/月'; });
+  yearlyBtn?.addEventListener('click', () => { yearlyBtn?.classList.add('toggle-active'); monthlyBtn?.classList.remove('toggle-active'); if(priceEl) priceEl.textContent='¥2,980'; if(periodEl) periodEl.textContent='/年'; });
+</script>

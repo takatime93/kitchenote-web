@@ -15,6 +15,7 @@ export const translations = {
     'nav.howItWorks': 'How It Works',
     'nav.about': 'About',
     'nav.blog': 'Blog',
+    'nav.pricing': 'Pricing',
     'nav.support': 'Support',
     'nav.download': 'Download',
 
@@ -126,6 +127,7 @@ export const translations = {
     'nav.howItWorks': '使い方',
     'nav.about': 'About',
     'nav.blog': 'ブログ',
+    'nav.pricing': '料金',
     'nav.support': 'サポート',
     'nav.download': 'ダウンロード',
 
