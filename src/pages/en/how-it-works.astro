@@ -350,6 +350,201 @@ const t = useTranslations('en');
     </div>
   </section>
 
+  <!-- ============================================ -->
+  <!--  BEYOND THE BASICS                          -->
+  <!-- ============================================ -->
+
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container-narrow text-center">
+      <div class="beyond-divider">
+        <span class="beyond-line"></span>
+        <span class="beyond-text">Beyond the basics</span>
+        <span class="beyond-line"></span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 mt-8">Cooking is better together</h2>
+      <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+        Kitchenote isn't just for saving recipes. It's where your family's food culture lives.
+      </p>
+    </div>
+  </section>
+
+  <!-- Feature: Share & Collaborate -->
+  <section class="py-12 md:py-20">
+    <div class="container-wide">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div>
+          <div class="step-number step-collab">📖</div>
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">Share cookbooks with anyone</h2>
+          <p class="text-neutral-600 leading-relaxed mb-4">
+            Create a shared cookbook with your partner, family, or friends. Everyone can add recipes, leave notes, and see updates in real time. It's like a family recipe binder that lives in everyone's pocket.
+          </p>
+          <div class="tip-box">
+            Free users get 2 shared cookbooks. Premium gets unlimited.
+          </div>
+        </div>
+        <div class="animate-on-scroll">
+          <div class="collab-visual">
+            <!-- Shared cookbook card -->
+            <div class="collab-cookbook animate-on-scroll">
+              <div class="collab-book-icon">📖</div>
+              <div class="collab-book-info">
+                <div class="collab-book-name">Family Favorites</div>
+                <div class="collab-book-count">23 recipes</div>
+              </div>
+              <div class="collab-avatars">
+                <div class="c-avatar ca-1">Y</div>
+                <div class="c-avatar ca-2">T</div>
+                <div class="c-avatar ca-3">M</div>
+                <div class="c-avatar ca-4">+2</div>
+              </div>
+            </div>
+
+            <!-- Activity feed -->
+            <div class="collab-feed">
+              <div class="collab-notif cn-1 animate-on-scroll">
+                <div class="c-avatar ca-small ca-mom">M</div>
+                <div class="cn-content">
+                  <div class="cn-text"><strong>Mom</strong> added <em>Grandma's Apple Pie</em></div>
+                  <div class="cn-time">2 min ago</div>
+                </div>
+              </div>
+              <div class="collab-notif cn-2 animate-on-scroll">
+                <div class="c-avatar ca-small ca-dad">D</div>
+                <div class="cn-content">
+                  <div class="cn-text"><strong>Dad</strong> commented "Try adding cinnamon!"</div>
+                  <div class="cn-time">15 min ago</div>
+                </div>
+              </div>
+              <div class="collab-notif cn-3 animate-on-scroll">
+                <div class="c-avatar ca-small ca-sis">S</div>
+                <div class="cn-content">
+                  <div class="cn-text"><strong>Sarah</strong> saved your Pad Thai recipe</div>
+                  <div class="cn-time">1 hr ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: Versioning -->
+  <section class="py-12 md:py-20 bg-white">
+    <div class="container-wide">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="animate-on-scroll md:order-1">
+          <div class="version-visual">
+            <!-- Original recipe -->
+            <div class="ver-card ver-original">
+              <div class="ver-badge ver-badge-original">Original</div>
+              <div class="ver-img" style="background: url('/images/recipes/tikka-masala.jpg') center/cover;"></div>
+              <div class="ver-body">
+                <div class="ver-name">Mom's Curry</div>
+                <div class="ver-detail">
+                  <div class="ver-ing">2 tbsp mild curry powder</div>
+                  <div class="ver-ing">1 cup coconut milk</div>
+                  <div class="ver-ing">400g chicken breast</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fork arrow -->
+            <div class="ver-fork-arrow">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <path d="M12 20h16M22 14l6 6-6 6" stroke="#e86f4c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <!-- Your version with diffs -->
+            <div class="ver-card ver-yours">
+              <div class="ver-badge ver-badge-yours">Your Version</div>
+              <div class="ver-img" style="background: url('/images/recipes/tikka-masala.jpg') center/cover; filter: hue-rotate(15deg) saturate(1.2);"></div>
+              <div class="ver-body">
+                <div class="ver-name">Extra Spicy Curry 🔥</div>
+                <div class="ver-detail">
+                  <div class="ver-ing ver-changed"><span class="ver-strike">2 tbsp mild</span> → 3 tbsp hot curry</div>
+                  <div class="ver-ing">1 cup coconut milk</div>
+                  <div class="ver-ing ver-changed"><span class="ver-strike">chicken breast</span> → thigh</div>
+                  <div class="ver-ing ver-added">+ 2 Thai chilies</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="md:order-2">
+          <div class="step-number step-collab">✏️</div>
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">Fork it. Make it yours.</h2>
+          <p class="text-neutral-600 leading-relaxed mb-4">
+            Someone shared a great recipe but you like it spicier? Fork it. Swap ingredients, adjust amounts, add your own notes — all without touching the original. Your version, their version, everyone's happy.
+          </p>
+          <div class="tip-box">
+            Comments let you share what worked: "Added extra garlic, game changer."
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: AI Assistant -->
+  <section class="py-12 md:py-20">
+    <div class="container-wide">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div>
+          <div class="step-number step-collab">🤖</div>
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">Your AI kitchen assistant</h2>
+          <p class="text-neutral-600 leading-relaxed mb-4">
+            Need a dairy-free version? Wondering what to cook with what's in your fridge? The AI assistant suggests smart substitutions, checks recipe accuracy, and helps you adapt any recipe to your dietary needs.
+          </p>
+          <div class="tip-box">
+            Available with Premium. Think of it as a knowledgeable friend who happens to know every recipe.
+          </div>
+        </div>
+        <div class="animate-on-scroll">
+          <div class="ai-visual">
+            <!-- AI chat interface -->
+            <div class="ai-chat">
+              <div class="ai-msg ai-user">
+                <div class="ai-bubble ai-bubble-user">Make this recipe dairy-free</div>
+              </div>
+              <div class="ai-msg ai-assistant">
+                <div class="ai-avatar">✨</div>
+                <div class="ai-bubble ai-bubble-assistant">
+                  <div class="ai-typing">Here are my suggestions:</div>
+                  <div class="ai-suggestion as-1">
+                    <span class="ai-swap-old">Butter (½ cup)</span>
+                    <span class="ai-swap-arrow">→</span>
+                    <span class="ai-swap-new">Coconut oil (½ cup)</span>
+                  </div>
+                  <div class="ai-suggestion as-2">
+                    <span class="ai-swap-old">Whole milk (1 cup)</span>
+                    <span class="ai-swap-arrow">→</span>
+                    <span class="ai-swap-new">Oat milk (1 cup)</span>
+                  </div>
+                  <div class="ai-suggestion as-3">
+                    <span class="ai-swap-old">Heavy cream (½ cup)</span>
+                    <span class="ai-swap-arrow">→</span>
+                    <span class="ai-swap-new">Coconut cream (½ cup)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="ai-msg ai-assistant ai-audit">
+                <div class="ai-avatar">🔍</div>
+                <div class="ai-bubble ai-bubble-assistant">
+                  <div class="ai-typing">Recipe audit:</div>
+                  <div class="ai-audit-item aa-1">✅ Temperatures are correct</div>
+                  <div class="ai-audit-item aa-2">✅ Cooking times verified</div>
+                  <div class="ai-audit-item aa-3">⚠️ Consider reducing salt to ¾ tsp</div>
+                </div>
+              </div>
+            </div>
+            <div class="ai-apply-btn">Apply all suggestions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="py-16">
     <div class="container-narrow">
@@ -922,6 +1117,77 @@ const t = useTranslations('en');
     0%, 100% { transform: translateX(-50%) translateY(0); }
     50% { transform: translateX(-50%) translateY(-3px); }
   }
+
+  /* ===== Beyond the basics ===== */
+  .beyond-divider { display:flex;align-items:center;gap:16px;justify-content:center; }
+  .beyond-line { flex:1;max-width:80px;height:1px;background:#e8e4de; }
+  .beyond-text { font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#a1a1aa; }
+  .step-collab { background:#fef0eb;color:#27272a;font-size:24px;box-shadow:none; }
+
+  /* Collaboration */
+  .collab-visual { max-width:360px;margin:0 auto; }
+  .collab-cookbook { background:white;border:1.5px solid #e8e4de;border-radius:16px;padding:16px 20px;display:flex;align-items:center;gap:14px;box-shadow:0 4px 20px rgba(0,0,0,0.06);margin-bottom:16px; }
+  .collab-book-icon { font-size:28px; }
+  .collab-book-name { font-size:15px;font-weight:700;color:#27272a; }
+  .collab-book-count { font-size:12px;color:#71717a; }
+  .collab-avatars { display:flex;margin-left:auto; }
+  .c-avatar { width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;border:2px solid white;margin-left:-8px; }
+  .c-avatar:first-child { margin-left:0; }
+  .ca-1 { background:#e86f4c; } .ca-2 { background:#788d61; } .ca-3 { background:#6b8cce; }
+  .ca-4 { background:#a1a1aa;font-size:9px; }
+  .collab-feed { display:flex;flex-direction:column;gap:8px; }
+  .collab-notif { background:white;border:1px solid #f0ebe6;border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+  .ca-small { width:32px;height:32px;min-width:32px;margin-left:0;font-size:12px; }
+  .ca-mom { background:#d97aab; } .ca-dad { background:#6b8cce; } .ca-sis { background:#e4b363; }
+  .cn-text { font-size:13px;color:#27272a;line-height:1.4; }
+  .cn-text strong { font-weight:600; }
+  .cn-text em { color:#e86f4c;font-style:normal;font-weight:500; }
+  .cn-time { font-size:11px;color:#a1a1aa;margin-top:2px; }
+  .collab-feed .cn-1 { transition-delay:0.1s; }
+  .collab-feed .cn-2 { transition-delay:0.25s; }
+  .collab-feed .cn-3 { transition-delay:0.4s; }
+
+  /* Versioning */
+  .version-visual { display:flex;align-items:center;gap:12px;max-width:440px;margin:0 auto; }
+  @media (max-width:480px) { .version-visual { flex-direction:column; } .ver-fork-arrow { transform:rotate(90deg); } }
+  .ver-card { flex:1;background:white;border:1.5px solid #e8e4de;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.06);min-width:0; }
+  .ver-yours { border-color:#e86f4c;box-shadow:0 4px 20px rgba(232,111,76,0.12); }
+  .ver-badge { font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:6px 12px; }
+  .ver-badge-original { background:#f4f4f5;color:#71717a; }
+  .ver-badge-yours { background:#fef0eb;color:#e86f4c; }
+  .ver-img { height:56px; }
+  .ver-body { padding:10px 12px; }
+  .ver-name { font-size:13px;font-weight:700;color:#27272a;margin-bottom:6px; }
+  .ver-detail { display:flex;flex-direction:column;gap:3px; }
+  .ver-ing { font-size:11px;color:#52525b; }
+  .ver-changed { color:#e86f4c; }
+  .ver-strike { text-decoration:line-through;color:#a1a1aa;font-size:10px; }
+  .ver-added { color:#788d61;font-weight:600; }
+  .ver-fork-arrow { flex-shrink:0;animation:arrowPulse 2s ease-in-out infinite; }
+  @keyframes arrowPulse { 0%,100% { opacity:0.4;transform:translateX(0); } 50% { opacity:1;transform:translateX(4px); } }
+
+  /* AI Assistant */
+  .ai-visual { max-width:360px;margin:0 auto;background:#fefdfb;border:1.5px solid #e8e4de;border-radius:20px;padding:20px;box-shadow:0 4px 24px rgba(0,0,0,0.06); }
+  .ai-chat { display:flex;flex-direction:column;gap:12px; }
+  .ai-msg { display:flex;gap:8px; }
+  .ai-user { justify-content:flex-end; }
+  .ai-avatar { width:28px;height:28px;min-width:28px;border-radius:50%;background:#fef0eb;display:flex;align-items:center;justify-content:center;font-size:14px; }
+  .ai-bubble { border-radius:14px;padding:10px 14px;max-width:85%;font-size:13px;line-height:1.4; }
+  .ai-bubble-user { background:#e86f4c;color:white;border-bottom-right-radius:4px;font-weight:500; }
+  .ai-bubble-assistant { background:white;color:#27272a;border:1px solid #f0ebe6;border-bottom-left-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,0.04); }
+  .ai-typing { font-size:12px;color:#71717a;margin-bottom:8px;font-weight:500; }
+  .ai-suggestion { display:flex;align-items:center;gap:6px;padding:6px 0;border-bottom:1px solid #faf6f1;font-size:12px;opacity:0;animation:aiSuggestIn 8s ease-out infinite; }
+  .as-1 { animation-delay:0.3s; } .as-2 { animation-delay:0.7s; } .as-3 { animation-delay:1.1s; }
+  @keyframes aiSuggestIn { 0%,4% { opacity:0;transform:translateY(4px); } 10%,85% { opacity:1;transform:translateY(0); } 92%,100% { opacity:0; } }
+  .ai-swap-old { color:#a1a1aa;text-decoration:line-through;font-size:11px; }
+  .ai-swap-arrow { color:#e86f4c;font-weight:700;font-size:11px; }
+  .ai-swap-new { color:#788d61;font-weight:600; }
+  .ai-audit { margin-top:4px; }
+  .ai-audit-item { font-size:12px;padding:3px 0;opacity:0;animation:aiAuditIn 8s ease-out infinite; }
+  .aa-1 { animation-delay:2s; } .aa-2 { animation-delay:2.5s; } .aa-3 { animation-delay:3s; }
+  @keyframes aiAuditIn { 0%,25% { opacity:0;transform:translateX(-4px); } 32%,85% { opacity:1;transform:translateX(0); } 92%,100% { opacity:0; } }
+  .ai-apply-btn { margin-top:12px;background:#e86f4c;color:white;text-align:center;padding:10px;border-radius:12px;font-size:13px;font-weight:600;opacity:0;animation:applyBtnIn 8s ease-out infinite;animation-delay:3.5s; }
+  @keyframes applyBtnIn { 0%,42% { opacity:0;transform:translateY(6px); } 48%,85% { opacity:1;transform:translateY(0); } 92%,100% { opacity:0; } }
 </style>
 
 <script>
