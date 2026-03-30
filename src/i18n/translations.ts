@@ -94,7 +94,7 @@ export const translations = {
     'footer.legal': 'Legal',
     'footer.privacy': 'Privacy Policy',
     'footer.terms': 'Terms of Service',
-    'footer.copyright': '© 2024 Kitchenote. Made with love (and lots of recipe testing).',
+    'footer.copyright': '© 2026 Boldoath KK. Made with love (and lots of recipe testing).',
 
     // About
     'about.title': 'About Kitchenote',
@@ -205,7 +205,7 @@ export const translations = {
     'footer.legal': '法的情報',
     'footer.privacy': 'プライバシーポリシー',
     'footer.terms': '利用規約',
-    'footer.copyright': '© 2024 Kitchenote. 愛情込めて作りました（レシピのテストもたくさん）。',
+    'footer.copyright': '© 2026 Boldoath KK. 愛情込めて作りました（レシピのテストもたくさん）。',
 
     // About
     'about.title': 'Kitchenoteについて',

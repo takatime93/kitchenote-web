@@ -2,7 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import FeatureCard from '../../components/FeatureCard.astro';
 import StepCard from '../../components/StepCard.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro';
+import PhoneMockup from '../../components/PhoneMockup.astro';
+import WaitlistForm from '../../components/WaitlistForm.astro';
 import { useTranslations } from '../../i18n/translations';
 
 const t = useTranslations('ja');
@@ -20,30 +21,9 @@ const painPoints = [
   { emoji: '📸', text: t('pain.screenshots') },
   { emoji: '🌐', text: t('pain.tabs') },
 ];
-
-const testimonials = [
-  {
-    quote: "ずっと探していたアプリです。もうカメラロールにレシピを保存しなくていいんですね！",
-    author: "田中 美咲",
-    role: "主婦",
-    rating: 5
-  },
-  {
-    quote: "分量調整がすごく便利。6人家族なのに、レシピはいつも4人分。これで解決しました。",
-    author: "佐藤 健一",
-    role: "4児の父",
-    rating: 5
-  },
-  {
-    quote: "余計な情報が全部消えて、材料と手順だけ見られるのが最高です。",
-    author: "山田 恵理",
-    role: "会社員",
-    rating: 5
-  }
-];
 ---
 
-<Layout title="ホーム" description="ウェブのレシピをかんたん保存。整理、分量調整、調理まで。Kitchenoteは、料理の邪魔をしないレシピ管理アプリです。">
+<Layout title="ホーム" description="どんなサイトからでもレシピを保存。整理して、分量を調整して、すぐに料理。Kitchenoteは邪魔しないレシピ管理アプリです。">
 
   <!-- Hero Section -->
   <section class="py-16 md:py-24 overflow-hidden">
@@ -59,38 +39,55 @@ const testimonials = [
           <p class="text-lg text-neutral-600 mb-8 leading-relaxed">
             {t('hero.subheadline')}
           </p>
-          <div class="flex flex-wrap gap-4">
-            <a href="#download" class="btn-primary">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-              </svg>
-              {t('hero.cta')}
-            </a>
-            <a href="/ja/how-it-works" class="btn-secondary">
-              {t('hero.cta.secondary')}
-            </a>
+          <div class="max-w-md">
+            <WaitlistForm />
           </div>
         </div>
 
-        <!-- App Preview -->
-        <div class="relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-primary-100/50 to-sage-100/50 rounded-3xl -rotate-3 scale-105"></div>
-          <div class="relative bg-white rounded-2xl shadow-xl p-4 border border-cream-200">
-            <div class="aspect-[9/16] max-w-[280px] mx-auto bg-neutral-100 rounded-xl flex items-center justify-center">
-              <span class="text-neutral-400 text-sm">アプリプレビュー</span>
+        <!-- Animated App Preview -->
+        <div class="hero-phone-wrapper animate-on-scroll">
+          <PhoneMockup>
+            <div class="hero-demo">
+              <div class="hero-app-bar">
+                <span class="hero-app-title">Kitchenote</span>
+              </div>
+              <div class="hero-scene hero-scene-1">
+                <div class="hero-input-label">レシピURLを貼り付け</div>
+                <div class="hero-url-field">
+                  <span class="hero-typing">cookpad.com/recipe/7654321</span>
+                  <span class="hero-cursor"></span>
+                </div>
+                <div class="hero-import-btn">レシピを取り込む</div>
+              </div>
+              <div class="hero-scene hero-scene-2">
+                <div class="hero-loader-ring"></div>
+                <div class="hero-loader-text">レシピを抽出中...</div>
+              </div>
+              <div class="hero-scene hero-scene-3">
+                <div class="hero-recipe">
+                  <div class="hero-recipe-img"></div>
+                  <div class="hero-recipe-content">
+                    <div class="hero-recipe-title">チキンティッカマサラ</div>
+                    <div class="hero-recipe-meta">🕐 45分 · 👤 4人分</div>
+                    <div class="hero-recipe-divider"></div>
+                    <div class="hero-ingredient">鶏もも肉 500g</div>
+                    <div class="hero-ingredient">ヨーグルト 1カップ</div>
+                    <div class="hero-ingredient">ガラムマサラ 大さじ2</div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          </PhoneMockup>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Pain Points Section -->
+  <!-- Pain Points -->
   <section class="py-16 bg-white">
     <div class="container-wide">
       <h2 class="section-title">{t('pain.title')}</h2>
       <p class="section-subtitle">{t('pain.subtitle')}</p>
-
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {painPoints.map(({ emoji, text }) => (
           <div class="flex items-start gap-4 p-4 rounded-xl bg-cream-50 border border-cream-200">
@@ -102,56 +99,40 @@ const testimonials = [
     </div>
   </section>
 
-  <!-- Features Section -->
+  <!-- Features -->
   <section class="py-20">
     <div class="container-wide">
       <h2 class="section-title">{t('features.title')}</h2>
       <p class="section-subtitle">{t('features.subtitle')}</p>
-
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map(({ icon, titleKey, descKey }) => (
-          <FeatureCard
-            icon={icon}
-            title={t(titleKey)}
-            description={t(descKey)}
-          />
+          <FeatureCard icon={icon} title={t(titleKey)} description={t(descKey)} />
         ))}
+      </div>
+      <div class="text-center mt-10">
+        <a href="/ja/features" class="btn-secondary">すべての機能を見る →</a>
       </div>
     </div>
   </section>
 
-  <!-- How It Works Section -->
+  <!-- How It Works -->
   <section class="py-20 bg-white">
     <div class="container-narrow">
       <h2 class="section-title">{t('how.title')}</h2>
       <p class="section-subtitle">{t('how.subtitle')}</p>
-
       <div class="space-y-8 md:space-y-12 pl-4">
-        <StepCard
-          number={1}
-          title={t('how.step1.title')}
-          description={t('how.step1.desc')}
-        />
-        <StepCard
-          number={2}
-          title={t('how.step2.title')}
-          description={t('how.step2.desc')}
-        />
-        <StepCard
-          number={3}
-          title={t('how.step3.title')}
-          description={t('how.step3.desc')}
-        />
+        <StepCard number={1} title={t('how.step1.title')} description={t('how.step1.desc')} />
+        <StepCard number={2} title={t('how.step2.title')} description={t('how.step2.desc')} />
+        <StepCard number={3} title={t('how.step3.title')} description={t('how.step3.desc')} />
       </div>
     </div>
   </section>
 
-  <!-- Differentiators Section -->
+  <!-- Differentiators -->
   <section class="py-20">
     <div class="container-wide">
       <h2 class="section-title">{t('diff.title')}</h2>
       <p class="section-subtitle">{t('diff.subtitle')}</p>
-
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="card p-6 border-l-4 border-l-primary-400">
           <h3 class="font-display font-bold text-lg mb-2">{t('diff.offline.title')}</h3>
@@ -181,60 +162,81 @@ const testimonials = [
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section class="py-20 bg-white">
-    <div class="container-wide">
-      <h2 class="section-title">{t('testimonials.title')}</h2>
-      <p class="section-subtitle">{t('testimonials.subtitle')}</p>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        {testimonials.map(testimonial => (
-          <TestimonialCard {...testimonial} />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- International Support -->
+  <!-- International -->
   <section class="py-20 bg-white">
     <div class="container-wide">
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="section-title">{t('intl.title')}</h2>
         <p class="section-subtitle">{t('intl.subtitle')}</p>
-
         <div class="flex flex-wrap justify-center gap-4">
-          <div class="flex items-center gap-3 px-6 py-3 rounded-full bg-cream-100 border border-cream-200">
-            <span class="text-2xl">🇯🇵</span>
-            <span class="font-medium text-neutral-700">{t('intl.ja')}</span>
-          </div>
           <div class="flex items-center gap-3 px-6 py-3 rounded-full bg-cream-100 border border-cream-200">
             <span class="text-2xl">🇺🇸</span>
             <span class="font-medium text-neutral-700">{t('intl.en')}</span>
+          </div>
+          <div class="flex items-center gap-3 px-6 py-3 rounded-full bg-cream-100 border border-cream-200">
+            <span class="text-2xl">🇯🇵</span>
+            <span class="font-medium text-neutral-700">{t('intl.ja')}</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA Section -->
+  <!-- CTA -->
   <section id="download" class="py-20 bg-gradient-to-br from-primary-500 to-primary-600 text-white">
     <div class="container-narrow text-center">
       <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 text-white">
-        {t('cta.title')}
+        リリースをお知らせ
       </h2>
       <p class="text-lg text-primary-100 mb-8 max-w-xl mx-auto">
-        {t('cta.subtitle')}
+        Kitchenoteはもうすぐ完成。App Storeに公開されたらすぐにお知らせします。
       </p>
-      <a href="#" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary-600 font-display font-bold text-lg rounded-full hover:bg-cream-50 transition-colors shadow-lg">
-        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-        </svg>
-        {t('cta.button')}
-      </a>
-      <p class="mt-4 text-sm text-primary-200">
-        {t('cta.note')}
-      </p>
+      <WaitlistForm />
     </div>
   </section>
 
 </Layout>
+
+<style>
+  .hero-phone-wrapper { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+  .hero-phone-wrapper.in-view { opacity: 1; transform: translateY(0); }
+  .hero-demo { position: relative; width: 100%; height: 100%; }
+  .hero-app-bar { padding: 52px 18px 12px; text-align: center; }
+  .hero-app-title { font-size: 16px; font-weight: 700; color: #27272a; }
+  .hero-scene { position: absolute; inset: 0; top: 78px; padding: 12px 18px; display: flex; flex-direction: column; opacity: 0; }
+  .hero-scene-1 { animation: heroS1 9s cubic-bezier(0.4,0,0.2,1) infinite; }
+  .hero-scene-2 { animation: heroS2 9s cubic-bezier(0.4,0,0.2,1) infinite; align-items: center; justify-content: center; top: 0; padding-top: 120px; }
+  .hero-scene-3 { animation: heroS3 9s cubic-bezier(0.4,0,0.2,1) infinite; }
+  @keyframes heroS1 { 0% { opacity:0; transform:translateY(8px); } 5% { opacity:1; transform:translateY(0); } 35% { opacity:1; } 42% { opacity:0; transform:translateY(-8px); } 100% { opacity:0; } }
+  @keyframes heroS2 { 0%,38% { opacity:0; } 45% { opacity:1; } 58% { opacity:1; } 65% { opacity:0; } 100% { opacity:0; } }
+  @keyframes heroS3 { 0%,60% { opacity:0; transform:translateY(16px); } 68% { opacity:1; transform:translateY(0); } 92% { opacity:1; } 98% { opacity:0; } 100% { opacity:0; } }
+  .hero-input-label { font-size: 13px; color: #71717a; margin-bottom: 10px; }
+  .hero-url-field { background: white; border: 1.5px solid #e8e4de; border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; margin-bottom: 16px; overflow: hidden; }
+  .hero-typing { font-size: 12px; color: #27272a; white-space: nowrap; overflow: hidden; max-width: 0; display: inline-block; animation: heroType 9s infinite; }
+  @keyframes heroType { 0%,5% { max-width:0; } 28% { max-width:220px; } 100% { max-width:220px; } }
+  .hero-cursor { width: 2px; height: 14px; background: #e86f4c; flex-shrink: 0; animation: heroBlink 0.6s step-end infinite; }
+  @keyframes heroBlink { 50% { opacity:0; } }
+  .hero-import-btn { background: #e86f4c; color: white; text-align: center; padding: 12px; border-radius: 10px; font-size: 14px; font-weight: 600; }
+  .hero-loader-ring { width: 40px; height: 40px; border: 3px solid #f0ebe6; border-top-color: #e86f4c; border-radius: 50%; animation: heroSpin 0.8s linear infinite; margin-bottom: 12px; }
+  @keyframes heroSpin { to { transform:rotate(360deg); } }
+  .hero-loader-text { font-size: 13px; color: #71717a; }
+  .hero-recipe { background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .hero-recipe-img { height: 96px; background: linear-gradient(135deg, #f4a261, #e76f51, #e86f4c); }
+  .hero-recipe-content { padding: 12px 14px; }
+  .hero-recipe-title { font-size: 15px; font-weight: 700; color: #27272a; margin-bottom: 4px; }
+  .hero-recipe-meta { font-size: 11px; color: #71717a; margin-bottom: 8px; }
+  .hero-recipe-divider { height: 1px; background: #f0ebe6; margin-bottom: 6px; }
+  .hero-ingredient { font-size: 12px; color: #52525b; padding: 3px 0; border-bottom: 1px solid #faf6f1; opacity: 0; animation: heroIngredient 9s infinite; }
+  .hero-ingredient:nth-child(1) { animation-delay: 0.1s; }
+  .hero-ingredient:nth-child(2) { animation-delay: 0.2s; }
+  .hero-ingredient:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes heroIngredient { 0%,65% { opacity:0; transform:translateY(6px); } 72% { opacity:1; transform:translateY(0); } 92% { opacity:1; } 98% { opacity:0; } 100% { opacity:0; } }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => { entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('in-view'); }); },
+    { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }
+  );
+  document.querySelectorAll('.animate-on-scroll, .hero-phone-wrapper').forEach((el) => observer.observe(el));
+</script>

@@ -1,126 +1,1469 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { useTranslations } from '../../i18n/translations';
-
-const t = useTranslations('en');
-
-const features = [
-  {
-    title: 'One-Tap Import',
-    description: "You know that moment when you find an amazing recipe but it's buried under 3,000 words about someone's trip to Tuscany? Yeah. We fixed that. Just share the URL to Kitchenote, and we'll pull out the stuff you actually need—ingredients, instructions, and photos. That's it. No life stories, no pop-ups begging for newsletter signups, no autoplay videos.",
-    icon: 'import',
-    highlight: 'Works with 95% of recipe websites'
-  },
-  {
-    title: 'Smart Organization',
-    description: "Look, we've all been there—that pasta recipe you saved three months ago is... somewhere. Bookmark? Screenshot? That random Pinterest board? Kitchenote gives you actual organization that works. Create collections (\"Tuesday Night Quick Meals\" or \"Impress the In-Laws\"), tag recipes however makes sense to you, and find anything in seconds with search that actually works.",
-    icon: 'organize',
-    highlight: 'Collections, tags, and instant search'
-  },
-  {
-    title: 'Cook Mode',
-    description: "Ever tried following a recipe on your phone while your hands are covered in raw chicken? Not fun. Cook Mode is designed for real kitchen chaos. Big, readable text. One step at a time. Screen stays on (because unlocking your phone with flour-hands is a special kind of frustrating). Swipe between steps without losing your place.",
-    icon: 'cook',
-    highlight: 'Hands-free navigation'
-  },
-  {
-    title: 'Instant Scaling',
-    description: "Here's the thing—most recipes are written for 4 servings. But maybe you're cooking for 2. Or hosting a dinner party for 12. Or meal-prepping for the week. Just tap the servings number, and every measurement recalculates instantly. No more mental math while trying to figure out what 3/4 of 2/3 cup is.",
-    icon: 'scale',
-    highlight: 'Automatic unit conversion'
-  },
-  {
-    title: 'Offline Access',
-    description: "WiFi in your kitchen might be spotty. (Ours definitely is.) Every recipe you save is stored right on your device, so you're never stuck waiting for a page to load when you're in the middle of cooking. Because \"buffering\" is not an ingredient.",
-    icon: 'offline',
-    highlight: 'No internet required'
-  },
-  {
-    title: 'Shopping Lists',
-    description: "One-tap to add all ingredients to a shopping list. Bought something? Check it off. Forgot something? The list is always in your pocket. And yes, it combines duplicate ingredients automatically—so if two recipes need onions, you'll see \"4 onions\" instead of two separate line items.",
-    icon: 'shopping',
-    highlight: 'Smart ingredient combining'
-  }
-];
-
-const iconPaths: Record<string, string> = {
-  import: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />`,
-  organize: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />`,
-  cook: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />`,
-  scale: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />`,
-  offline: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />`,
-  shopping: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />`
-};
+import PhoneMockup from '../../components/PhoneMockup.astro';
+import WaitlistForm from '../../components/WaitlistForm.astro';
 ---
 
-<Layout title="Features" description="Discover all the ways Kitchenote makes recipe management simple. Import from any website, organize your collection, cook with hands-free mode, and more.">
+<Layout title="Features" description="Discover everything Kitchenote can do. Import recipes from any URL, organize your collection, cook hands-free, scale servings, share with family, and more.">
 
   <!-- Hero -->
   <section class="py-16 md:py-24">
     <div class="container-narrow text-center">
       <h1 class="mb-6">Features that actually matter</h1>
       <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
-        We didn't build features to check boxes. Everything in Kitchenote exists because it solves a real problem that real home cooks actually have. Honestly, we got tired of the alternatives too.
+        Everything in Kitchenote exists because it solves a real problem that home cooks actually have. No feature bloat. No gimmicks.
       </p>
     </div>
   </section>
 
-  <!-- Features Grid -->
-  <section class="pb-20">
-    <div class="container-wide">
-      <div class="space-y-16">
-        {features.map((feature, index) => (
-          <div class:list={[
-            "grid md:grid-cols-2 gap-8 md:gap-16 items-center",
-            index % 2 === 1 && "md:flex-row-reverse"
-          ]}>
-            <!-- Content -->
-            <div class:list={[index % 2 === 1 && "md:order-2"]}>
-              <div class="flex items-center gap-3 mb-4">
-                <div class="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center">
-                  <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <Fragment set:html={iconPaths[feature.icon]} />
-                  </svg>
-                </div>
-                <h2 class="text-2xl md:text-3xl font-display font-bold">{feature.title}</h2>
-              </div>
-              <p class="text-neutral-600 leading-relaxed mb-4">
-                {feature.description}
-              </p>
-              <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sage-50 text-sage-700 text-sm font-medium">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                {feature.highlight}
-              </div>
-            </div>
+  <!-- ============================================ -->
+  <!--  CORE FEATURES — each with phone animation   -->
+  <!-- ============================================ -->
 
-            <!-- Visual placeholder -->
-            <div class:list={[
-              "relative aspect-[4/3] rounded-2xl bg-gradient-to-br from-cream-100 to-cream-200 border border-cream-300 flex items-center justify-center",
-              index % 2 === 1 && "md:order-1"
-            ]}>
-              <span class="text-neutral-400">Feature illustration</span>
+  <!-- 1. One-Tap Import -->
+  <section class="feature-section py-16 md:py-24 bg-white">
+    <div class="container-wide">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="feature-text">
+          <div class="feature-badge">Core Feature</div>
+          <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Save any recipe in seconds</h2>
+          <p class="text-neutral-600 leading-relaxed mb-6">
+            Found an amazing recipe buried under 3,000 words about someone's trip to Tuscany? Just share the URL to Kitchenote. We strip out the noise and keep what matters — ingredients, steps, and photos. No ads. No life stories.
+          </p>
+          <ul class="feature-checklist">
+            <li>Works with 95% of recipe websites</li>
+            <li>Snap a photo of a cookbook page</li>
+            <li>Scan handwritten recipe cards</li>
+            <li>Japanese and English sites supported</li>
+          </ul>
+        </div>
+        <div class="animate-on-scroll">
+          <PhoneMockup>
+            <div class="demo-import">
+              <!-- App header -->
+              <div class="demo-header">
+                <span class="demo-header-title">Add Recipe</span>
+              </div>
+
+              <!-- Scene 1: URL Input -->
+              <div class="demo-scene scene-import-input">
+                <div class="demo-input-label">Paste a recipe URL</div>
+                <div class="demo-url-field">
+                  <span class="demo-typing-text">allrecipes.com/chicken-tikka</span>
+                  <span class="demo-cursor"></span>
+                </div>
+                <div class="demo-import-btn">Import Recipe</div>
+              </div>
+
+              <!-- Scene 2: Loading -->
+              <div class="demo-scene scene-import-loading">
+                <div class="demo-loader">
+                  <div class="demo-loader-ring"></div>
+                </div>
+                <div class="demo-loader-text">Extracting recipe...</div>
+              </div>
+
+              <!-- Scene 3: Result -->
+              <div class="demo-scene scene-import-result">
+                <div class="demo-recipe-card">
+                  <div class="demo-recipe-img">
+                    <div class="demo-recipe-img-gradient"></div>
+                  </div>
+                  <div class="demo-recipe-body">
+                    <div class="demo-recipe-title">Chicken Tikka Masala</div>
+                    <div class="demo-recipe-meta">
+                      <span>🕐 45 min</span>
+                      <span>👤 4 servings</span>
+                    </div>
+                    <div class="demo-recipe-divider"></div>
+                    <div class="demo-recipe-ingredient">500g chicken thigh</div>
+                    <div class="demo-recipe-ingredient">1 cup yogurt</div>
+                    <div class="demo-recipe-ingredient">2 tbsp garam masala</div>
+                    <div class="demo-recipe-ingredient">400g crushed tomatoes</div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          </PhoneMockup>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-16 bg-primary-50 border-y border-primary-100">
+  <!-- 2. Smart Organization -->
+  <section class="feature-section py-16 md:py-24">
+    <div class="container-wide">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="animate-on-scroll md:order-1">
+          <PhoneMockup>
+            <div class="demo-organize">
+              <div class="demo-header">
+                <span class="demo-header-title">My Recipes</span>
+              </div>
+
+              <!-- Recipe cards that reorganize -->
+              <div class="demo-recipe-grid">
+                <div class="demo-grid-card card-1">
+                  <div class="demo-grid-thumb thumb-warm"></div>
+                  <div class="demo-grid-name">Tikka Masala</div>
+                  <div class="demo-grid-tag tag-dinner">Dinner</div>
+                </div>
+                <div class="demo-grid-card card-2">
+                  <div class="demo-grid-thumb thumb-green"></div>
+                  <div class="demo-grid-name">Caesar Salad</div>
+                  <div class="demo-grid-tag tag-quick">Quick</div>
+                </div>
+                <div class="demo-grid-card card-3">
+                  <div class="demo-grid-thumb thumb-golden"></div>
+                  <div class="demo-grid-name">Banana Bread</div>
+                  <div class="demo-grid-tag tag-baking">Baking</div>
+                </div>
+                <div class="demo-grid-card card-4">
+                  <div class="demo-grid-thumb thumb-cool"></div>
+                  <div class="demo-grid-name">Pad Thai</div>
+                  <div class="demo-grid-tag tag-dinner">Dinner</div>
+                </div>
+              </div>
+
+              <!-- Search bar overlay -->
+              <div class="demo-search-overlay">
+                <div class="demo-search-bar">
+                  <span class="demo-search-icon">🔍</span>
+                  <span class="demo-search-text">pasta</span>
+                </div>
+              </div>
+            </div>
+          </PhoneMockup>
+        </div>
+        <div class="feature-text md:order-2">
+          <div class="feature-badge">Core Feature</div>
+          <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Find any recipe instantly</h2>
+          <p class="text-neutral-600 leading-relaxed mb-6">
+            That pasta recipe you saved three months ago? It's not lost in a bookmark folder, a screenshot, or a random Pinterest board anymore. Tags, groups, and search that actually works.
+          </p>
+          <ul class="feature-checklist">
+            <li>Custom groups and tags</li>
+            <li>Instant full-text search</li>
+            <li>Smart filters (time, difficulty, cuisine)</li>
+            <li>Recently cooked and favorites</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Cook Mode -->
+  <section class="feature-section py-16 md:py-24 bg-white">
+    <div class="container-wide">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="feature-text">
+          <div class="feature-badge">Core Feature</div>
+          <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Cook without distractions</h2>
+          <p class="text-neutral-600 leading-relaxed mb-6">
+            Ever tried following a recipe on your phone with flour-covered hands? Cook Mode gives you big readable text, one step at a time, with the screen always on. Swipe between steps, set timers, never lose your place.
+          </p>
+          <ul class="feature-checklist">
+            <li>Large text, one step at a time</li>
+            <li>Built-in timers per step</li>
+            <li>Screen stays on while cooking</li>
+            <li>Progress saves if you leave</li>
+          </ul>
+        </div>
+        <div class="animate-on-scroll">
+          <PhoneMockup>
+            <div class="demo-cook">
+              <div class="demo-cook-header">
+                <div class="demo-cook-progress">
+                  <div class="demo-cook-progress-fill"></div>
+                </div>
+              </div>
+
+              <div class="demo-cook-body">
+                <!-- Step display -->
+                <div class="demo-cook-step-container">
+                  <div class="demo-cook-step step-visible">
+                    <div class="demo-cook-step-num">Step 2 of 6</div>
+                    <div class="demo-cook-step-text">Heat olive oil in a large skillet over medium-high heat until shimmering</div>
+                    <div class="demo-cook-timer">
+                      <div class="demo-cook-timer-ring">
+                        <span class="demo-cook-timer-num">4:32</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="demo-cook-step step-next">
+                    <div class="demo-cook-step-num">Step 3 of 6</div>
+                    <div class="demo-cook-step-text">Add diced onion and cook until soft and translucent, about 5 minutes</div>
+                    <div class="demo-cook-timer">
+                      <div class="demo-cook-timer-ring">
+                        <span class="demo-cook-timer-num">5:00</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Swipe hint -->
+              <div class="demo-cook-swipe">
+                <div class="demo-swipe-indicator"></div>
+              </div>
+            </div>
+          </PhoneMockup>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Instant Scaling -->
+  <section class="feature-section py-16 md:py-24">
+    <div class="container-wide">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="animate-on-scroll md:order-1">
+          <PhoneMockup>
+            <div class="demo-scale">
+              <div class="demo-header">
+                <span class="demo-header-title">Ingredients</span>
+              </div>
+
+              <div class="demo-scale-servings">
+                <span class="demo-scale-label">Servings</span>
+                <div class="demo-scale-controls">
+                  <span class="demo-scale-btn">−</span>
+                  <div class="demo-scale-num-wrapper">
+                    <span class="demo-scale-num num-before">4</span>
+                    <span class="demo-scale-num num-after">8</span>
+                  </div>
+                  <span class="demo-scale-btn btn-plus">+</span>
+                </div>
+              </div>
+
+              <div class="demo-scale-list">
+                <div class="demo-scale-item">
+                  <div class="demo-scale-qty">
+                    <span class="qty-before">2 cups</span>
+                    <span class="qty-after">4 cups</span>
+                  </div>
+                  <span class="demo-scale-name">all-purpose flour</span>
+                </div>
+                <div class="demo-scale-item">
+                  <div class="demo-scale-qty">
+                    <span class="qty-before">1 cup</span>
+                    <span class="qty-after">2 cups</span>
+                  </div>
+                  <span class="demo-scale-name">granulated sugar</span>
+                </div>
+                <div class="demo-scale-item">
+                  <div class="demo-scale-qty">
+                    <span class="qty-before">3</span>
+                    <span class="qty-after">6</span>
+                  </div>
+                  <span class="demo-scale-name">large eggs</span>
+                </div>
+                <div class="demo-scale-item">
+                  <div class="demo-scale-qty">
+                    <span class="qty-before">½ cup</span>
+                    <span class="qty-after">1 cup</span>
+                  </div>
+                  <span class="demo-scale-name">unsalted butter</span>
+                </div>
+                <div class="demo-scale-item">
+                  <div class="demo-scale-qty">
+                    <span class="qty-before">2 tsp</span>
+                    <span class="qty-after">4 tsp</span>
+                  </div>
+                  <span class="demo-scale-name">vanilla extract</span>
+                </div>
+              </div>
+            </div>
+          </PhoneMockup>
+        </div>
+        <div class="feature-text md:order-2">
+          <div class="feature-badge">Core Feature</div>
+          <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Cooking for 2? Or 12?</h2>
+          <p class="text-neutral-600 leading-relaxed mb-6">
+            Most recipes are written for 4 servings. But maybe you're cooking for 2, hosting a dinner party for 12, or meal-prepping for the week. Tap to adjust servings and every measurement recalculates instantly.
+          </p>
+          <ul class="feature-checklist">
+            <li>Tap to change serving size</li>
+            <li>Every ingredient recalculates</li>
+            <li>Smart unit conversion (g ↔ oz, ml ↔ cups)</li>
+            <li>No mental math required</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!--  SOCIAL & SHARING FEATURES                   -->
+  <!-- ============================================ -->
+
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-16">
+        <div class="feature-badge inline-block mb-4">Better Together</div>
+        <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Cook with the people you love</h2>
+        <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+          Share recipes, build cookbooks together, and keep your family's food traditions alive.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6 lg:gap-8">
+        <!-- Shared Cookbooks -->
+        <div class="social-card animate-on-scroll">
+          <div class="social-card-visual">
+            <div class="social-visual-cookbook">
+              <div class="cookbook-cover">
+                <span class="cookbook-emoji">📖</span>
+                <span class="cookbook-title-text">Family Favorites</span>
+              </div>
+              <div class="cookbook-avatars">
+                <div class="avatar av-1">Y</div>
+                <div class="avatar av-2">T</div>
+                <div class="avatar av-3">M</div>
+              </div>
+            </div>
+          </div>
+          <h3 class="text-xl font-display font-bold mb-2">Shared Cookbooks</h3>
+          <p class="text-neutral-600 text-sm">
+            Create a cookbook with your partner, family, or friends. Everyone can add recipes, and changes sync automatically.
+          </p>
+        </div>
+
+        <!-- Recipe Versioning -->
+        <div class="social-card animate-on-scroll">
+          <div class="social-card-visual">
+            <div class="social-visual-version">
+              <div class="version-original">
+                <div class="version-label">Original</div>
+                <div class="version-recipe-name">Mom's Curry</div>
+              </div>
+              <div class="version-arrow">
+                <svg width="24" height="24" fill="none" stroke="#e86f4c" stroke-width="2"><path d="M7 7l5 5-5 5M12 12h10"/></svg>
+              </div>
+              <div class="version-fork">
+                <div class="version-label">Your Version</div>
+                <div class="version-recipe-name">Extra Spicy Curry</div>
+              </div>
+            </div>
+          </div>
+          <h3 class="text-xl font-display font-bold mb-2">Recipe Versioning</h3>
+          <p class="text-neutral-600 text-sm">
+            Fork any shared recipe to make it your own. Add more spice, swap ingredients, tweak the method — without changing the original.
+          </p>
+        </div>
+
+        <!-- Friends & Family -->
+        <div class="social-card animate-on-scroll">
+          <div class="social-card-visual">
+            <div class="social-visual-friends">
+              <div class="friend-card">
+                <div class="avatar av-friend">S</div>
+                <div class="friend-info">
+                  <div class="friend-name">Sarah</div>
+                  <div class="friend-action">shared a recipe</div>
+                </div>
+              </div>
+              <div class="friend-card">
+                <div class="avatar av-friend-2">D</div>
+                <div class="friend-info">
+                  <div class="friend-name">Dad</div>
+                  <div class="friend-action">added to Family BBQ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3 class="text-xl font-display font-bold mb-2">Friends & Family</h3>
+          <p class="text-neutral-600 text-sm">
+            Follow the people you cook with. See what they're saving, get inspired by their recipes, and build a shared food culture.
+          </p>
+        </div>
+
+        <!-- Comments & Notes -->
+        <div class="social-card animate-on-scroll">
+          <div class="social-card-visual">
+            <div class="social-visual-comments">
+              <div class="comment-bubble bubble-1">
+                <span class="comment-author">You</span>
+                <span class="comment-text">Added extra garlic 🧄</span>
+              </div>
+              <div class="comment-bubble bubble-2">
+                <span class="comment-author">Mom</span>
+                <span class="comment-text">Try it with fresh ginger next time!</span>
+              </div>
+            </div>
+          </div>
+          <h3 class="text-xl font-display font-bold mb-2">Comments & Notes</h3>
+          <p class="text-neutral-600 text-sm">
+            Leave notes on any recipe — what worked, what you'd change. Comment on shared recipes to swap tips with family and friends.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!--  UTILITY FEATURES — grid                     -->
+  <!-- ============================================ -->
+
+  <section class="py-16 md:py-24">
+    <div class="container-wide">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">And so much more</h2>
+        <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+          The details that make cooking with Kitchenote feel effortless.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="utility-card">
+          <div class="utility-icon">📴</div>
+          <h3 class="font-display font-bold text-lg mb-2">Offline Access</h3>
+          <p class="text-neutral-600 text-sm">Every recipe lives on your device. No WiFi in the kitchen? No problem. Because "buffering" is not an ingredient.</p>
+        </div>
+        <div class="utility-card">
+          <div class="utility-icon">🛒</div>
+          <h3 class="font-display font-bold text-lg mb-2">Shopping Lists</h3>
+          <p class="text-neutral-600 text-sm">One tap to add all ingredients. Combines duplicates automatically — two recipes with onions? You'll see "4 onions," not two entries.</p>
+        </div>
+        <div class="utility-card">
+          <div class="utility-icon">📷</div>
+          <h3 class="font-display font-bold text-lg mb-2">OCR Scanning</h3>
+          <p class="text-neutral-600 text-sm">Point your camera at grandma's handwritten recipe card or a cookbook page. We'll digitize it for you.</p>
+        </div>
+        <div class="utility-card">
+          <div class="utility-icon">✍️</div>
+          <h3 class="font-display font-bold text-lg mb-2">Rich Notes</h3>
+          <p class="text-neutral-600 text-sm">Format your cooking notes with lists, highlights, and @mentions. Reference other recipes or memos right in your notes.</p>
+        </div>
+        <div class="utility-card">
+          <div class="utility-icon">🌏</div>
+          <h3 class="font-display font-bold text-lg mb-2">Bilingual</h3>
+          <p class="text-neutral-600 text-sm">Full English and Japanese support. Import recipes from sites in either language, with automatic unit conversion.</p>
+        </div>
+        <div class="utility-card">
+          <div class="utility-icon">🔔</div>
+          <h3 class="font-display font-bold text-lg mb-2">Smart Notifications</h3>
+          <p class="text-neutral-600 text-sm">Know when someone shares a recipe, comments on yours, or adds to a shared cookbook. Never miss a kitchen update.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!--  WAITLIST CTA                                -->
+  <!-- ============================================ -->
+
+  <section class="py-20 bg-gradient-to-br from-primary-500 to-primary-600 text-white">
     <div class="container-narrow text-center">
-      <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">
-        Ready to organize your recipe chaos?
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 text-white">
+        Be the first to know
       </h2>
-      <p class="text-neutral-600 mb-8">
-        Join thousands of home cooks who've finally found a system that works.
+      <p class="text-lg text-primary-100 mb-8 max-w-xl mx-auto">
+        Kitchenote is almost ready. Sign up and we'll let you know the moment it hits the App Store.
       </p>
-      <a href="#download" class="btn-primary">
-        Download Kitchenote Free
-      </a>
+      <WaitlistForm />
     </div>
   </section>
 
 </Layout>
+
+<style>
+  /* ========================================= */
+  /*  Feature section layout                   */
+  /* ========================================= */
+
+  .feature-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    background: #fef0eb;
+    color: #e86f4c;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .feature-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+
+  .feature-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: #52525b;
+  }
+
+  .feature-checklist li::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 50%;
+    background: #f0f5eb;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23788d61'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'/%3E%3C/svg%3E");
+  }
+
+  /* ========================================= */
+  /*  Social feature cards                     */
+  /* ========================================= */
+
+  .social-card {
+    background: #fefdfb;
+    border: 1px solid #e8e4de;
+    border-radius: 20px;
+    padding: 24px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+  }
+
+  .social-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.1);
+  }
+
+  .social-card-visual {
+    height: 160px;
+    background: linear-gradient(135deg, #fef8f5, #f5f0eb);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  /* Shared Cookbooks visual */
+  .social-visual-cookbook {
+    text-align: center;
+  }
+
+  .cookbook-cover {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 28px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cookbook-emoji {
+    font-size: 20px;
+  }
+
+  .cookbook-title-text {
+    font-weight: 600;
+    font-size: 14px;
+    color: #27272a;
+  }
+
+  .cookbook-avatars {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    border: 2px solid #fef8f5;
+    margin-left: -6px;
+  }
+
+  .avatar:first-child {
+    margin-left: 0;
+  }
+
+  .av-1 { background: #e86f4c; }
+  .av-2 { background: #788d61; }
+  .av-3 { background: #6b8cce; }
+
+  /* Version visual */
+  .social-visual-version {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 16px;
+  }
+
+  .version-original,
+  .version-fork {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    flex: 1;
+  }
+
+  .version-fork {
+    border: 2px solid #e86f4c;
+  }
+
+  .version-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #a1a1aa;
+    margin-bottom: 4px;
+  }
+
+  .version-fork .version-label {
+    color: #e86f4c;
+  }
+
+  .version-recipe-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #27272a;
+  }
+
+  .version-arrow {
+    flex-shrink: 0;
+  }
+
+  /* Friends visual */
+  .social-visual-friends {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 16px;
+    width: 100%;
+  }
+
+  .friend-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    border-radius: 10px;
+    padding: 10px 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  }
+
+  .av-friend { background: #d97aab; width: 28px; height: 28px; font-size: 11px; margin-left: 0; }
+  .av-friend-2 { background: #6b8cce; width: 28px; height: 28px; font-size: 11px; margin-left: 0; }
+
+  .friend-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #27272a;
+  }
+
+  .friend-action {
+    font-size: 11px;
+    color: #71717a;
+  }
+
+  /* Comments visual */
+  .social-visual-comments {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 16px;
+    width: 100%;
+  }
+
+  .comment-bubble {
+    background: white;
+    border-radius: 12px;
+    padding: 10px 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    max-width: 85%;
+  }
+
+  .bubble-1 {
+    align-self: flex-end;
+    background: #fef0eb;
+  }
+
+  .bubble-2 {
+    align-self: flex-start;
+  }
+
+  .comment-author {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #e86f4c;
+    margin-bottom: 2px;
+  }
+
+  .bubble-2 .comment-author {
+    color: #788d61;
+  }
+
+  .comment-text {
+    font-size: 12px;
+    color: #27272a;
+    line-height: 1.4;
+  }
+
+  /* ========================================= */
+  /*  Utility cards                            */
+  /* ========================================= */
+
+  .utility-card {
+    background: #fefdfb;
+    border: 1px solid #e8e4de;
+    border-radius: 16px;
+    padding: 24px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .utility-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .utility-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  /* ========================================= */
+  /*  Phone demo shared styles                 */
+  /* ========================================= */
+
+  .demo-header {
+    padding: 52px 18px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .demo-header-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #27272a;
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+
+  .demo-scene {
+    position: absolute;
+    inset: 0;
+    top: 78px;
+    padding: 12px 18px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+  }
+
+  /* ========================================= */
+  /*  Import animation                         */
+  /* ========================================= */
+
+  .demo-import {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .scene-import-input {
+    animation: importScene1 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  .scene-import-loading {
+    animation: importScene2 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    padding-top: 120px;
+  }
+
+  .scene-import-result {
+    animation: importScene3 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    top: 78px;
+  }
+
+  @keyframes importScene1 {
+    0%    { opacity: 0; transform: translateY(8px); }
+    5%    { opacity: 1; transform: translateY(0); }
+    35%   { opacity: 1; transform: translateY(0); }
+    42%   { opacity: 0; transform: translateY(-8px); }
+    100%  { opacity: 0; }
+  }
+
+  @keyframes importScene2 {
+    0%, 38% { opacity: 0; }
+    45%     { opacity: 1; }
+    58%     { opacity: 1; }
+    65%     { opacity: 0; }
+    100%    { opacity: 0; }
+  }
+
+  @keyframes importScene3 {
+    0%, 60% { opacity: 0; transform: translateY(16px); }
+    68%     { opacity: 1; transform: translateY(0); }
+    92%     { opacity: 1; transform: translateY(0); }
+    98%     { opacity: 0; transform: translateY(-4px); }
+    100%    { opacity: 0; }
+  }
+
+  .demo-input-label {
+    font-size: 13px;
+    color: #71717a;
+    margin-bottom: 10px;
+  }
+
+  .demo-url-field {
+    background: white;
+    border: 1.5px solid #e8e4de;
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+
+  .demo-typing-text {
+    font-size: 13px;
+    color: #27272a;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 0;
+    animation: typeUrl 9s infinite;
+    display: inline-block;
+  }
+
+  @keyframes typeUrl {
+    0%, 5%  { max-width: 0; }
+    28%     { max-width: 200px; }
+    35%     { max-width: 200px; }
+    42%     { max-width: 200px; }
+    100%    { max-width: 200px; }
+  }
+
+  .demo-cursor {
+    width: 2px;
+    height: 16px;
+    background: #e86f4c;
+    animation: cursorBlink 0.6s step-end infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes cursorBlink {
+    50% { opacity: 0; }
+  }
+
+  .demo-import-btn {
+    background: #e86f4c;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    animation: btnPulse 9s infinite;
+  }
+
+  @keyframes btnPulse {
+    0%, 25% { transform: scale(1); }
+    30% { transform: scale(0.97); }
+    33% { transform: scale(1); }
+    100% { transform: scale(1); }
+  }
+
+  /* Loader */
+  .demo-loader {
+    margin-bottom: 16px;
+  }
+
+  .demo-loader-ring {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f0ebe6;
+    border-top-color: #e86f4c;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .demo-loader-text {
+    font-size: 13px;
+    color: #71717a;
+    animation: loaderPulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes loaderPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  /* Recipe card result */
+  .demo-recipe-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .demo-recipe-img {
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .demo-recipe-img-gradient {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f4a261, #e76f51, #e86f4c);
+    animation: imgShimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes imgShimmer {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 1; }
+  }
+
+  .demo-recipe-body {
+    padding: 12px 14px;
+  }
+
+  .demo-recipe-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #27272a;
+    margin-bottom: 4px;
+    animation: fadeSlideUp 9s infinite;
+    animation-delay: 5.8s;
+  }
+
+  .demo-recipe-meta {
+    font-size: 11px;
+    color: #71717a;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .demo-recipe-divider {
+    height: 1px;
+    background: #f0ebe6;
+    margin-bottom: 8px;
+  }
+
+  .demo-recipe-ingredient {
+    font-size: 12px;
+    color: #52525b;
+    padding: 4px 0;
+    border-bottom: 1px solid #faf6f1;
+    opacity: 0;
+    animation: ingredientAppear 9s infinite;
+  }
+
+  .demo-recipe-ingredient:nth-child(1) { animation-delay: 0.1s; }
+  .demo-recipe-ingredient:nth-child(2) { animation-delay: 0.2s; }
+  .demo-recipe-ingredient:nth-child(3) { animation-delay: 0.3s; }
+  .demo-recipe-ingredient:nth-child(4) { animation-delay: 0.4s; }
+
+  @keyframes ingredientAppear {
+    0%, 65%  { opacity: 0; transform: translateY(6px); }
+    72%      { opacity: 1; transform: translateY(0); }
+    92%      { opacity: 1; }
+    98%      { opacity: 0; }
+    100%     { opacity: 0; }
+  }
+
+  /* ========================================= */
+  /*  Organize animation                       */
+  /* ========================================= */
+
+  .demo-organize {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .demo-recipe-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 8px 18px;
+  }
+
+  .demo-grid-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+    animation: cardFloat 8s ease-in-out infinite;
+  }
+
+  .card-1 { animation-delay: 0s; }
+  .card-2 { animation-delay: 0.15s; }
+  .card-3 { animation-delay: 0.3s; }
+  .card-4 { animation-delay: 0.45s; }
+
+  @keyframes cardFloat {
+    0%, 30% { transform: translateY(0); opacity: 1; }
+    40% { transform: translateY(-3px); opacity: 1; }
+    50%, 70% { transform: translateY(0); opacity: 1; }
+    80% { transform: translateY(-2px); }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  .demo-grid-thumb {
+    height: 52px;
+  }
+
+  .thumb-warm { background: linear-gradient(135deg, #f4a261, #e76f51); }
+  .thumb-green { background: linear-gradient(135deg, #a8c686, #788d61); }
+  .thumb-golden { background: linear-gradient(135deg, #f2cc8f, #e4b363); }
+  .thumb-cool { background: linear-gradient(135deg, #8ecae6, #6b8cce); }
+
+  .demo-grid-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: #27272a;
+    padding: 6px 8px 2px;
+  }
+
+  .demo-grid-tag {
+    font-size: 9px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin: 2px 8px 6px;
+    display: inline-block;
+  }
+
+  .tag-dinner { background: #fef0eb; color: #e86f4c; }
+  .tag-quick { background: #f0f5eb; color: #788d61; }
+  .tag-baking { background: #fef6e8; color: #d4903f; }
+
+  .demo-search-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 18px;
+    right: 18px;
+    opacity: 0;
+    animation: searchAppear 8s ease-in-out infinite;
+  }
+
+  @keyframes searchAppear {
+    0%, 55% { opacity: 0; transform: translateY(8px); }
+    65%, 85% { opacity: 1; transform: translateY(0); }
+    95%, 100% { opacity: 0; transform: translateY(8px); }
+  }
+
+  .demo-search-bar {
+    background: white;
+    border: 1.5px solid #e8e4de;
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .demo-search-icon {
+    font-size: 14px;
+  }
+
+  .demo-search-text {
+    font-size: 14px;
+    color: #27272a;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 0;
+    display: inline-block;
+    animation: typeSearch 8s infinite;
+  }
+
+  @keyframes typeSearch {
+    0%, 60% { max-width: 0; }
+    75%, 90% { max-width: 80px; }
+    100% { max-width: 0; }
+  }
+
+  /* ========================================= */
+  /*  Cook Mode animation                      */
+  /* ========================================= */
+
+  .demo-cook {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1f;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .demo-cook-header {
+    padding: 52px 18px 12px;
+  }
+
+  .demo-cook-progress {
+    height: 3px;
+    background: #3a3a3f;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .demo-cook-progress-fill {
+    height: 100%;
+    width: 33%;
+    background: #e86f4c;
+    border-radius: 2px;
+    animation: progressFill 8s ease-in-out infinite;
+  }
+
+  @keyframes progressFill {
+    0%, 10% { width: 33%; }
+    50%, 60% { width: 50%; }
+    100% { width: 33%; }
+  }
+
+  .demo-cook-body {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .demo-cook-step-container {
+    position: relative;
+    height: 100%;
+  }
+
+  .demo-cook-step {
+    position: absolute;
+    inset: 0;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .step-visible {
+    animation: stepSlide1 8s ease-in-out infinite;
+  }
+
+  .step-next {
+    animation: stepSlide2 8s ease-in-out infinite;
+  }
+
+  @keyframes stepSlide1 {
+    0%, 35%  { transform: translateX(0); opacity: 1; }
+    45%      { transform: translateX(-100%); opacity: 0; }
+    90%      { transform: translateX(100%); opacity: 0; }
+    100%     { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes stepSlide2 {
+    0%, 35%  { transform: translateX(100%); opacity: 0; }
+    45%, 85% { transform: translateX(0); opacity: 1; }
+    95%      { transform: translateX(-100%); opacity: 0; }
+    100%     { transform: translateX(100%); opacity: 0; }
+  }
+
+  .demo-cook-step-num {
+    font-size: 12px;
+    color: #71717a;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .demo-cook-step-text {
+    font-size: 17px;
+    font-weight: 500;
+    color: #fefdfb;
+    line-height: 1.5;
+  }
+
+  .demo-cook-timer {
+    margin-top: auto;
+    padding-bottom: 8px;
+  }
+
+  .demo-cook-timer-ring {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 3px solid #3a3a3f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .demo-cook-timer-ring::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #e86f4c;
+    animation: timerSpin 4s linear infinite;
+  }
+
+  @keyframes timerSpin {
+    to { transform: rotate(360deg); }
+  }
+
+  .demo-cook-timer-num {
+    font-size: 18px;
+    font-weight: 700;
+    color: #e86f4c;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .demo-cook-swipe {
+    padding: 10px 0 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .demo-swipe-indicator {
+    width: 36px;
+    height: 4px;
+    background: #52525b;
+    border-radius: 2px;
+  }
+
+  /* ========================================= */
+  /*  Scaling animation                        */
+  /* ========================================= */
+
+  .demo-scale {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .demo-scale-servings {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 18px 16px;
+    border-bottom: 1px solid #f0ebe6;
+    margin: 0 0 4px;
+  }
+
+  .demo-scale-label {
+    font-size: 14px;
+    color: #71717a;
+    font-weight: 500;
+  }
+
+  .demo-scale-controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .demo-scale-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f0ebe6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #52525b;
+  }
+
+  .btn-plus {
+    animation: plusTap 6s ease-in-out infinite;
+  }
+
+  @keyframes plusTap {
+    0%, 15%  { transform: scale(1); background: #f0ebe6; }
+    18%      { transform: scale(0.85); background: #e86f4c; color: white; }
+    22%      { transform: scale(1.05); background: #e86f4c; color: white; }
+    25%, 100% { transform: scale(1); background: #f0ebe6; }
+  }
+
+  .demo-scale-num-wrapper {
+    position: relative;
+    width: 24px;
+    height: 28px;
+    overflow: hidden;
+  }
+
+  .demo-scale-num {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #27272a;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .num-before {
+    animation: numOut 6s ease-in-out infinite;
+  }
+
+  .num-after {
+    animation: numIn 6s ease-in-out infinite;
+  }
+
+  @keyframes numOut {
+    0%, 18%  { transform: translateY(0); opacity: 1; }
+    25%      { transform: translateY(-20px); opacity: 0; }
+    85%      { transform: translateY(20px); opacity: 0; }
+    92%, 100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes numIn {
+    0%, 18%  { transform: translateY(20px); opacity: 0; }
+    25%, 80% { transform: translateY(0); opacity: 1; }
+    88%      { transform: translateY(-20px); opacity: 0; }
+    100%     { transform: translateY(20px); opacity: 0; }
+  }
+
+  .demo-scale-list {
+    padding: 4px 18px;
+  }
+
+  .demo-scale-item {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 9px 0;
+    border-bottom: 1px solid #faf6f1;
+  }
+
+  .demo-scale-qty {
+    position: relative;
+    min-width: 52px;
+    height: 18px;
+  }
+
+  .demo-scale-qty span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #e86f4c;
+    white-space: nowrap;
+  }
+
+  .qty-before { animation: numOut 6s ease-in-out infinite; }
+  .qty-after { animation: numIn 6s ease-in-out infinite; }
+
+  .demo-scale-item:nth-child(2) .qty-before,
+  .demo-scale-item:nth-child(2) .qty-after { animation-delay: 0.08s; }
+  .demo-scale-item:nth-child(3) .qty-before,
+  .demo-scale-item:nth-child(3) .qty-after { animation-delay: 0.16s; }
+  .demo-scale-item:nth-child(4) .qty-before,
+  .demo-scale-item:nth-child(4) .qty-after { animation-delay: 0.24s; }
+  .demo-scale-item:nth-child(5) .qty-before,
+  .demo-scale-item:nth-child(5) .qty-after { animation-delay: 0.32s; }
+
+  .demo-scale-name {
+    font-size: 13px;
+    color: #52525b;
+  }
+
+  /* ========================================= */
+  /*  Scroll-triggered animation               */
+  /* ========================================= */
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Social cards stagger */
+  .social-card:nth-child(2) { transition-delay: 0.1s; }
+  .social-card:nth-child(3) { transition-delay: 0.2s; }
+  .social-card:nth-child(4) { transition-delay: 0.3s; }
+
+  /* Cookbook avatar animation */
+  .in-view .cookbook-avatars .avatar {
+    animation: avatarPop 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  .in-view .av-1 { animation-delay: 0.3s; }
+  .in-view .av-2 { animation-delay: 0.5s; }
+  .in-view .av-3 { animation-delay: 0.7s; }
+
+  @keyframes avatarPop {
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* Comment bubble animation */
+  .in-view .comment-bubble {
+    animation: bubbleSlide 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .in-view .bubble-1 { animation-delay: 0.3s; }
+  .in-view .bubble-2 { animation-delay: 0.7s; }
+
+  @keyframes bubbleSlide {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Friend card animation */
+  .in-view .friend-card {
+    animation: bubbleSlide 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .in-view .friend-card:nth-child(1) { animation-delay: 0.3s; }
+  .in-view .friend-card:nth-child(2) { animation-delay: 0.6s; }
+
+  @media (max-width: 768px) {
+    .demo-cook-step-text {
+      font-size: 14px;
+    }
+    .demo-grid-thumb {
+      height: 40px;
+    }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    },
+    { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }
+  );
+
+  document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+    observer.observe(el);
+  });
+</script>

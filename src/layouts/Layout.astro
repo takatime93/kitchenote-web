@@ -61,8 +61,8 @@ const fullTitle = title === 'Home' || title === 'ホーム'
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.site)} />
 
-    <!-- App Store Smart Banner -->
-    <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID" />
+    <!-- App Store Smart Banner — uncomment when app is live
+    <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID" /> -->
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -71,7 +71,7 @@ const fullTitle = title === 'Home' || title === 'ホーム'
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body class="min-h-screen flex flex-col">
     <Header />
