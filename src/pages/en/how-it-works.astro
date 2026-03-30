@@ -1,35 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import PhoneMockup from '../../components/PhoneMockup.astro';
+import WaitlistForm from '../../components/WaitlistForm.astro';
 import { useTranslations } from '../../i18n/translations';
 
 const t = useTranslations('en');
-
-const steps = [
-  {
-    number: 1,
-    title: 'Find a recipe you love',
-    description: "Could be anywhere—your favorite food blog, that New York Times recipe your friend won't stop talking about, a random YouTube video, or even a recipe your grandmother texted you. If it's on the web, Kitchenote can save it.",
-    tip: 'Pro tip: Works with 95% of recipe sites, including protected ones that usually block copying.'
-  },
-  {
-    number: 2,
-    title: 'Share it to Kitchenote',
-    description: "Hit the share button (you know, that little arrow icon) and pick Kitchenote from the list. Or just copy the URL and paste it into the app. Either way, it takes about two seconds. We time it.",
-    tip: 'The share sheet method is faster, but pasting works great too.'
-  },
-  {
-    number: 3,
-    title: 'Watch the magic happen',
-    description: "Kitchenote reads the page and pulls out exactly what matters—title, ingredients, instructions, cook time, and photos. All the stuff you need, none of the stuff you don't (goodbye, 12-paragraph intro about autumn in Vermont).",
-    tip: 'You can always edit or add notes to any recipe after saving.'
-  },
-  {
-    number: 4,
-    title: 'Cook whenever you\'re ready',
-    description: "Your recipes are saved, organized, and waiting. Open Cook Mode when it's time to actually make something, and everything's right there—big text, step-by-step, no distractions. Just you and the food.",
-    tip: 'All recipes work offline. No WiFi in the kitchen? No problem.'
-  }
-];
 ---
 
 <Layout title="How It Works" description="Learn how Kitchenote makes saving and organizing recipes effortless. Four simple steps from finding a recipe to cooking it.">
@@ -39,143 +14,685 @@ const steps = [
     <div class="container-narrow text-center">
       <h1 class="mb-6">How Kitchenote works</h1>
       <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
-        We could write a lot here, but honestly? It's pretty simple. Four steps. You'll figure it out in about 30 seconds.
+        Four steps. You'll figure it out in about 30 seconds.
       </p>
     </div>
   </section>
 
-  <!-- Steps -->
-  <section class="pb-20">
+  <!-- Step 1: Find a recipe -->
+  <section class="step-section py-12 md:py-20 bg-white">
     <div class="container-wide">
-      <div class="max-w-3xl mx-auto">
-        <div class="relative">
-          <!-- Vertical line -->
-          <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-cream-200 hidden md:block"></div>
-
-          <div class="space-y-12 md:space-y-16">
-            {steps.map((step, index) => (
-              <div class="relative flex gap-6 md:gap-10">
-                <!-- Step number -->
-                <div class="relative z-10 flex-shrink-0">
-                  <div class="w-12 h-12 rounded-full bg-primary-500 text-white flex items-center justify-center font-display font-bold text-xl shadow-lg shadow-primary-200">
-                    {step.number}
-                  </div>
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div>
+          <div class="step-number">1</div>
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">Find a recipe you love</h2>
+          <p class="text-neutral-600 leading-relaxed mb-4">
+            Could be anywhere — your favorite food blog, that New York Times recipe your friend won't stop talking about, a YouTube video, or a recipe grandma texted you. If it's on the web, Kitchenote can save it.
+          </p>
+          <div class="tip-box">
+            Works with 95% of recipe sites, including ones that block copying.
+          </div>
+        </div>
+        <div class="animate-on-scroll">
+          <PhoneMockup>
+            <div class="demo-browse">
+              <div class="demo-safari-bar">
+                <div class="safari-dots">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
                 </div>
-
-                <!-- Content -->
-                <div class="flex-1 pb-8">
-                  <h2 class="text-xl md:text-2xl font-display font-bold mb-3">
-                    {step.title}
-                  </h2>
-                  <p class="text-neutral-600 leading-relaxed mb-4">
-                    {step.description}
-                  </p>
-                  <div class="flex items-start gap-2 p-3 rounded-lg bg-sage-50 text-sage-700 text-sm">
-                    <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>{step.tip}</span>
-                  </div>
-
-                  {index < steps.length - 1 && (
-                    <div class="mt-8 aspect-video rounded-xl bg-gradient-to-br from-cream-100 to-cream-200 border border-cream-300 flex items-center justify-center md:hidden">
-                      <span class="text-neutral-400 text-sm">Step {step.number} demo</span>
-                    </div>
-                  )}
+                <div class="safari-url">
+                  <span class="safari-lock">🔒</span>
+                  <span class="safari-domain">allrecipes.com</span>
                 </div>
               </div>
-            ))}
-          </div>
+              <div class="demo-webpage">
+                <div class="webpage-hero"></div>
+                <div class="webpage-title">Chicken Tikka Masala</div>
+                <div class="webpage-rating">★★★★★ 4.8 (2,340 reviews)</div>
+                <div class="webpage-text line-1"></div>
+                <div class="webpage-text line-2"></div>
+                <div class="webpage-text line-3"></div>
+                <div class="webpage-ad">AD</div>
+                <div class="webpage-text line-4"></div>
+                <div class="webpage-text line-5"></div>
+                <div class="webpage-scroll-hint">
+                  <span>↓ Scroll for recipe...</span>
+                </div>
+              </div>
+            </div>
+          </PhoneMockup>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Demo video placeholder -->
-  <section class="py-16 bg-white">
+  <!-- Step 2: Share to Kitchenote -->
+  <section class="step-section py-12 md:py-20">
     <div class="container-wide">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-2xl md:text-3xl font-display font-bold text-center mb-8">
-          See it in action
-        </h2>
-        <div class="aspect-video rounded-2xl bg-neutral-900 flex items-center justify-center">
-          <div class="text-center text-neutral-400">
-            <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span>Demo video coming soon</span>
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="animate-on-scroll md:order-1">
+          <PhoneMockup>
+            <div class="demo-share">
+              <!-- Share sheet -->
+              <div class="share-backdrop"></div>
+              <div class="share-sheet">
+                <div class="share-handle"></div>
+                <div class="share-title">Share to...</div>
+                <div class="share-apps">
+                  <div class="share-app">
+                    <div class="share-icon icon-messages">💬</div>
+                    <span>Messages</span>
+                  </div>
+                  <div class="share-app">
+                    <div class="share-icon icon-mail">✉️</div>
+                    <span>Mail</span>
+                  </div>
+                  <div class="share-app share-app-highlight">
+                    <div class="share-icon icon-kn">
+                      <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="#e86f4c"/>
+                        <path d="M8 10h16M8 16h12M8 22h8" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                    <span>Kitchenote</span>
+                  </div>
+                  <div class="share-app">
+                    <div class="share-icon icon-notes">📝</div>
+                    <span>Notes</span>
+                  </div>
+                </div>
+                <div class="share-actions">
+                  <div class="share-action">Copy Link</div>
+                  <div class="share-action">Add Bookmark</div>
+                </div>
+              </div>
+            </div>
+          </PhoneMockup>
+        </div>
+        <div class="md:order-2">
+          <div class="step-number">2</div>
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">Share it to Kitchenote</h2>
+          <p class="text-neutral-600 leading-relaxed mb-4">
+            Hit the share button and pick Kitchenote from the list. Or just copy the URL and paste it in the app. Either way, about two seconds.
+          </p>
+          <div class="tip-box">
+            The share sheet method is faster, but pasting works great too.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ quick section -->
+  <!-- Step 3: Watch the magic -->
+  <section class="step-section py-12 md:py-20 bg-white">
+    <div class="container-wide">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div>
+          <div class="step-number">3</div>
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">Watch the magic happen</h2>
+          <p class="text-neutral-600 leading-relaxed mb-4">
+            Kitchenote reads the page and pulls out exactly what matters — title, ingredients, instructions, cook time, and photos. All the stuff you need, none of the stuff you don't.
+          </p>
+          <div class="tip-box">
+            You can always edit or add notes to any recipe after saving.
+          </div>
+        </div>
+        <div class="animate-on-scroll">
+          <PhoneMockup>
+            <div class="demo-extract">
+              <div class="demo-kn-header">
+                <span class="demo-kn-title">Importing...</span>
+              </div>
+
+              <div class="extract-scene extract-scene-1">
+                <div class="extract-progress">
+                  <div class="extract-progress-fill"></div>
+                </div>
+                <div class="extract-status">Reading page...</div>
+                <div class="extract-items">
+                  <div class="extract-item ei-1">
+                    <span class="extract-check">✓</span> Title found
+                  </div>
+                  <div class="extract-item ei-2">
+                    <span class="extract-check">✓</span> 12 ingredients
+                  </div>
+                  <div class="extract-item ei-3">
+                    <span class="extract-check">✓</span> 6 steps
+                  </div>
+                  <div class="extract-item ei-4">
+                    <span class="extract-check">✓</span> Cook time: 45 min
+                  </div>
+                  <div class="extract-item ei-5">
+                    <span class="extract-check">✓</span> Photo saved
+                  </div>
+                </div>
+              </div>
+
+              <div class="extract-scene extract-scene-2">
+                <div class="extract-done-icon">✨</div>
+                <div class="extract-done-text">Recipe saved!</div>
+                <div class="extract-recipe-preview">
+                  <div class="erp-img"></div>
+                  <div class="erp-body">
+                    <div class="erp-name">Chicken Tikka Masala</div>
+                    <div class="erp-meta">45 min · 4 servings · 12 ingredients</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </PhoneMockup>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 4: Cook -->
+  <section class="step-section py-12 md:py-20">
+    <div class="container-wide">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="animate-on-scroll md:order-1">
+          <PhoneMockup>
+            <div class="demo-final">
+              <div class="demo-kn-header">
+                <span class="demo-kn-title">My Recipes</span>
+              </div>
+              <div class="final-grid">
+                <div class="final-card fc-1">
+                  <div class="final-thumb" style="background: linear-gradient(135deg, #f4a261, #e76f51);"></div>
+                  <div class="final-info">
+                    <div class="final-name">Tikka Masala</div>
+                    <div class="final-time">45 min</div>
+                  </div>
+                </div>
+                <div class="final-card fc-2">
+                  <div class="final-thumb" style="background: linear-gradient(135deg, #a8c686, #788d61);"></div>
+                  <div class="final-info">
+                    <div class="final-name">Caesar Salad</div>
+                    <div class="final-time">15 min</div>
+                  </div>
+                </div>
+                <div class="final-card fc-3">
+                  <div class="final-thumb" style="background: linear-gradient(135deg, #f2cc8f, #e4b363);"></div>
+                  <div class="final-info">
+                    <div class="final-name">Banana Bread</div>
+                    <div class="final-time">60 min</div>
+                  </div>
+                </div>
+                <div class="final-card fc-4">
+                  <div class="final-thumb" style="background: linear-gradient(135deg, #8ecae6, #6b8cce);"></div>
+                  <div class="final-info">
+                    <div class="final-name">Pad Thai</div>
+                    <div class="final-time">30 min</div>
+                  </div>
+                </div>
+                <div class="final-card fc-5">
+                  <div class="final-thumb" style="background: linear-gradient(135deg, #d97aab, #c45b8d);"></div>
+                  <div class="final-info">
+                    <div class="final-name">Berry Smoothie</div>
+                    <div class="final-time">5 min</div>
+                  </div>
+                </div>
+                <div class="final-card fc-6">
+                  <div class="final-thumb" style="background: linear-gradient(135deg, #b5838d, #9c6b73);"></div>
+                  <div class="final-info">
+                    <div class="final-name">Miso Soup</div>
+                    <div class="final-time">20 min</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Cook mode button -->
+              <div class="final-cook-btn">
+                <span>🍳</span> Start Cooking
+              </div>
+            </div>
+          </PhoneMockup>
+        </div>
+        <div class="md:order-2">
+          <div class="step-number">4</div>
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">Cook whenever you're ready</h2>
+          <p class="text-neutral-600 leading-relaxed mb-4">
+            Your recipes are saved, organized, and waiting. Open Cook Mode when it's time to actually make something — big text, step-by-step, no distractions. Just you and the food.
+          </p>
+          <div class="tip-box">
+            All recipes work offline. No WiFi in the kitchen? No problem.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
   <section class="py-16">
     <div class="container-narrow">
-      <h2 class="text-2xl font-display font-bold text-center mb-8">
-        Quick questions
-      </h2>
+      <h2 class="text-2xl font-display font-bold text-center mb-8">Quick questions</h2>
       <div class="space-y-4">
         <details class="group card">
           <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
             What if a recipe doesn't import correctly?
-            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
           </summary>
-          <p class="mt-3 text-neutral-600">
-            Happens occasionally with unusual page layouts. You can always edit any recipe manually, or just paste the content directly. We're constantly improving our parser too—it gets better every week.
-          </p>
+          <p class="mt-3 text-neutral-600">Happens occasionally with unusual page layouts. You can always edit any recipe manually. We're constantly improving our parser too.</p>
         </details>
-
         <details class="group card">
           <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
             Can I add my own recipes?
-            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
           </summary>
-          <p class="mt-3 text-neutral-600">
-            Absolutely. Create a recipe from scratch anytime. Great for family recipes, your own creations, or that thing you made up while cleaning out the fridge.
-          </p>
+          <p class="mt-3 text-neutral-600">Absolutely. Create a recipe from scratch anytime. Great for family recipes or your own creations.</p>
         </details>
-
         <details class="group card">
           <summary class="flex items-center justify-between cursor-pointer list-none font-medium">
             Does it work with sites that require login?
-            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
+            <svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
           </summary>
-          <p class="mt-3 text-neutral-600">
-            Most of the time, yes! We use your browser session, so if you can see the recipe, we can usually save it. Some heavily protected sites might not work, but we're always adding support for more.
-          </p>
+          <p class="mt-3 text-neutral-600">Most of the time, yes! If you can see the recipe, we can usually save it. Some heavily protected sites might not work, but we're always adding support.</p>
         </details>
       </div>
-
       <p class="text-center mt-8">
-        <a href="/en/support" class="text-primary-600 hover:text-primary-700 font-medium">
-          More questions? Check out our full FAQ →
-        </a>
+        <a href="/en/support" class="text-primary-600 hover:text-primary-700 font-medium">More questions? Check our full FAQ →</a>
       </p>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="py-16 bg-primary-50 border-y border-primary-100">
+  <section class="py-16 bg-gradient-to-br from-primary-500 to-primary-600 text-white">
     <div class="container-narrow text-center">
-      <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">
-        Simple enough, right?
-      </h2>
-      <p class="text-neutral-600 mb-8">
-        Try it out. We're pretty confident you'll get the hang of it.
-      </p>
-      <a href="#download" class="btn-primary">
-        Get Kitchenote Free
-      </a>
+      <h2 class="text-2xl md:text-3xl font-display font-bold mb-4 text-white">Simple enough, right?</h2>
+      <p class="text-primary-100 mb-8">Sign up and we'll let you know when Kitchenote launches.</p>
+      <WaitlistForm />
     </div>
   </section>
 
 </Layout>
+
+<style>
+  .step-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #e86f4c;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 16px rgba(232, 111, 76, 0.25);
+  }
+
+  .tip-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: #f6f7f4;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #5d714a;
+    border-left: 3px solid #788d61;
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .animate-on-scroll.in-view { opacity: 1; transform: translateY(0); }
+
+  /* ===== Step 1: Browse animation ===== */
+  .demo-browse { width: 100%; height: 100%; display: flex; flex-direction: column; }
+
+  .demo-safari-bar {
+    padding: 48px 12px 8px;
+    background: #f2f2f7;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .safari-dots { display: flex; gap: 5px; padding: 0 4px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #d1d1d6; }
+
+  .safari-url {
+    background: white;
+    border-radius: 8px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+  }
+  .safari-lock { font-size: 10px; }
+  .safari-domain { color: #27272a; font-weight: 500; }
+
+  .demo-webpage { flex: 1; padding: 8px 12px; overflow: hidden; }
+
+  .webpage-hero {
+    height: 72px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #f4a261, #e76f51);
+    margin-bottom: 10px;
+  }
+  .webpage-title { font-size: 14px; font-weight: 700; color: #27272a; margin-bottom: 3px; }
+  .webpage-rating { font-size: 10px; color: #f59e0b; margin-bottom: 8px; }
+  .webpage-text { height: 8px; background: #e8e4de; border-radius: 4px; margin-bottom: 6px; }
+  .line-1 { width: 100%; }
+  .line-2 { width: 85%; }
+  .line-3 { width: 92%; }
+  .line-4 { width: 78%; }
+  .line-5 { width: 88%; }
+  .webpage-ad {
+    background: #fef0eb;
+    color: #e86f4c;
+    font-size: 8px;
+    font-weight: 700;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+    margin: 8px 0;
+    border: 1px dashed #f4a261;
+  }
+  .webpage-scroll-hint {
+    text-align: center;
+    font-size: 10px;
+    color: #a1a1aa;
+    margin-top: 8px;
+    animation: scrollHintPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollHintPulse {
+    0%, 100% { opacity: 0.4; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(3px); }
+  }
+
+  /* ===== Step 2: Share sheet ===== */
+  .demo-share {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #f2f2f7;
+  }
+
+  .share-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .share-sheet {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 16px 16px 0 0;
+    padding: 12px 16px 24px;
+    animation: sheetSlideUp 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+
+  @keyframes sheetSlideUp {
+    0%, 10% { transform: translateY(100%); }
+    25%, 85% { transform: translateY(0); }
+    95%, 100% { transform: translateY(100%); }
+  }
+
+  .share-handle {
+    width: 36px;
+    height: 4px;
+    background: #d1d1d6;
+    border-radius: 2px;
+    margin: 0 auto 12px;
+  }
+
+  .share-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #27272a;
+    margin-bottom: 14px;
+  }
+
+  .share-apps {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .share-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 9px;
+    color: #71717a;
+  }
+
+  .share-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background: #f0f0f0;
+  }
+
+  .share-app-highlight .share-icon {
+    background: transparent;
+    box-shadow: 0 0 0 2px #e86f4c;
+    animation: highlightPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes highlightPulse {
+    0%, 30% { box-shadow: 0 0 0 2px transparent; }
+    45%, 75% { box-shadow: 0 0 0 2px #e86f4c, 0 0 12px rgba(232, 111, 76, 0.3); }
+    90%, 100% { box-shadow: 0 0 0 2px transparent; }
+  }
+
+  .share-app-highlight span { color: #e86f4c; font-weight: 600; }
+
+  .share-actions { display: flex; flex-direction: column; gap: 1px; }
+  .share-action {
+    padding: 10px;
+    font-size: 13px;
+    color: #007aff;
+    background: #f8f8fa;
+    text-align: center;
+  }
+  .share-action:first-child { border-radius: 10px 10px 0 0; }
+  .share-action:last-child { border-radius: 0 0 10px 10px; }
+
+  /* ===== Step 3: Extract animation ===== */
+  .demo-extract {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .demo-kn-header {
+    padding: 52px 18px 10px;
+    text-align: center;
+  }
+
+  .demo-kn-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #27272a;
+  }
+
+  .extract-scene {
+    position: absolute;
+    inset: 0;
+    top: 78px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .extract-scene-1 { animation: eScene1 8s ease-in-out infinite; }
+  .extract-scene-2 { animation: eScene2 8s ease-in-out infinite; align-items: center; justify-content: center; top: 0; padding-top: 100px; }
+
+  @keyframes eScene1 {
+    0%, 5% { opacity: 0; }
+    10%, 55% { opacity: 1; }
+    65%, 100% { opacity: 0; }
+  }
+
+  @keyframes eScene2 {
+    0%, 60% { opacity: 0; transform: scale(0.95); }
+    70%, 90% { opacity: 1; transform: scale(1); }
+    98%, 100% { opacity: 0; }
+  }
+
+  .extract-progress {
+    height: 4px;
+    background: #f0ebe6;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  .extract-progress-fill {
+    height: 100%;
+    background: #e86f4c;
+    border-radius: 2px;
+    animation: extractFill 8s ease-in-out infinite;
+  }
+
+  @keyframes extractFill {
+    0%, 5% { width: 0%; }
+    55% { width: 100%; }
+    100% { width: 100%; }
+  }
+
+  .extract-status {
+    font-size: 12px;
+    color: #71717a;
+    margin-bottom: 16px;
+  }
+
+  .extract-items { display: flex; flex-direction: column; gap: 10px; }
+
+  .extract-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #27272a;
+    opacity: 0;
+    transform: translateX(-8px);
+    animation: extractItemIn 8s ease-out infinite;
+  }
+
+  .ei-1 { animation-delay: 0.5s; }
+  .ei-2 { animation-delay: 1.2s; }
+  .ei-3 { animation-delay: 1.9s; }
+  .ei-4 { animation-delay: 2.6s; }
+  .ei-5 { animation-delay: 3.3s; }
+
+  @keyframes extractItemIn {
+    0%, 8% { opacity: 0; transform: translateX(-8px); }
+    14%, 58% { opacity: 1; transform: translateX(0); }
+    65%, 100% { opacity: 0; }
+  }
+
+  .extract-check {
+    color: #788d61;
+    font-weight: 700;
+  }
+
+  .extract-done-icon { font-size: 40px; margin-bottom: 12px; }
+  .extract-done-text { font-size: 18px; font-weight: 700; color: #27272a; margin-bottom: 20px; }
+
+  .extract-recipe-preview {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .erp-img {
+    height: 72px;
+    background: linear-gradient(135deg, #f4a261, #e76f51, #e86f4c);
+  }
+
+  .erp-body { padding: 10px 12px; }
+  .erp-name { font-size: 13px; font-weight: 700; color: #27272a; margin-bottom: 2px; }
+  .erp-meta { font-size: 10px; color: #71717a; }
+
+  /* ===== Step 4: Final collection ===== */
+  .demo-final {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .final-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 6px 14px;
+  }
+
+  .final-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    animation: finalCardIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .fc-1 { animation-delay: 0.1s; }
+  .fc-2 { animation-delay: 0.2s; }
+  .fc-3 { animation-delay: 0.3s; }
+  .fc-4 { animation-delay: 0.4s; }
+  .fc-5 { animation-delay: 0.5s; }
+  .fc-6 { animation-delay: 0.6s; }
+
+  @keyframes finalCardIn {
+    from { opacity: 0; transform: translateY(10px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .final-thumb { height: 48px; }
+  .final-info { padding: 6px 8px; }
+  .final-name { font-size: 10px; font-weight: 600; color: #27272a; }
+  .final-time { font-size: 8px; color: #71717a; }
+
+  .final-cook-btn {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #e86f4c;
+    color: white;
+    padding: 10px 28px;
+    border-radius: 24px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 16px rgba(232, 111, 76, 0.3);
+    animation: cookBtnFloat 3s ease-in-out infinite;
+  }
+
+  @keyframes cookBtnFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-3px); }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => { entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('in-view'); }); },
+    { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }
+  );
+  document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+</script>
