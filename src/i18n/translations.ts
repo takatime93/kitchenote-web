@@ -18,6 +18,7 @@ export const translations = {
     'nav.pricing': 'Pricing',
     'nav.support': 'Support',
     'nav.download': 'Download',
+    'nav.signIn': 'Sign In',
 
     // Hero
     'hero.tagline': 'Your recipes, finally organized.',
@@ -130,6 +131,7 @@ export const translations = {
     'nav.pricing': '料金',
     'nav.support': 'サポート',
     'nav.download': 'ダウンロード',
+    'nav.signIn': 'ログイン',
 
     // Hero
     'hero.tagline': 'レシピ、やっと整理できます。',
