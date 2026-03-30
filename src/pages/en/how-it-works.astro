@@ -143,44 +143,132 @@ const t = useTranslations('en');
               <div class="demo-kn-header">
                 <span class="demo-kn-title">Importing...</span>
               </div>
-
-              <div class="extract-scene extract-scene-1">
+              <div class="extract-content">
                 <div class="extract-progress">
                   <div class="extract-progress-fill"></div>
                 </div>
                 <div class="extract-status">Reading page...</div>
                 <div class="extract-items">
-                  <div class="extract-item ei-1">
-                    <span class="extract-check">✓</span> Title found
-                  </div>
-                  <div class="extract-item ei-2">
-                    <span class="extract-check">✓</span> 12 ingredients
-                  </div>
-                  <div class="extract-item ei-3">
-                    <span class="extract-check">✓</span> 6 steps
-                  </div>
-                  <div class="extract-item ei-4">
-                    <span class="extract-check">✓</span> Cook time: 45 min
-                  </div>
-                  <div class="extract-item ei-5">
-                    <span class="extract-check">✓</span> Photo saved
-                  </div>
+                  <div class="extract-item ei-1"><span class="extract-check">✓</span> Title found</div>
+                  <div class="extract-item ei-2"><span class="extract-check">✓</span> 12 ingredients</div>
+                  <div class="extract-item ei-3"><span class="extract-check">✓</span> 6 steps</div>
+                  <div class="extract-item ei-4"><span class="extract-check">✓</span> Cook time: 45 min</div>
+                  <div class="extract-item ei-5"><span class="extract-check">✓</span> Photo saved</div>
                 </div>
-              </div>
-
-              <div class="extract-scene extract-scene-2">
-                <div class="extract-done-icon">✨</div>
-                <div class="extract-done-text">Recipe saved!</div>
-                <div class="extract-recipe-preview">
-                  <div class="erp-img"></div>
-                  <div class="erp-body">
-                    <div class="erp-name">Chicken Tikka Masala</div>
-                    <div class="erp-meta">45 min · 4 servings · 12 ingredients</div>
-                  </div>
+                <div class="extract-done">
+                  <div class="extract-done-icon">✨</div>
+                  <div class="extract-done-text">Recipe saved!</div>
                 </div>
               </div>
             </div>
           </PhoneMockup>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 3.5: Website vs App comparison -->
+  <section class="step-section py-12 md:py-20">
+    <div class="container-wide">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">See the difference</h2>
+        <p class="text-neutral-600 max-w-2xl mx-auto">
+          Same recipe. Completely different experience.
+        </p>
+      </div>
+      <div class="comparison animate-on-scroll">
+        <div class="comparison-grid">
+          <!-- Website side -->
+          <div class="compare-side compare-website">
+            <div class="compare-label compare-label-bad">Recipe website</div>
+            <PhoneMockup>
+              <div class="web-mess">
+                <div class="web-mess-bar">
+                  <div class="web-mess-dots"><span></span><span></span><span></span></div>
+                  <div class="web-mess-url">foodblog.com/best-ever-tikka</div>
+                </div>
+                <div class="web-mess-content">
+                  <div class="web-mess-popup">
+                    <div class="popup-x">✕</div>
+                    <div class="popup-text">Subscribe for FREE recipes!</div>
+                    <div class="popup-input"></div>
+                  </div>
+                  <div class="web-mess-hero-img"></div>
+                  <div class="web-mess-title">The BEST Chicken Tikka Masala You'll Ever Make (I Promise!)</div>
+                  <div class="web-mess-meta">By Jessica • March 12, 2025 • 847 comments</div>
+                  <div class="web-mess-story">
+                    <div class="wm-line" style="width:100%"></div>
+                    <div class="wm-line" style="width:92%"></div>
+                    <div class="wm-line" style="width:88%"></div>
+                  </div>
+                  <div class="web-mess-ad">ADVERTISEMENT</div>
+                  <div class="web-mess-story">
+                    <div class="wm-line" style="width:95%"></div>
+                    <div class="wm-line" style="width:85%"></div>
+                    <div class="wm-line" style="width:90%"></div>
+                    <div class="wm-line" style="width:78%"></div>
+                  </div>
+                  <div class="web-mess-inline-img"></div>
+                  <div class="web-mess-story">
+                    <div class="wm-line" style="width:100%"></div>
+                    <div class="wm-line" style="width:88%"></div>
+                  </div>
+                  <div class="web-mess-ad">SPONSORED</div>
+                  <div class="web-mess-story">
+                    <div class="wm-line" style="width:92%"></div>
+                    <div class="wm-line" style="width:96%"></div>
+                    <div class="wm-line" style="width:80%"></div>
+                  </div>
+                  <div class="web-mess-jump">⬇ JUMP TO RECIPE</div>
+                </div>
+              </div>
+            </PhoneMockup>
+            <div class="compare-issues">
+              <div class="issue">❌ 2,000-word life story</div>
+              <div class="issue">❌ Pop-ups and ads</div>
+              <div class="issue">❌ Needs internet</div>
+              <div class="issue">❌ Can't scale servings</div>
+            </div>
+          </div>
+
+          <!-- Kitchenote side -->
+          <div class="compare-side compare-app">
+            <div class="compare-label compare-label-good">In Kitchenote</div>
+            <PhoneMockup>
+              <div class="app-clean">
+                <div class="app-clean-header">
+                  <span class="app-clean-back">‹</span>
+                  <span class="app-clean-title">Chicken Tikka Masala</span>
+                  <span class="app-clean-edit">✎</span>
+                </div>
+                <div class="app-clean-img"></div>
+                <div class="app-clean-body">
+                  <div class="app-clean-name">Chicken Tikka Masala</div>
+                  <div class="app-clean-meta-row">
+                    <span class="app-meta-pill">🕐 45 min</span>
+                    <span class="app-meta-pill">👤 4 servings</span>
+                    <span class="app-meta-pill">⭐ Saved</span>
+                  </div>
+                  <div class="app-clean-section-title">Ingredients</div>
+                  <div class="app-clean-ing"><span class="ing-qty">500g</span> chicken thigh</div>
+                  <div class="app-clean-ing"><span class="ing-qty">1 cup</span> yogurt</div>
+                  <div class="app-clean-ing"><span class="ing-qty">2 tbsp</span> garam masala</div>
+                  <div class="app-clean-ing"><span class="ing-qty">400g</span> crushed tomatoes</div>
+                  <div class="app-clean-ing"><span class="ing-qty">1 tbsp</span> olive oil</div>
+                  <div class="app-clean-section-title">Steps</div>
+                  <div class="app-clean-step"><span class="step-num">1</span> Marinate chicken in yogurt and spices for 30 min</div>
+                  <div class="app-clean-step"><span class="step-num">2</span> Heat oil, cook chicken until golden</div>
+                </div>
+                <div class="app-clean-cook-btn">🍳 Start Cook Mode</div>
+              </div>
+            </PhoneMockup>
+            <div class="compare-wins">
+              <div class="win">✅ Just the recipe</div>
+              <div class="win">✅ No ads, no pop-ups</div>
+              <div class="win">✅ Works offline</div>
+              <div class="win">✅ Scale to any serving size</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -505,11 +593,10 @@ const t = useTranslations('en');
   .share-action:first-child { border-radius: 10px 10px 0 0; }
   .share-action:last-child { border-radius: 0 0 10px 10px; }
 
-  /* ===== Step 3: Extract animation ===== */
+  /* ===== Step 3: Extract animation (non-absolute, simple) ===== */
   .demo-extract {
     width: 100%;
     height: 100%;
-    position: relative;
   }
 
   .demo-kn-header {
@@ -523,28 +610,8 @@ const t = useTranslations('en');
     color: #27272a;
   }
 
-  .extract-scene {
-    position: absolute;
-    inset: 0;
-    top: 78px;
-    padding: 16px 18px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .extract-scene-1 { animation: eScene1 8s ease-in-out infinite; }
-  .extract-scene-2 { animation: eScene2 8s ease-in-out infinite; align-items: center; justify-content: center; top: 0; padding-top: 100px; }
-
-  @keyframes eScene1 {
-    0%, 5% { opacity: 0; }
-    10%, 55% { opacity: 1; }
-    65%, 100% { opacity: 0; }
-  }
-
-  @keyframes eScene2 {
-    0%, 60% { opacity: 0; transform: scale(0.95); }
-    70%, 90% { opacity: 1; transform: scale(1); }
-    98%, 100% { opacity: 0; }
+  .extract-content {
+    padding: 12px 18px;
   }
 
   .extract-progress {
@@ -559,22 +626,22 @@ const t = useTranslations('en');
     height: 100%;
     background: #e86f4c;
     border-radius: 2px;
-    animation: extractFill 8s ease-in-out infinite;
+    animation: extractFill 6s ease-in-out infinite;
   }
 
   @keyframes extractFill {
-    0%, 5% { width: 0%; }
-    55% { width: 100%; }
+    0% { width: 0%; }
+    60% { width: 100%; }
     100% { width: 100%; }
   }
 
   .extract-status {
     font-size: 12px;
     color: #71717a;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
-  .extract-items { display: flex; flex-direction: column; gap: 10px; }
+  .extract-items { display: flex; flex-direction: column; gap: 8px; }
 
   .extract-item {
     display: flex;
@@ -583,47 +650,214 @@ const t = useTranslations('en');
     font-size: 13px;
     color: #27272a;
     opacity: 0;
-    transform: translateX(-8px);
-    animation: extractItemIn 8s ease-out infinite;
+    animation: extractItemIn 6s ease-out infinite;
   }
 
-  .ei-1 { animation-delay: 0.5s; }
-  .ei-2 { animation-delay: 1.2s; }
-  .ei-3 { animation-delay: 1.9s; }
-  .ei-4 { animation-delay: 2.6s; }
-  .ei-5 { animation-delay: 3.3s; }
+  .ei-1 { animation-delay: 0.3s; }
+  .ei-2 { animation-delay: 0.9s; }
+  .ei-3 { animation-delay: 1.5s; }
+  .ei-4 { animation-delay: 2.1s; }
+  .ei-5 { animation-delay: 2.7s; }
 
   @keyframes extractItemIn {
-    0%, 8% { opacity: 0; transform: translateX(-8px); }
-    14%, 58% { opacity: 1; transform: translateX(0); }
-    65%, 100% { opacity: 0; }
+    0%, 5% { opacity: 0; transform: translateX(-6px); }
+    10%, 80% { opacity: 1; transform: translateX(0); }
+    90%, 100% { opacity: 0; }
   }
 
-  .extract-check {
-    color: #788d61;
-    font-weight: 700;
+  .extract-check { color: #788d61; font-weight: 700; }
+
+  .extract-done {
+    margin-top: 16px;
+    text-align: center;
+    opacity: 0;
+    animation: doneAppear 6s ease-out infinite;
   }
 
-  .extract-done-icon { font-size: 40px; margin-bottom: 12px; }
-  .extract-done-text { font-size: 18px; font-weight: 700; color: #27272a; margin-bottom: 20px; }
+  @keyframes doneAppear {
+    0%, 55% { opacity: 0; transform: scale(0.9); }
+    65%, 85% { opacity: 1; transform: scale(1); }
+    95%, 100% { opacity: 0; }
+  }
 
-  .extract-recipe-preview {
+  .extract-done-icon { font-size: 32px; }
+  .extract-done-text { font-size: 16px; font-weight: 700; color: #27272a; margin-top: 4px; }
+
+  /* ===== Comparison section ===== */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .comparison-grid {
+      grid-template-columns: 1fr;
+      max-width: 320px;
+    }
+  }
+
+  .compare-side { text-align: center; }
+
+  .compare-label {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .compare-label-bad { background: #fef0eb; color: #b24224; }
+  .compare-label-good { background: #f0f5eb; color: #4a593c; }
+
+  .compare-issues, .compare-wins {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 16px;
+    text-align: left;
+    font-size: 13px;
+  }
+
+  .issue { color: #933922; }
+  .win { color: #4a593c; }
+
+  /* Website mess mockup */
+  .web-mess { width: 100%; height: 100%; display: flex; flex-direction: column; background: white; }
+  .web-mess-bar { padding: 48px 10px 6px; background: #f2f2f7; }
+  .web-mess-dots { display: flex; gap: 4px; margin-bottom: 5px; }
+  .web-mess-dots span { width: 6px; height: 6px; border-radius: 50%; background: #d1d1d6; }
+  .web-mess-url { font-size: 10px; color: #71717a; background: white; padding: 4px 8px; border-radius: 6px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+  .web-mess-content { flex: 1; padding: 6px 10px; overflow: hidden; font-size: 10px; }
+  .web-mess-popup {
     background: white;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    width: 100%;
-    max-width: 200px;
+    border: 1.5px solid #e86f4c;
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 6px;
+    position: relative;
+    text-align: center;
+    animation: popupBounce 4s ease-in-out infinite;
+  }
+  @keyframes popupBounce { 0%,80% { transform: scale(1); } 90% { transform: scale(1.02); } 100% { transform: scale(1); } }
+  .popup-x { position: absolute; top: 3px; right: 6px; font-size: 10px; color: #a1a1aa; }
+  .popup-text { font-size: 9px; font-weight: 600; color: #27272a; margin-bottom: 4px; }
+  .popup-input { height: 16px; background: #f4f4f5; border-radius: 4px; }
+
+  .web-mess-hero-img { height: 44px; background: linear-gradient(135deg, #f4a261, #e76f51); border-radius: 4px; margin-bottom: 6px; }
+  .web-mess-title { font-size: 11px; font-weight: 700; color: #27272a; margin-bottom: 2px; line-height: 1.3; }
+  .web-mess-meta { font-size: 8px; color: #a1a1aa; margin-bottom: 6px; }
+  .web-mess-story { margin-bottom: 6px; }
+  .wm-line { height: 5px; background: #eae6e0; border-radius: 3px; margin-bottom: 3px; }
+  .web-mess-ad {
+    background: #fef6e8;
+    color: #d4903f;
+    font-size: 7px;
+    font-weight: 700;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    margin: 4px 0;
+    letter-spacing: 0.05em;
+  }
+  .web-mess-inline-img { height: 30px; background: linear-gradient(135deg, #ddd, #ccc); border-radius: 4px; margin-bottom: 6px; }
+  .web-mess-jump {
+    background: #e86f4c;
+    color: white;
+    font-size: 8px;
+    font-weight: 700;
+    text-align: center;
+    padding: 6px;
+    border-radius: 6px;
+    margin-top: 4px;
   }
 
-  .erp-img {
-    height: 72px;
+  /* Kitchenote clean mockup */
+  .app-clean { width: 100%; height: 100%; display: flex; flex-direction: column; background: #fefdfb; }
+  .app-clean-header {
+    padding: 48px 14px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .app-clean-back { font-size: 20px; color: #e86f4c; font-weight: 300; }
+  .app-clean-title { font-size: 12px; font-weight: 600; color: #27272a; }
+  .app-clean-edit { font-size: 14px; color: #e86f4c; }
+
+  .app-clean-img {
+    height: 80px;
     background: linear-gradient(135deg, #f4a261, #e76f51, #e86f4c);
   }
 
-  .erp-body { padding: 10px 12px; }
-  .erp-name { font-size: 13px; font-weight: 700; color: #27272a; margin-bottom: 2px; }
-  .erp-meta { font-size: 10px; color: #71717a; }
+  .app-clean-body { flex: 1; padding: 10px 14px; overflow: hidden; }
+  .app-clean-name { font-size: 14px; font-weight: 700; color: #27272a; margin-bottom: 6px; }
+  .app-clean-meta-row { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 10px; }
+  .app-meta-pill {
+    font-size: 9px;
+    padding: 3px 8px;
+    background: #fef5f2;
+    border-radius: 12px;
+    color: #52525b;
+  }
+
+  .app-clean-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #27272a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 8px 0 4px;
+  }
+
+  .app-clean-ing {
+    font-size: 11px;
+    color: #52525b;
+    padding: 4px 0;
+    border-bottom: 1px solid #f5f0eb;
+    display: flex;
+    gap: 6px;
+  }
+
+  .ing-qty { font-weight: 600; color: #e86f4c; min-width: 36px; }
+
+  .app-clean-step {
+    font-size: 11px;
+    color: #52525b;
+    padding: 5px 0;
+    display: flex;
+    gap: 8px;
+    line-height: 1.4;
+  }
+
+  .step-num {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border-radius: 50%;
+    background: #e86f4c;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+
+  .app-clean-cook-btn {
+    margin: 8px 14px 16px;
+    background: #e86f4c;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
 
   /* ===== Step 4: Final collection ===== */
   .demo-final {
