@@ -2,373 +2,642 @@
 import Layout from '../../layouts/Layout.astro';
 import PhoneMockup from '../../components/PhoneMockup.astro';
 import WaitlistForm from '../../components/WaitlistForm.astro';
-import { useTranslations } from '../../i18n/translations';
-const t = useTranslations('ja');
 ---
 
-<Layout title="使い方" description="Kitchenoteでのレシピ保存と整理がいかに簡単か、4つのステップでご紹介します。">
+<Layout title="使い方" description="Kitchenoteでのレシピ保存、共有、調理がいかに簡単か。あらゆるサイトからインポート、家族とコラボ、静かに賢いインテリジェンス。">
 
-  <section class="py-16 md:py-24">
+  <!-- Hero -->
+  <section class="py-12 md:py-20">
     <div class="container-narrow text-center">
-      <h1 class="mb-6">Kitchenoteの使い方</h1>
-      <p class="text-lg text-neutral-600 max-w-2xl mx-auto">4ステップ。30秒で分かります。</p>
+      <h1 class="mb-4">Kitchenoteの使い方</h1>
+      <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+        レシピの保存、共有、調理に必要なすべてが一つのアプリに。
+      </p>
     </div>
   </section>
 
-  <!-- Step 1 -->
-  <section class="step-section py-12 md:py-20 bg-white">
+  <!-- Tab Bar -->
+  <div class="tab-bar-wrapper">
     <div class="container-wide">
-      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-        <div>
-          <div class="step-number">1</div>
-          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">好きなレシピを見つける</h2>
-          <p class="text-neutral-600 leading-relaxed mb-4">どこからでもOK。お気に入りの料理ブログ、友達がおすすめしてくれたレシピ、YouTubeの動画、おばあちゃんがLINEで送ってくれたレシピ。ウェブにあるものなら保存できます。</p>
-          <div class="tip-box">コピー制限のあるサイトを含め、95%のレシピサイトに対応。</div>
-        </div>
-        <div class="animate-on-scroll">
-          <PhoneMockup>
-            <div class="demo-browse">
-              <div class="demo-safari-bar">
-                <div class="safari-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                <div class="safari-url"><span class="safari-lock">🔒</span><span class="safari-domain">cookpad.com</span></div>
-              </div>
-              <div class="demo-webpage">
-                <div class="webpage-hero"></div>
-                <div class="webpage-title">チキンティッカマサラ</div>
-                <div class="webpage-rating">★★★★★ 4.8（2,340件）</div>
-                <div class="webpage-text line-1"></div>
-                <div class="webpage-text line-2"></div>
-                <div class="webpage-text line-3"></div>
-                <div class="webpage-ad">広告</div>
-                <div class="webpage-text line-4"></div>
-                <div class="webpage-text line-5"></div>
-                <div class="webpage-scroll-hint"><span>↓ レシピまでスクロール...</span></div>
-              </div>
-            </div>
-          </PhoneMockup>
-        </div>
+      <div class="tab-bar">
+        <button class="tab-btn tab-active" data-tab="import">
+          <span class="tab-icon">📥</span>
+          <span class="tab-label">保存＆調理</span>
+        </button>
+        <button class="tab-btn" data-tab="sharing">
+          <span class="tab-icon">👨‍👩‍👧‍👦</span>
+          <span class="tab-label">共有＆コラボ</span>
+        </button>
+        <button class="tab-btn" data-tab="ai">
+          <span class="tab-icon">🧠</span>
+          <span class="tab-label">組み込み知能</span>
+        </button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Step 2 -->
-  <section class="step-section py-12 md:py-20">
-    <div class="container-wide">
-      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-        <div class="animate-on-scroll md:order-1">
-          <PhoneMockup>
-            <div class="demo-share">
-              <div class="share-backdrop"></div>
-              <div class="share-sheet">
-                <div class="share-handle"></div>
-                <div class="share-title">共有先...</div>
-                <div class="share-apps">
-                  <div class="share-app"><div class="share-icon">💬</div><span>メッセージ</span></div>
-                  <div class="share-app"><div class="share-icon">✉️</div><span>メール</span></div>
-                  <div class="share-app share-app-highlight">
-                    <div class="share-icon icon-kn"><svg width="18" height="18" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#e86f4c"/><path d="M8 10h16M8 16h12M8 22h8" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-                    <span>Kitchenote</span>
-                  </div>
-                  <div class="share-app"><div class="share-icon">📝</div><span>メモ</span></div>
-                </div>
-                <div class="share-actions">
-                  <div class="share-action">リンクをコピー</div>
-                  <div class="share-action">ブックマークに追加</div>
-                </div>
-              </div>
-            </div>
-          </PhoneMockup>
-        </div>
-        <div class="md:order-2">
-          <div class="step-number">2</div>
-          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">Kitchenoteにシェア</h2>
-          <p class="text-neutral-600 leading-relaxed mb-4">共有ボタンをタップして、Kitchenoteを選ぶだけ。URLをコピペしてもOK。2秒で完了。</p>
-          <div class="tip-box">共有シートからの方が速いですが、コピペでも問題なし。</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ============================================ -->
+  <!--  TAB 1: SAVE & COOK                         -->
+  <!-- ============================================ -->
+  <div class="tab-panel tab-panel-active" id="panel-import">
 
-  <!-- Step 3 -->
-  <section class="step-section py-12 md:py-20 bg-white">
-    <div class="container-wide">
-      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-        <div>
-          <div class="step-number">3</div>
-          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">魔法を見届ける</h2>
-          <p class="text-neutral-600 leading-relaxed mb-4">ページを読み込み、必要な情報だけを抽出。タイトル、材料、手順、調理時間、写真。余計なものは一切なし。</p>
-          <div class="tip-box">保存後はいつでも編集やメモの追加ができます。</div>
-        </div>
-        <div class="animate-on-scroll">
-          <PhoneMockup>
-            <div class="demo-extract">
-              <div class="demo-kn-header"><span class="demo-kn-title">取り込み中...</span></div>
-              <div class="extract-content">
-                <div class="extract-progress"><div class="extract-progress-fill"></div></div>
-                <div class="extract-status">ページを読み込み中...</div>
-                <div class="extract-items">
-                  <div class="extract-item ei-1"><span class="extract-check">✓</span> タイトルを検出</div>
-                  <div class="extract-item ei-2"><span class="extract-check">✓</span> 材料12点</div>
-                  <div class="extract-item ei-3"><span class="extract-check">✓</span> 手順6ステップ</div>
-                  <div class="extract-item ei-4"><span class="extract-check">✓</span> 調理時間: 45分</div>
-                  <div class="extract-item ei-5"><span class="extract-check">✓</span> 写真を保存</div>
-                </div>
-                <div class="extract-done">
-                  <div class="extract-done-icon">✨</div>
-                  <div class="extract-done-text">レシピを保存しました！</div>
-                </div>
-              </div>
-            </div>
-          </PhoneMockup>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Comparison -->
-  <section class="step-section py-12 md:py-20">
-    <div class="container-wide">
-      <div class="text-center mb-12">
-        <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">違いを見てください</h2>
-        <p class="text-neutral-600 max-w-2xl mx-auto">同じレシピ。まったく違う体験。</p>
-      </div>
-      <div class="comparison animate-on-scroll">
-        <div class="comparison-grid">
-          <div class="compare-side compare-website">
-            <div class="compare-label compare-label-bad">レシピサイト</div>
+    <!-- Step 1: Find -->
+    <section class="py-12 md:py-20 bg-white">
+      <div class="container-wide">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div>
+            <div class="step-number">1</div>
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">好きなレシピを見つける</h2>
+            <p class="text-neutral-600 leading-relaxed mb-4">
+              どこからでもOK。お気に入りの料理ブログ、YouTube動画、おばあちゃんがLINEで送ってくれたレシピ。ウェブにあるものなら保存できます。
+            </p>
+            <div class="tip-box">コピー制限のあるサイトを含め、95%のレシピサイトに対応。</div>
+          </div>
+          <div class="animate-on-scroll">
             <PhoneMockup>
-              <div class="web-mess">
-                <div class="web-mess-bar">
-                  <div class="web-mess-dots"><span></span><span></span><span></span></div>
-                  <div class="web-mess-url">cookpad.com/recipe/7654321</div>
+              <div class="demo-browse">
+                <div class="demo-safari-bar">
+                  <div class="safari-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                  <div class="safari-url"><span class="safari-lock">🔒</span><span class="safari-domain">allrecipes.com</span></div>
                 </div>
-                <div class="web-mess-content">
-                  <div class="web-mess-popup">
-                    <div class="popup-x">✕</div>
-                    <div class="popup-text">無料レシピを受け取る！</div>
-                    <div class="popup-input"></div>
-                  </div>
-                  <div class="web-mess-hero-img"></div>
-                  <div class="web-mess-title">人生で最高のチキンティッカマサラ！</div>
-                  <div class="web-mess-meta">ジェシカ · 2025年3月12日 · コメント847件</div>
-                  <div class="web-mess-story"><div class="wm-line" style="width:100%"></div><div class="wm-line" style="width:92%"></div><div class="wm-line" style="width:88%"></div></div>
-                  <div class="web-mess-ad">広告</div>
-                  <div class="web-mess-story"><div class="wm-line" style="width:95%"></div><div class="wm-line" style="width:85%"></div><div class="wm-line" style="width:90%"></div></div>
-                  <div class="web-mess-inline-img"></div>
-                  <div class="web-mess-story"><div class="wm-line" style="width:100%"></div><div class="wm-line" style="width:88%"></div></div>
-                  <div class="web-mess-ad">スポンサー</div>
-                  <div class="web-mess-story"><div class="wm-line" style="width:92%"></div><div class="wm-line" style="width:80%"></div></div>
-                  <div class="web-mess-story"><div class="wm-line" style="width:94%"></div><div class="wm-line" style="width:82%"></div></div>
+                <div class="demo-webpage">
+                  <div class="webpage-hero"></div>
+                  <div class="webpage-title">Chicken ティッカマサラ</div>
+                  <div class="webpage-rating">★★★★★ 4.8 (2,340 reviews)</div>
+                  <div class="webpage-text line-1"></div><div class="webpage-text line-2"></div><div class="webpage-text line-3"></div>
+                  <div class="webpage-ad">ADVERTISEMENT</div>
+                  <div class="webpage-text line-4"></div><div class="webpage-text line-5"></div>
+                  <div class="webpage-inline-img"></div>
+                  <div class="webpage-text line-1"></div><div class="webpage-text line-2"></div>
+                  <div class="webpage-ad">SPONSORED</div>
+                  <div class="webpage-text line-3"></div><div class="webpage-text line-4"></div>
                 </div>
               </div>
             </PhoneMockup>
-            <div class="compare-issues">
-              <div class="issue">❌ 長い前置き</div>
-              <div class="issue">❌ ポップアップと広告</div>
-              <div class="issue">❌ ネット接続が必要</div>
-              <div class="issue">❌ 人数変更できない</div>
-            </div>
           </div>
-          <div class="compare-side compare-app">
-            <div class="compare-label compare-label-good">Kitchenoteなら</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 2: Share -->
+    <section class="py-12 md:py-20">
+      <div class="container-wide">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div class="animate-on-scroll md:order-1">
             <PhoneMockup>
-              <div class="app-clean">
-                <div class="app-clean-header">
-                  <span class="app-clean-back">‹</span>
-                  <span class="app-clean-title">チキンティッカマサラ</span>
-                  <span class="app-clean-edit">✎</span>
-                </div>
-                <div class="app-clean-img"></div>
-                <div class="app-clean-body">
-                  <div class="app-clean-name">チキンティッカマサラ</div>
-                  <div class="app-clean-meta-row">
-                    <span class="app-meta-pill">🕐 45分</span>
-                    <span class="app-meta-pill">👤 4人分</span>
-                    <span class="app-meta-pill">⭐ 保存済み</span>
+              <div class="demo-share">
+                <div class="share-backdrop"></div>
+                <div class="share-sheet">
+                  <div class="share-handle"></div>
+                  <div class="share-title">共有先...</div>
+                  <div class="share-apps">
+                    <div class="share-app"><div class="share-icon">💬</div><span>メッセージ</span></div>
+                    <div class="share-app"><div class="share-icon">✉️</div><span>メール</span></div>
+                    <div class="share-app share-app-highlight">
+                      <div class="share-icon icon-kn"><svg width="18" height="18" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#e86f4c"/><path d="M8 10h16M8 16h12M8 22h8" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+                      <span>Kitchenote</span>
+                    </div>
+                    <div class="share-app"><div class="share-icon">📝</div><span>メモ</span></div>
                   </div>
-                  <div class="app-clean-section-title">材料</div>
-                  <div class="app-clean-ing"><span class="ing-qty">500g</span> 鶏もも肉</div>
-                  <div class="app-clean-ing"><span class="ing-qty">1カップ</span> ヨーグルト</div>
-                  <div class="app-clean-ing"><span class="ing-qty">大さじ2</span> ガラムマサラ</div>
-                  <div class="app-clean-ing"><span class="ing-qty">400g</span> トマト缶</div>
-                  <div class="app-clean-ing"><span class="ing-qty">大さじ1</span> オリーブオイル</div>
-                  <div class="app-clean-section-title">手順</div>
-                  <div class="app-clean-step"><span class="step-num">1</span> 鶏肉をヨーグルトとスパイスで30分漬ける</div>
-                  <div class="app-clean-step"><span class="step-num">2</span> 油を熱し、鶏肉をきつね色になるまで焼く</div>
+                  <div class="share-actions"><div class="share-action">リンクをコピー</div><div class="share-action">ブックマークに追加</div></div>
                 </div>
-                <div class="app-clean-cook-btn">🍳 クックモード開始</div>
               </div>
             </PhoneMockup>
-            <div class="compare-wins">
-              <div class="win">✅ レシピだけ</div>
-              <div class="win">✅ 広告なし</div>
-              <div class="win">✅ オフライン対応</div>
-              <div class="win">✅ 人数分の自動計算</div>
-            </div>
+          </div>
+          <div class="md:order-2">
+            <div class="step-number">2</div>
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">Kitchenoteにシェア</h2>
+            <p class="text-neutral-600 leading-relaxed mb-4">
+              共有ボタンをタップしてKitchenoteを選ぶだけ。URLをコピペしてもOK。2秒で完了。
+            </p>
+            <div class="tip-box">共有シートからの方が速いですが、コピペでも問題なし。</div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Step 4 -->
-  <section class="step-section py-12 md:py-20">
-    <div class="container-wide">
-      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-        <div class="animate-on-scroll md:order-1">
-          <PhoneMockup>
-            <div class="demo-final">
-              <div class="demo-kn-header"><span class="demo-kn-title">マイレシピ</span></div>
-              <div class="final-grid">
-                <div class="final-card fc-1"><div class="final-thumb" style="background:url("/images/recipes/tikka-masala.jpg") center/cover;"></div><div class="final-info"><div class="final-name">ティッカマサラ</div><div class="final-time">45分</div></div></div>
-                <div class="final-card fc-2"><div class="final-thumb" style="background:url("/images/recipes/caesar-salad.jpg") center/cover;"></div><div class="final-info"><div class="final-name">シーザーサラダ</div><div class="final-time">15分</div></div></div>
-                <div class="final-card fc-3"><div class="final-thumb" style="background:url("/images/recipes/banana-bread.jpg") center/cover;"></div><div class="final-info"><div class="final-name">バナナブレッド</div><div class="final-time">60分</div></div></div>
-                <div class="final-card fc-4"><div class="final-thumb" style="background:url("/images/recipes/pad-thai.jpg") center/cover;"></div><div class="final-info"><div class="final-name">パッタイ</div><div class="final-time">30分</div></div></div>
-                <div class="final-card fc-5"><div class="final-thumb" style="background:url("/images/recipes/berry-smoothie.jpg") center/cover;"></div><div class="final-info"><div class="final-name">ベリースムージー</div><div class="final-time">5分</div></div></div>
-                <div class="final-card fc-6"><div class="final-thumb" style="background:url("/images/recipes/miso-soup.jpg") center/cover;"></div><div class="final-info"><div class="final-name">味噌汁</div><div class="final-time">20分</div></div></div>
-              </div>
-              <div class="final-cook-btn"><span>🍳</span> 料理を始める</div>
-            </div>
-          </PhoneMockup>
-        </div>
-        <div class="md:order-2">
-          <div class="step-number">4</div>
-          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">好きな時に料理する</h2>
-          <p class="text-neutral-600 leading-relaxed mb-4">レシピは保存・整理され、いつでも待機状態。クックモードを開けば大きな文字でステップ表示。邪魔なものは何もなし。</p>
-          <div class="tip-box">すべてのレシピはオフラインで使えます。</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Beyond the basics -->
-  <section class="py-16 md:py-20 bg-white">
-    <div class="container-narrow text-center">
-      <div class="beyond-divider"><span class="beyond-line"></span><span class="beyond-text">さらに便利に</span><span class="beyond-line"></span></div>
-      <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 mt-8">料理はみんなでもっと楽しく</h2>
-      <p class="text-lg text-neutral-600 max-w-2xl mx-auto">Kitchenoteはレシピを保存するだけじゃない。家族の食の文化が生きる場所です。</p>
-    </div>
-  </section>
-
-  <section class="py-12 md:py-20">
-    <div class="container-wide">
-      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-        <div>
-          <div class="step-number step-collab">📖</div>
-          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">レシピブックをみんなで共有</h2>
-          <p class="text-neutral-600 leading-relaxed mb-4">パートナー、家族、友達と共有レシピブックを作成。みんながレシピを追加し、メモを残し、リアルタイムで更新を確認できます。</p>
-          <div class="tip-box">フリーユーザーは2冊まで。プレミアムは無制限。</div>
-        </div>
-        <div class="animate-on-scroll">
-          <div class="collab-visual">
-            <div class="collab-cookbook animate-on-scroll">
-              <div class="collab-book-icon">📖</div>
-              <div class="collab-book-info"><div class="collab-book-name">家族のお気に入り</div><div class="collab-book-count">23レシピ</div></div>
-              <div class="collab-avatars"><div class="c-avatar ca-1">Y</div><div class="c-avatar ca-2">T</div><div class="c-avatar ca-3">M</div><div class="c-avatar ca-4">+2</div></div>
-            </div>
-            <div class="collab-feed">
-              <div class="collab-notif cn-1 animate-on-scroll"><div class="c-avatar ca-small ca-mom">M</div><div class="cn-content"><div class="cn-text"><strong>ママ</strong>が<em>おばあちゃんのアップルパイ</em>を追加</div><div class="cn-time">2分前</div></div></div>
-              <div class="collab-notif cn-2 animate-on-scroll"><div class="c-avatar ca-small ca-dad">D</div><div class="cn-content"><div class="cn-text"><strong>パパ</strong>がコメント「シナモンを足してみて！」</div><div class="cn-time">15分前</div></div></div>
-              <div class="collab-notif cn-3 animate-on-scroll"><div class="c-avatar ca-small ca-sis">S</div><div class="cn-content"><div class="cn-text"><strong>さくら</strong>があなたのパッタイを保存</div><div class="cn-time">1時間前</div></div></div>
-            </div>
+    <!-- Step 3: Extract -->
+    <section class="py-12 md:py-20 bg-white">
+      <div class="container-wide">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div>
+            <div class="step-number">3</div>
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">魔法を見届ける</h2>
+            <p class="text-neutral-600 leading-relaxed mb-4">
+              ページを読み込み、必要な情報だけを抽出。タイトル、材料、手順、調理時間、写真。
+            </p>
+            <div class="tip-box">保存後はいつでも編集やメモの追加ができます。</div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-12 md:py-20 bg-white">
-    <div class="container-wide">
-      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-        <div class="animate-on-scroll md:order-1">
-          <div class="version-visual">
-            <div class="ver-card ver-original">
-              <div class="ver-badge ver-badge-original">オリジナル</div>
-              <div class="ver-img" style="background:url('/images/recipes/tikka-masala.jpg') center/cover;"></div>
-              <div class="ver-body"><div class="ver-name">ママのカレー</div><div class="ver-detail"><div class="ver-ing">マイルドカレー粉 大さじ2</div><div class="ver-ing">ココナッツミルク 1カップ</div><div class="ver-ing">鶏むね肉 400g</div></div></div>
-            </div>
-            <div class="ver-fork-arrow"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M12 20h16M22 14l6 6-6 6" stroke="#e86f4c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div class="ver-card ver-yours">
-              <div class="ver-badge ver-badge-yours">あなたのバージョン</div>
-              <div class="ver-img" style="background:url('/images/recipes/tikka-masala.jpg') center/cover;filter:hue-rotate(15deg) saturate(1.2);"></div>
-              <div class="ver-body"><div class="ver-name">激辛カレー 🔥</div><div class="ver-detail"><div class="ver-ing ver-changed"><span class="ver-strike">マイルド大さじ2</span> → ホット大さじ3</div><div class="ver-ing">ココナッツミルク 1カップ</div><div class="ver-ing ver-changed"><span class="ver-strike">むね肉</span> → もも肉</div><div class="ver-ing ver-added">+ タイ唐辛子 2本</div></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="md:order-2">
-          <div class="step-number step-collab">✏️</div>
-          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">フォークして自分流に</h2>
-          <p class="text-neutral-600 leading-relaxed mb-4">もっと辛くしたい？フォークして、材料を入れ替え、分量を調整、自分のメモを追加。すべてオリジナルに影響なし。</p>
-          <div class="tip-box">コメントで工夫をシェア：「にんにく多めで作ったら最高だった」</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-12 md:py-20">
-    <div class="container-wide">
-      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-        <div>
-          <div class="step-number step-collab">🤖</div>
-          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">AIキッチンアシスタント</h2>
-          <p class="text-neutral-600 leading-relaxed mb-4">乳製品フリーにしたい？冷蔵庫の残り物で何が作れる？AIアシスタントがスマートな代替提案、レシピの精度チェック、食事制限に合わせたアレンジをお手伝い。</p>
-          <div class="tip-box">プレミアム限定機能。料理をなんでも知っている頼れる友達。</div>
-        </div>
-        <div class="animate-on-scroll">
-          <div class="ai-visual">
-            <div class="ai-chat">
-              <div class="ai-msg ai-user"><div class="ai-bubble ai-bubble-user">このレシピを乳製品フリーにして</div></div>
-              <div class="ai-msg ai-assistant">
-                <div class="ai-avatar">✨</div>
-                <div class="ai-bubble ai-bubble-assistant">
-                  <div class="ai-typing">提案があります：</div>
-                  <div class="ai-suggestion as-1"><span class="ai-swap-old">バター（½カップ）</span><span class="ai-swap-arrow">→</span><span class="ai-swap-new">ココナッツオイル（½カップ）</span></div>
-                  <div class="ai-suggestion as-2"><span class="ai-swap-old">牛乳（1カップ）</span><span class="ai-swap-arrow">→</span><span class="ai-swap-new">オーツミルク（1カップ）</span></div>
-                  <div class="ai-suggestion as-3"><span class="ai-swap-old">生クリーム（½カップ）</span><span class="ai-swap-arrow">→</span><span class="ai-swap-new">ココナッツクリーム（½カップ）</span></div>
+          <div class="animate-on-scroll">
+            <PhoneMockup>
+              <div class="demo-extract">
+                <div class="demo-kn-header"><span class="demo-kn-title">取り込み中...</span></div>
+                <div class="extract-content">
+                  <div class="extract-progress"><div class="extract-progress-fill"></div></div>
+                  <div class="extract-status">ページを読み込み中...</div>
+                  <div class="extract-items">
+                    <div class="extract-item ei-1"><span class="extract-check">✓</span> タイトルを検出</div>
+                    <div class="extract-item ei-2"><span class="extract-check">✓</span> 材料12点</div>
+                    <div class="extract-item ei-3"><span class="extract-check">✓</span> 手順6ステップ</div>
+                    <div class="extract-item ei-4"><span class="extract-check">✓</span> 調理時間: 45分</div>
+                    <div class="extract-item ei-5"><span class="extract-check">✓</span> 写真を保存</div>
+                  </div>
+                  <div class="extract-done"><div class="extract-done-icon">✨</div><div class="extract-done-text">レシピを保存しました！</div></div>
                 </div>
               </div>
-              <div class="ai-msg ai-assistant ai-audit">
-                <div class="ai-avatar">🔍</div>
-                <div class="ai-bubble ai-bubble-assistant">
-                  <div class="ai-typing">レシピ監査：</div>
-                  <div class="ai-audit-item aa-1">✅ 温度設定は正確です</div>
-                  <div class="ai-audit-item aa-2">✅ 調理時間を確認済み</div>
-                  <div class="ai-audit-item aa-3">⚠️ 塩を¾小さじに減らすことをおすすめ</div>
-                </div>
-              </div>
-            </div>
-            <div class="ai-apply-btn">すべての提案を適用</div>
+            </PhoneMockup>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Comparison: Website vs App -->
+    <section class="py-12 md:py-20">
+      <div class="container-wide">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">違いを見てください</h2>
+          <p class="text-neutral-600">同じレシピ。まったく違う体験。</p>
+        </div>
+        <div class="comparison animate-on-scroll">
+          <div class="comparison-grid">
+            <div class="compare-side">
+              <div class="compare-label compare-label-bad">レシピサイト</div>
+              <PhoneMockup>
+                <div class="web-mess">
+                  <div class="web-mess-bar"><div class="web-mess-dots"><span></span><span></span><span></span></div><div class="web-mess-url">foodblog.com/best-ever-tikka</div></div>
+                  <div class="web-mess-content">
+                    <div class="web-mess-popup"><div class="popup-x">✕</div><div class="popup-text">無料レシピを受け取る！</div><div class="popup-input"></div></div>
+                    <div class="web-mess-hero-img"></div>
+                    <div class="web-mess-title">人生最高のチキンティッカマサラ！</div>
+                    <div class="web-mess-meta">ジェシカ · 2025年3月 · コメント847件</div>
+                    <div class="web-mess-story"><div class="wm-line" style="width:100%"></div><div class="wm-line" style="width:92%"></div><div class="wm-line" style="width:88%"></div></div>
+                    <div class="web-mess-ad">ADVERTISEMENT</div>
+                    <div class="web-mess-story"><div class="wm-line" style="width:95%"></div><div class="wm-line" style="width:85%"></div><div class="wm-line" style="width:90%"></div></div>
+                    <div class="web-mess-inline-img"></div>
+                    <div class="web-mess-ad">SPONSORED</div>
+                    <div class="web-mess-story"><div class="wm-line" style="width:92%"></div><div class="wm-line" style="width:80%"></div></div>
+                  </div>
+                </div>
+              </PhoneMockup>
+              <div class="compare-list"><div class="issue">❌ 長い前置き</div><div class="issue">❌ ポップアップと広告</div><div class="issue">❌ ネット接続が必要</div><div class="issue">❌ 人数変更できない</div></div>
+            </div>
+            <div class="compare-side">
+              <div class="compare-label compare-label-good">Kitchenoteなら</div>
+              <PhoneMockup>
+                <div class="app-clean">
+                  <div class="app-clean-header"><span class="app-clean-back">‹</span><span class="app-clean-title">Chicken ティッカマサラ</span><span class="app-clean-edit">✎</span></div>
+                  <div class="app-clean-img"></div>
+                  <div class="app-clean-body">
+                    <div class="app-clean-name">Chicken ティッカマサラ</div>
+                    <div class="app-clean-meta-row"><span class="app-meta-pill">🕐 45 min</span><span class="app-meta-pill">👤 4 servings</span><span class="app-meta-pill">⭐ Saved</span></div>
+                    <div class="app-clean-section-title">Ingredients</div>
+                    <div class="app-clean-ing"><span class="ing-qty">500g</span> chicken thigh</div>
+                    <div class="app-clean-ing"><span class="ing-qty">1 cup</span> yogurt</div>
+                    <div class="app-clean-ing"><span class="ing-qty">2 tbsp</span> garam masala</div>
+                    <div class="app-clean-ing"><span class="ing-qty">400g</span> crushed tomatoes</div>
+                    <div class="app-clean-ing"><span class="ing-qty">1 tbsp</span> オリーブオイル</div>
+                    <div class="app-clean-section-title">Steps</div>
+                    <div class="app-clean-step"><span class="step-num-sm">1</span> Marinate chicken in yogurt and spices for 30 min</div>
+                    <div class="app-clean-step"><span class="step-num-sm">2</span> Heat oil, cook chicken until golden</div>
+                  </div>
+                  <div class="app-clean-cook-btn">🍳 Start Cook Mode</div>
+                </div>
+              </PhoneMockup>
+              <div class="compare-list"><div class="win">✅ レシピだけ</div><div class="win">✅ 広告なし</div><div class="win">✅ オフライン対応</div><div class="win">✅ 人数分の自動計算</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 4: Cook -->
+    <section class="py-12 md:py-20 bg-white">
+      <div class="container-wide">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div class="animate-on-scroll md:order-1">
+            <PhoneMockup>
+              <div class="demo-final">
+                <div class="demo-kn-header"><span class="demo-kn-title">マイレシピ</span></div>
+                <div class="final-grid">
+                  <div class="final-card fc-1"><div class="final-thumb" style="background:url('/images/recipes/tikka-masala.jpg') center/cover;"></div><div class="final-info"><div class="final-name">ティッカマサラ</div><div class="final-time">45 min</div></div></div>
+                  <div class="final-card fc-2"><div class="final-thumb" style="background:url('/images/recipes/caesar-salad.jpg') center/cover;"></div><div class="final-info"><div class="final-name">シーザーサラダ</div><div class="final-time">15 min</div></div></div>
+                  <div class="final-card fc-3"><div class="final-thumb" style="background:url('/images/recipes/banana-bread.jpg') center/cover;"></div><div class="final-info"><div class="final-name">バナナブレッド</div><div class="final-time">60 min</div></div></div>
+                  <div class="final-card fc-4"><div class="final-thumb" style="background:url('/images/recipes/pad-thai.jpg') center/cover;"></div><div class="final-info"><div class="final-name">パッタイ</div><div class="final-time">30 min</div></div></div>
+                  <div class="final-card fc-5"><div class="final-thumb" style="background:url('/images/recipes/berry-smoothie.jpg') center/cover;"></div><div class="final-info"><div class="final-name">ベリースムージー</div><div class="final-time">5 min</div></div></div>
+                  <div class="final-card fc-6"><div class="final-thumb" style="background:url('/images/recipes/miso-soup.jpg') center/cover;"></div><div class="final-info"><div class="final-name">味噌汁</div><div class="final-time">20 min</div></div></div>
+                </div>
+                <div class="final-cook-btn"><span>🍳</span> 料理を始める</div>
+              </div>
+            </PhoneMockup>
+          </div>
+          <div class="md:order-2">
+            <div class="step-number">4</div>
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">好きな時に料理する</h2>
+            <p class="text-neutral-600 leading-relaxed mb-4">
+              レシピは保存・整理され、いつでも待機状態。クックモードで大きな文字、ステップ表示、邪魔なものゼロ。
+            </p>
+            <div class="tip-box">すべてのレシピはオフラインで使えます。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================ -->
+  <!--  TAB 2: SHARE & COLLABORATE                  -->
+  <!-- ============================================ -->
+  <div class="tab-panel" id="panel-sharing">
+
+    <!-- Shared Cookbooks -->
+    <section class="py-12 md:py-20 bg-white">
+      <div class="container-wide">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div>
+            <div class="feature-emoji">📖</div>
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">共有レシピブック</h2>
+            <p class="text-neutral-600 leading-relaxed mb-4">
+              パートナー、家族、友達と共有レシピブックを作成。みんながレシピを追加し、メモを残し、リアルタイムで更新を確認できます。
+            </p>
+            <div class="tip-box">フリーユーザーは2冊まで。プレミアムは無制限。</div>
+          </div>
+          <div class="animate-on-scroll">
+            <div class="collab-visual">
+              <div class="collab-cookbook">
+                <div class="collab-book-icon">📖</div>
+                <div class="collab-book-info"><div class="collab-book-name">家族のお気に入り</div><div class="collab-book-count">23レシピ</div></div>
+                <div class="collab-avatars"><div class="c-avatar ca-1">Y</div><div class="c-avatar ca-2">T</div><div class="c-avatar ca-3">M</div><div class="c-avatar ca-4">+2</div></div>
+              </div>
+              <div class="collab-feed">
+                <div class="collab-notif cn-1 animate-on-scroll"><div class="c-avatar ca-small ca-mom">M</div><div class="cn-content"><div class="cn-text"><strong>ママ</strong>が<em>おばあちゃんのアップルパイ</em>を追加</div><div class="cn-time">2分前</div></div></div>
+                <div class="collab-notif cn-2 animate-on-scroll"><div class="c-avatar ca-small ca-dad">D</div><div class="cn-content"><div class="cn-text"><strong>パパ</strong>がコメント「シナモンを足してみて！」</div><div class="cn-time">15分前</div></div></div>
+                <div class="collab-notif cn-3 animate-on-scroll"><div class="c-avatar ca-small ca-sis">S</div><div class="cn-content"><div class="cn-text"><strong>さくら</strong> saved your パッタイ recipe</div><div class="cn-time">1時間前</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Versioning -->
+    <section class="py-12 md:py-20">
+      <div class="container-wide">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div class="animate-on-scroll md:order-1">
+            <div class="version-visual">
+              <div class="ver-card ver-original">
+                <div class="ver-badge ver-badge-original">オリジナル</div>
+                <div class="ver-img" style="background:url('/images/recipes/tikka-masala.jpg') center/cover;"></div>
+                <div class="ver-body"><div class="ver-name">ママのカレー</div><div class="ver-detail"><div class="ver-ing">マイルドカレー粉 大さじ2</div><div class="ver-ing">ココナッツミルク 1カップ</div><div class="ver-ing">鶏むね肉 400g</div></div></div>
+              </div>
+              <div class="ver-fork-arrow"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M12 20h16M22 14l6 6-6 6" stroke="#e86f4c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="ver-card ver-yours">
+                <div class="ver-badge ver-badge-yours">あなたのバージョン</div>
+                <div class="ver-img" style="background:url('/images/recipes/tikka-masala.jpg') center/cover;filter:hue-rotate(15deg) saturate(1.2);"></div>
+                <div class="ver-body"><div class="ver-name">激辛カレー 🔥</div><div class="ver-detail"><div class="ver-ing ver-changed"><span class="ver-strike">マイルド大さじ2</span> → ホット大さじ3</div><div class="ver-ing">ココナッツミルク 1カップ</div><div class="ver-ing ver-changed"><span class="ver-strike">むね肉</span> → thigh</div><div class="ver-ing ver-added">+ タイ唐辛子 2本</div></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="md:order-2">
+            <div class="feature-emoji">✏️</div>
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">フォークして自分流に</h2>
+            <p class="text-neutral-600 leading-relaxed mb-4">
+              もっと辛くしたい？フォークして、材料を入れ替え、分量を調整、メモを追加。すべてオリジナルに影響なし。
+            </p>
+            <div class="tip-box">コメントで工夫をシェア：「にんにく多めで作ったら最高だった」</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Friends & アクティビティ -->
+    <section class="py-12 md:py-20 bg-white">
+      <div class="container-wide">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div>
+            <div class="feature-emoji">👥</div>
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">好きな料理人をフォロー</h2>
+            <p class="text-neutral-600 leading-relaxed mb-4">
+              友達や家族を追加。みんなが何を保存しているか見て、インスピレーションを得て、共有の食文化を作りましょう。
+            </p>
+            <div class="tip-box">フレンド＆ソーシャル機能はすべて無料。</div>
+          </div>
+          <div class="animate-on-scroll">
+            <div class="friends-visual">
+              <div class="friend-profile fp-1 animate-on-scroll">
+                <div class="c-avatar ca-small ca-mom">M</div>
+                <div class="fp-info"><div class="fp-name">ママ</div><div class="fp-stat">47レシピ · 3冊</div></div>
+                <div class="fp-follow fp-following">フォロー中</div>
+              </div>
+              <div class="friend-profile fp-2 animate-on-scroll">
+                <div class="c-avatar ca-small ca-dad">D</div>
+                <div class="fp-info"><div class="fp-name">パパ</div><div class="fp-stat">12レシピ · BBQの達人</div></div>
+                <div class="fp-follow fp-following">フォロー中</div>
+              </div>
+              <div class="friend-profile fp-3 animate-on-scroll">
+                <div class="c-avatar ca-small ca-sis">S</div>
+                <div class="fp-info"><div class="fp-name">さくら</div><div class="fp-stat">31レシピ · お菓子の女王</div></div>
+                <div class="fp-follow fp-following">フォロー中</div>
+              </div>
+              <div class="friend-profile fp-4 animate-on-scroll">
+                <div class="c-avatar ca-small" style="background:#8ecae6;">K</div>
+                <div class="fp-info"><div class="fp-name">ケンジ</div><div class="fp-stat">89レシピ · 和食</div></div>
+                <div class="fp-follow fp-add">+ フォロー</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notifications -->
+    <section class="py-12 md:py-20">
+      <div class="container-wide">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div class="animate-on-scroll md:order-1">
+            <div class="notif-visual">
+              <div class="notif-header">アクティビティ</div>
+              <div class="notif-item ni-1 animate-on-scroll">
+                <div class="notif-dot notif-dot-new"></div>
+                <div class="c-avatar ca-small ca-mom">M</div>
+                <div class="notif-body"><strong>ママ</strong>が<em>おばあちゃんのアップルパイ</em>を追加 to 家族のお気に入り</div>
+                <div class="notif-time">2分</div>
+              </div>
+              <div class="notif-item ni-2 animate-on-scroll">
+                <div class="notif-dot notif-dot-new"></div>
+                <div class="c-avatar ca-small ca-sis">S</div>
+                <div class="notif-body"><strong>さくら</strong>があなたの<em>バナナブレッド</em>にコメント</div>
+                <div class="notif-time">1時間</div>
+              </div>
+              <div class="notif-item ni-3 animate-on-scroll">
+                <div class="notif-dot"></div>
+                <div class="c-avatar ca-small ca-dad">D</div>
+                <div class="notif-body"><strong>パパ</strong>があなたの<em>カレー</em>をフォーク</div>
+                <div class="notif-time">3時間</div>
+              </div>
+              <div class="notif-item ni-4 animate-on-scroll">
+                <div class="notif-dot"></div>
+                <div class="c-avatar ca-small" style="background:#8ecae6;">K</div>
+                <div class="notif-body"><strong>ケンジ</strong>があなたをフォロー開始</div>
+                <div class="notif-time">1日</div>
+              </div>
+            </div>
+          </div>
+          <div class="md:order-2">
+            <div class="feature-emoji">🔔</div>
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">キッチンの最新情報を見逃さない</h2>
+            <p class="text-neutral-600 leading-relaxed mb-4">
+              レシピの追加、コメント、フォーク、フォロー開始をお知らせ。キッチンコミュニティ、常に最新。
+            </p>
+            <div class="tip-box">通知はスマート。スパムは送りません。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================ -->
+  <!--  TAB 3: BUILT-IN INTELLIGENCE                 -->
+  <!-- ============================================ -->
+  <div class="tab-panel" id="panel-ai">
+
+    <!-- Intro -->
+    <section class="py-12 md:py-16 bg-white">
+      <div class="container-narrow text-center">
+        <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">邪魔しない知性</h2>
+        <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+          チャットボットなし。プロンプトなし。Kitchenoteの知性はすべてのインタラクションに織り込まれ、バックグラウンドで静かに動きます。料理に集中できます。
+        </p>
+      </div>
+    </section>
+
+    <!-- Smart parsing -->
+    <section class="py-12 md:py-20">
+      <div class="container-wide">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div>
+            <div class="feature-emoji">🎯</div>
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">あらゆるレシピサイトを理解</h2>
+            <p class="text-neutral-600 leading-relaxed mb-4">
+              レシピを保存する時、Kitchenoteは単にテキストを取得するだけではありません。構造化データ、プラグインパターン、ヒューリスティック分析など複数の方法を試し、最も精度の高いものを自動選択。一つの方法が見逃しても、次が拾います。
+            </p>
+            <div class="tip-box">95%のレシピサイトに対応。精度はアップデートのたびに向上。</div>
+          </div>
+          <div class="animate-on-scroll">
+            <div class="smart-parse-visual">
+              <div class="parse-method-stack">
+                <div class="parse-method pm-1 animate-on-scroll">
+                  <div class="pm-status pm-try">解析中</div>
+                  <div class="pm-name">Schema.org / JSON-LD</div>
+                  <div class="pm-confidence">
+                    <div class="pm-bar"><div class="pm-fill" style="width:92%"></div></div>
+                    <span class="pm-score">92%</span>
+                  </div>
+                </div>
+                <div class="parse-method pm-2 animate-on-scroll">
+                  <div class="pm-status pm-skip">スキップ</div>
+                  <div class="pm-name">レシピプラグイン (WPRM)</div>
+                  <div class="pm-confidence"><div class="pm-bar"><div class="pm-fill pm-fill-low" style="width:0%"></div></div><span class="pm-score">—</span></div>
+                </div>
+                <div class="parse-method pm-3 animate-on-scroll">
+                  <div class="pm-status pm-skip">スキップ</div>
+                  <div class="pm-name">HTMLヒューリスティック</div>
+                  <div class="pm-confidence"><div class="pm-bar"><div class="pm-fill pm-fill-low" style="width:0%"></div></div><span class="pm-score">—</span></div>
+                </div>
+              </div>
+              <div class="parse-result animate-on-scroll">
+                <div class="parse-result-icon">✓</div>
+                <div class="parse-result-text">
+                  <div class="parse-result-title">高精度インポート</div>
+                  <div class="parse-result-detail">Title, 材料12点, 手順6ステップ, photo, cook time</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Image filtering -->
+    <section class="py-12 md:py-20 bg-white">
+      <div class="container-wide">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div class="animate-on-scroll md:order-1">
+            <div class="image-filter-visual">
+              <div class="img-grid">
+                <div class="img-cell img-food animate-on-scroll">
+                  <div class="img-thumb" style="background:url('/images/recipes/tikka-masala.jpg') center/cover;"></div>
+                  <div class="img-badge img-badge-food">✓ 食べ物</div>
+                </div>
+                <div class="img-cell img-rejected animate-on-scroll">
+                  <div class="img-thumb img-thumb-ad"></div>
+                  <div class="img-badge img-badge-ad">✕ 広告バナー</div>
+                </div>
+                <div class="img-cell img-food animate-on-scroll">
+                  <div class="img-thumb" style="background:url('/images/recipes/caesar-salad.jpg') center/cover;"></div>
+                  <div class="img-badge img-badge-food">✓ 食べ物</div>
+                </div>
+                <div class="img-cell img-rejected animate-on-scroll">
+                  <div class="img-thumb img-thumb-logo"></div>
+                  <div class="img-badge img-badge-ad">✕ ロゴ</div>
+                </div>
+              </div>
+              <div class="img-filter-label animate-on-scroll">料理写真だけがレシピに保存されます</div>
+            </div>
+          </div>
+          <div class="md:order-2">
+            <div class="feature-emoji">📸</div>
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">食べ物とそれ以外を見分ける</h2>
+            <p class="text-neutral-600 leading-relaxed mb-4">
+              レシピサイトは広告バナー、著者の写真、ロゴ画像だらけ。Kitchenoteの画像分類が本物の料理写真を自動判別し、それだけを保存。余計なものは一切見えません。
+            </p>
+            <div class="tip-box">AppleのVisionフレームワークを使用。すべてデバイス上で処理。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ingredient extraction from steps -->
+    <section class="py-12 md:py-20">
+      <div class="container-wide">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div>
+            <div class="feature-emoji">🔗</div>
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">材料と手順をつなぐ</h2>
+            <p class="text-neutral-600 leading-relaxed mb-4">
+              「ソースを加える」と書いてあるけど、何が入るんだっけ？Kitchenoteが各手順で使う材料を自動検出してハイライト。何がどこに入るか、いつでも分かります。
+            </p>
+            <div class="tip-box">日本語・英語対応、90種類以上の食材を認識。</div>
+          </div>
+          <div class="animate-on-scroll">
+            <div class="step-highlight-visual">
+              <div class="sh-step">
+                <div class="sh-step-num">3</div>
+                <div class="sh-step-text">
+                  大きなフライパンに<span class="sh-ing">オリーブオイル</span>を熱し、<span class="sh-ing">玉ねぎ</span>と<span class="sh-ing">にんにく</span>を加え、柔らかくなるまで炒める
+                </div>
+              </div>
+              <div class="sh-detected">
+                <div class="sh-detected-label">この手順で検出：</div>
+                <div class="sh-pills">
+                  <span class="sh-pill sp-1">オリーブオイル · 1 tbsp</span>
+                  <span class="sh-pill sp-2">玉ねぎ · 1個</span>
+                  <span class="sh-pill sp-3">にんにく · 3 cloves</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Auto-categorization -->
+    <section class="py-12 md:py-20 bg-white">
+      <div class="container-wide">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div class="animate-on-scroll md:order-1">
+            <div class="autocat-visual">
+              <div class="autocat-recipe">
+                <div class="autocat-name">Chicken ティッカマサラ</div>
+                <div class="autocat-divider"></div>
+                <div class="autocat-fields">
+                  <div class="autocat-field af-1 animate-on-scroll">
+                    <span class="af-label">料理ジャンル</span>
+                    <span class="af-value af-auto">インド料理</span>
+                    <span class="af-badge">auto</span>
+                  </div>
+                  <div class="autocat-field af-2 animate-on-scroll">
+                    <span class="af-label">難易度</span>
+                    <span class="af-value af-auto">普通</span>
+                    <span class="af-badge">auto</span>
+                  </div>
+                  <div class="autocat-field af-3 animate-on-scroll">
+                    <span class="af-label">食事タイプ</span>
+                    <span class="af-value af-auto">夕食</span>
+                    <span class="af-badge">auto</span>
+                  </div>
+                  <div class="autocat-field af-4 animate-on-scroll">
+                    <span class="af-label">食事制限</span>
+                    <span class="af-value af-auto">グルテンフリー</span>
+                    <span class="af-badge">auto</span>
+                  </div>
+                </div>
+              </div>
+              <div class="autocat-note animate-on-scroll">フィールドが自動入力。いつでも編集可能。</div>
+            </div>
+          </div>
+          <div class="md:order-2">
+            <div class="feature-emoji">🏷️</div>
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">カテゴリが自動で入る</h2>
+            <p class="text-neutral-600 leading-relaxed mb-4">
+              料理ジャンル、難易度、食事タイプ、食事制限 — レシピの内容から自動判定して入力。間違っていたらタップで変更。でもだいたい合ってます。
+            </p>
+            <div class="tip-box">空のフィールドのみ入力。設定済みの内容は上書きしません。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OCR -->
+    <section class="py-12 md:py-20">
+      <div class="container-wide">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div>
+            <div class="feature-emoji">📖</div>
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">料理本や手書きカードをスキャン</h2>
+            <p class="text-neutral-600 leading-relaxed mb-4">
+              料理本のページやおばあちゃんの手書きレシピカードにカメラを向けるだけ。縦書きの日本語も読み取り、きれいなレシピに変換。英語・日本語、印刷・手書き対応。
+            </p>
+            <div class="tip-box">Apple VisionKit搭載。すべてデバイス上で処理。</div>
+          </div>
+          <div class="animate-on-scroll">
+            <div class="ocr-visual">
+              <div class="ocr-source">
+                <div class="ocr-card-img">
+                  <div class="ocr-handwriting">
+                    <div class="hw-line hw-1">おばあちゃんのアップルパイ</div>
+                    <div class="hw-line hw-2">りんご 3カップ（スライス）</div>
+                    <div class="hw-line hw-3">砂糖 ¾カップ</div>
+                    <div class="hw-line hw-4">薄力粉 大さじ2</div>
+                    <div class="hw-line hw-5">シナモン 小さじ1</div>
+                  </div>
+                </div>
+                <div class="ocr-label">レシピカード</div>
+              </div>
+              <div class="ocr-arrow">→</div>
+              <div class="ocr-result">
+                <div class="ocr-clean-recipe">
+                  <div class="ocr-clean-title">おばあちゃんのアップルパイ</div>
+                  <div class="ocr-clean-ing">りんご 3カップ（スライス）</div>
+                  <div class="ocr-clean-ing">砂糖 ¾カップ</div>
+                  <div class="ocr-clean-ing">薄力粉 大さじ2</div>
+                  <div class="ocr-clean-ing">シナモン 小さじ1</div>
+                </div>
+                <div class="ocr-label">Kitchenoteなら</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <!-- FAQ -->
-  <section class="py-16">
+  <section class="py-16 bg-white">
     <div class="container-narrow">
       <h2 class="text-2xl font-display font-bold text-center mb-8">よくある質問</h2>
       <div class="space-y-4">
-        <details class="group card">
-          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">レシピが正しくインポートできない場合は？<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
-          <p class="mt-3 text-neutral-600">まれに正しく読み込めない場合があります。手動で編集可能です。パーサーは常に改良中です。</p>
-        </details>
-        <details class="group card">
-          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">自分でレシピを作成できますか？<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
-          <p class="mt-3 text-neutral-600">もちろんです！ゼロから新しいレシピをいつでも作成できます。</p>
-        </details>
-        <details class="group card">
-          <summary class="flex items-center justify-between cursor-pointer list-none font-medium">ログインが必要なサイトでも使えますか？<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary>
-          <p class="mt-3 text-neutral-600">ほとんどの場合はい。あなたがレシピを見られれば保存もできます。対応サイトは常に増やしています。</p>
-        </details>
+        <details class="group card"><summary class="flex items-center justify-between cursor-pointer list-none font-medium">レシピが正しくインポートできない場合は？<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><p class="mt-3 text-neutral-600">まれにあります。手動で編集可能で、パーサーは常に改良中です。</p></details>
+        <details class="group card"><summary class="flex items-center justify-between cursor-pointer list-none font-medium">共有は本当に無料ですか？<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><p class="mt-3 text-neutral-600">はい！フレンド、ソーシャル機能、共有レシピブック2冊はずっと無料。プレミアムで無制限に。</p></details>
+        <details class="group card"><summary class="flex items-center justify-between cursor-pointer list-none font-medium">組み込みインテリジェンスとは？<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><p class="mt-3 text-neutral-600">バックグラウンドで静かに動きます。スマート解析、画像フィルタリング、材料リンクなどのコア機能は全ユーザー無料。プレミアムで自動分類やオンデバイスAIが追加。</p></details>
       </div>
-      <p class="text-center mt-8"><a href="/ja/support" class="text-primary-600 hover:text-primary-700 font-medium">他の質問はこちら →</a></p>
+      <p class="text-center mt-8"><a href="/en/support" class="text-primary-600 hover:text-primary-700 font-medium">他の質問はこちら →</a></p>
     </div>
   </section>
 
+  <!-- CTA -->
   <section class="py-16 bg-gradient-to-br from-primary-500 to-primary-600 text-white">
     <div class="container-narrow text-center">
-      <h2 class="text-2xl md:text-3xl font-display font-bold mb-4 text-white">シンプルでしょう？</h2>
+      <h2 class="text-2xl md:text-3xl font-display font-bold mb-4 text-white">試してみませんか？</h2>
       <p class="text-primary-100 mb-8">リリース時にお知らせします。</p>
       <WaitlistForm />
     </div>
@@ -377,11 +646,35 @@ const t = useTranslations('ja');
 </Layout>
 
 <style>
+  /* ===== Tab bar ===== */
+  .tab-bar-wrapper { position: sticky; top: 64px; z-index: 40; background: #fefdfb; border-bottom: 1px solid #e8e4de; }
+  @media (min-width: 768px) { .tab-bar-wrapper { top: 80px; } }
+  .tab-bar { display: flex; gap: 4px; padding: 8px 0; justify-content: center; }
+  .tab-btn {
+    display: flex; align-items: center; gap: 8px; padding: 10px 20px;
+    border: 1.5px solid #e8e4de; border-radius: 12px; background: white;
+    font-size: 14px; font-weight: 500; color: #52525b; cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16,1,0.3,1); font-family: inherit;
+  }
+  .tab-btn:hover { border-color: #f4a261; color: #27272a; }
+  .tab-active { background: #e86f4c; color: white; border-color: #e86f4c; font-weight: 600; }
+  .tab-active:hover { border-color: #d5532e; }
+  .tab-icon { font-size: 16px; }
+  @media (max-width: 640px) { .tab-label { display: none; } .tab-btn { padding: 10px 16px; } .tab-icon { font-size: 20px; } }
+
+  /* ===== Tab panels ===== */
+  .tab-panel { display: none; }
+  .tab-panel-active { display: block; animation: panelFadeIn 0.4s ease-out; }
+  @keyframes panelFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ===== Shared styles ===== */
   .step-number { width:48px;height:48px;border-radius:50%;background:#e86f4c;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;margin-bottom:16px;box-shadow:0 4px 16px rgba(232,111,76,0.25); }
+  .feature-emoji { width:48px;height:48px;border-radius:50%;background:#fef0eb;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px; }
   .tip-box { display:flex;align-items:center;gap:8px;padding:12px 16px;background:#f6f7f4;border-radius:10px;font-size:14px;color:#5d714a;border-left:3px solid #788d61; }
   .animate-on-scroll { opacity:0;transform:translateY(30px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1); }
   .animate-on-scroll.in-view { opacity:1;transform:translateY(0); }
 
+  /* ===== Browse demo ===== */
   .demo-browse { width:100%;height:100%;display:flex;flex-direction:column; }
   .demo-safari-bar { padding:48px 12px 8px;background:#f2f2f7;display:flex;flex-direction:column;gap:6px; }
   .safari-dots { display:flex;gap:5px;padding:0 4px; }
@@ -389,15 +682,15 @@ const t = useTranslations('ja');
   .safari-url { background:white;border-radius:8px;padding:6px 10px;display:flex;align-items:center;gap:4px;font-size:12px; }
   .safari-lock { font-size:10px; } .safari-domain { color:#27272a;font-weight:500; }
   .demo-webpage { flex:1;padding:8px 12px;overflow:hidden; }
-  .webpage-hero { height:72px;border-radius:8px;background:url("/images/recipes/tikka-masala.jpg") center/cover;margin-bottom:10px; }
+  .webpage-hero { height:72px;border-radius:8px;background:url('/images/recipes/tikka-masala.jpg') center/cover;margin-bottom:10px; }
   .webpage-title { font-size:14px;font-weight:700;color:#27272a;margin-bottom:3px; }
   .webpage-rating { font-size:10px;color:#f59e0b;margin-bottom:8px; }
   .webpage-text { height:8px;background:#e8e4de;border-radius:4px;margin-bottom:6px; }
   .line-1{width:100%}.line-2{width:85%}.line-3{width:92%}.line-4{width:78%}.line-5{width:88%}
-  .webpage-ad { background:#fef0eb;color:#e86f4c;font-size:8px;font-weight:700;padding:8px;border-radius:6px;text-align:center;margin:8px 0;border:1px dashed #f4a261; }
-  .webpage-scroll-hint { text-align:center;font-size:10px;color:#a1a1aa;margin-top:8px;animation:scrollHintPulse 2s ease-in-out infinite; }
-  @keyframes scrollHintPulse { 0%,100%{opacity:0.4;transform:translateY(0)}50%{opacity:1;transform:translateY(3px)} }
+  .webpage-ad { background:#fef6e8;color:#d4903f;font-size:7px;font-weight:700;padding:10px;text-align:center;border-radius:4px;margin:4px 0;letter-spacing:0.05em; }
+  .webpage-inline-img { height:30px;background:linear-gradient(135deg,#ddd,#ccc);border-radius:4px;margin-bottom:6px; }
 
+  /* ===== Share sheet ===== */
   .demo-share { width:100%;height:100%;position:relative;background:#f2f2f7; }
   .share-backdrop { position:absolute;inset:0;background:rgba(0,0,0,0.3); }
   .share-sheet { position:absolute;bottom:0;left:0;right:0;background:white;border-radius:16px 16px 0 0;padding:12px 16px 24px;animation:sheetSlideUp 3s cubic-bezier(0.16,1,0.3,1) infinite; }
@@ -414,13 +707,14 @@ const t = useTranslations('ja');
   .share-action { padding:10px;font-size:13px;color:#007aff;background:#f8f8fa;text-align:center; }
   .share-action:first-child{border-radius:10px 10px 0 0}.share-action:last-child{border-radius:0 0 10px 10px}
 
+  /* ===== Extract ===== */
   .demo-extract { width:100%;height:100%; }
   .demo-kn-header { padding:52px 18px 10px;text-align:center; }
   .demo-kn-title { font-size:16px;font-weight:700;color:#27272a; }
   .extract-content { padding:12px 18px; }
   .extract-progress { height:4px;background:#f0ebe6;border-radius:2px;overflow:hidden;margin-bottom:12px; }
   .extract-progress-fill { height:100%;background:#e86f4c;border-radius:2px;animation:extractFill 6s ease-in-out infinite; }
-  @keyframes extractFill { 0%{width:0%}60%{width:100%}100%{width:100%} }
+  @keyframes extractFill { 0%{width:0}60%{width:100%}100%{width:100%} }
   .extract-status { font-size:12px;color:#71717a;margin-bottom:14px; }
   .extract-items { display:flex;flex-direction:column;gap:8px; }
   .extract-item { display:flex;align-items:center;gap:8px;font-size:13px;color:#27272a;opacity:0;animation:extractItemIn 6s ease-out infinite; }
@@ -432,16 +726,14 @@ const t = useTranslations('ja');
   .extract-done-icon { font-size:32px; }
   .extract-done-text { font-size:16px;font-weight:700;color:#27272a;margin-top:4px; }
 
-  /* Comparison */
+  /* ===== Comparison ===== */
   .comparison-grid { display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:720px;margin:0 auto; }
   @media (max-width:768px) { .comparison-grid { grid-template-columns:1fr;max-width:320px; } }
   .compare-side { text-align:center; }
   .compare-label { display:inline-block;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:16px; }
-  .compare-label-bad { background:#fef0eb;color:#b24224; }
-  .compare-label-good { background:#f0f5eb;color:#4a593c; }
-  .compare-issues,.compare-wins { display:flex;flex-direction:column;gap:6px;margin-top:16px;text-align:left;font-size:13px; }
+  .compare-label-bad { background:#fef0eb;color:#b24224; } .compare-label-good { background:#f0f5eb;color:#4a593c; }
+  .compare-list { display:flex;flex-direction:column;gap:6px;margin-top:16px;text-align:left;font-size:13px; }
   .issue { color:#933922; } .win { color:#4a593c; }
-
   .web-mess { width:100%;height:100%;display:flex;flex-direction:column;background:white; }
   .web-mess-bar { padding:48px 10px 6px;background:#f2f2f7; }
   .web-mess-dots { display:flex;gap:4px;margin-bottom:5px; }
@@ -457,10 +749,7 @@ const t = useTranslations('ja');
   .web-mess-meta { font-size:8px;color:#a1a1aa;margin-bottom:6px; }
   .web-mess-story { margin-bottom:6px; }
   .wm-line { height:5px;background:#eae6e0;border-radius:3px;margin-bottom:3px; }
-  .web-mess-ad { background:#fef6e8;color:#d4903f;font-size:7px;font-weight:700;padding:10px;text-align:center;border-radius:4px;margin:4px 0;letter-spacing:0.05em; }
   .web-mess-inline-img { height:30px;background:linear-gradient(135deg,#ddd,#ccc);border-radius:4px;margin-bottom:6px; }
-  .web-mess-jump { background:#e86f4c;color:white;font-size:8px;font-weight:700;text-align:center;padding:6px;border-radius:6px;margin-top:4px; }
-
   .app-clean { width:100%;height:100%;display:flex;flex-direction:column;background:#fefdfb; }
   .app-clean-header { padding:48px 14px 8px;display:flex;align-items:center;justify-content:space-between; }
   .app-clean-back { font-size:20px;color:#e86f4c;font-weight:300; }
@@ -475,32 +764,23 @@ const t = useTranslations('ja');
   .app-clean-ing { font-size:11px;color:#52525b;padding:4px 0;border-bottom:1px solid #f5f0eb;display:flex;gap:6px; }
   .ing-qty { font-weight:600;color:#e86f4c;min-width:36px; }
   .app-clean-step { font-size:11px;color:#52525b;padding:5px 0;display:flex;gap:8px;line-height:1.4; }
-  .step-num { width:18px;height:18px;min-width:18px;border-radius:50%;background:#e86f4c;color:white;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;margin-top:1px; }
+  .step-num-sm { width:18px;height:18px;min-width:18px;border-radius:50%;background:#e86f4c;color:white;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;margin-top:1px; }
   .app-clean-cook-btn { margin:8px 14px 16px;background:#e86f4c;color:white;text-align:center;padding:10px;border-radius:12px;font-size:12px;font-weight:600; }
 
+  /* ===== Final grid ===== */
   .demo-final { width:100%;height:100%;position:relative; }
   .final-grid { display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:6px 14px; }
   .final-card { background:white;border-radius:10px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.05);opacity:0;animation:finalCardIn 1s cubic-bezier(0.16,1,0.3,1) forwards; }
   .fc-1{animation-delay:0.1s}.fc-2{animation-delay:0.2s}.fc-3{animation-delay:0.3s}.fc-4{animation-delay:0.4s}.fc-5{animation-delay:0.5s}.fc-6{animation-delay:0.6s}
   @keyframes finalCardIn { from{opacity:0;transform:translateY(10px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)} }
-  .final-thumb { height:48px; }
-  .final-info { padding:6px 8px; }
-  .final-name { font-size:10px;font-weight:600;color:#27272a; }
-  .final-time { font-size:8px;color:#71717a; }
+  .final-thumb { height:48px; } .final-info { padding:6px 8px; } .final-name { font-size:10px;font-weight:600;color:#27272a; } .final-time { font-size:8px;color:#71717a; }
   .final-cook-btn { position:absolute;bottom:24px;left:50%;transform:translateX(-50%);background:#e86f4c;color:white;padding:10px 28px;border-radius:24px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;box-shadow:0 4px 16px rgba(232,111,76,0.3);animation:cookBtnFloat 3s ease-in-out infinite; }
   @keyframes cookBtnFloat { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-3px)} }
 
-  /* Beyond the basics */
-  .beyond-divider { display:flex;align-items:center;gap:16px;justify-content:center; }
-  .beyond-line { flex:1;max-width:80px;height:1px;background:#e8e4de; }
-  .beyond-text { font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#a1a1aa; }
-  .step-collab { background:#fef0eb;color:#27272a;font-size:24px;box-shadow:none; }
-
+  /* ===== Collaboration ===== */
   .collab-visual { max-width:360px;margin:0 auto; }
   .collab-cookbook { background:white;border:1.5px solid #e8e4de;border-radius:16px;padding:16px 20px;display:flex;align-items:center;gap:14px;box-shadow:0 4px 20px rgba(0,0,0,0.06);margin-bottom:16px; }
-  .collab-book-icon { font-size:28px; }
-  .collab-book-name { font-size:15px;font-weight:700;color:#27272a; }
-  .collab-book-count { font-size:12px;color:#71717a; }
+  .collab-book-icon { font-size:28px; } .collab-book-name { font-size:15px;font-weight:700;color:#27272a; } .collab-book-count { font-size:12px;color:#71717a; }
   .collab-avatars { display:flex;margin-left:auto; }
   .c-avatar { width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;border:2px solid white;margin-left:-8px; }
   .c-avatar:first-child { margin-left:0; }
@@ -514,47 +794,154 @@ const t = useTranslations('ja');
   .cn-time { font-size:11px;color:#a1a1aa;margin-top:2px; }
   .collab-feed .cn-1{transition-delay:0.1s}.collab-feed .cn-2{transition-delay:0.25s}.collab-feed .cn-3{transition-delay:0.4s}
 
+  /* ===== Versioning ===== */
   .version-visual { display:flex;align-items:center;gap:12px;max-width:440px;margin:0 auto; }
   @media(max-width:480px){.version-visual{flex-direction:column}.ver-fork-arrow{transform:rotate(90deg)}}
   .ver-card { flex:1;background:white;border:1.5px solid #e8e4de;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.06);min-width:0; }
   .ver-yours { border-color:#e86f4c;box-shadow:0 4px 20px rgba(232,111,76,0.12); }
   .ver-badge { font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:6px 12px; }
   .ver-badge-original{background:#f4f4f5;color:#71717a}.ver-badge-yours{background:#fef0eb;color:#e86f4c}
-  .ver-img { height:56px; } .ver-body { padding:10px 12px; }
-  .ver-name { font-size:13px;font-weight:700;color:#27272a;margin-bottom:6px; }
-  .ver-detail { display:flex;flex-direction:column;gap:3px; }
-  .ver-ing { font-size:11px;color:#52525b; } .ver-changed { color:#e86f4c; }
-  .ver-strike { text-decoration:line-through;color:#a1a1aa;font-size:10px; }
-  .ver-added { color:#788d61;font-weight:600; }
+  .ver-img { height:56px; } .ver-body { padding:10px 12px; } .ver-name { font-size:13px;font-weight:700;color:#27272a;margin-bottom:6px; }
+  .ver-detail { display:flex;flex-direction:column;gap:3px; } .ver-ing { font-size:11px;color:#52525b; } .ver-changed { color:#e86f4c; }
+  .ver-strike { text-decoration:line-through;color:#a1a1aa;font-size:10px; } .ver-added { color:#788d61;font-weight:600; }
   .ver-fork-arrow { flex-shrink:0;animation:arrowPulse 2s ease-in-out infinite; }
   @keyframes arrowPulse { 0%,100%{opacity:0.4;transform:translateX(0)}50%{opacity:1;transform:translateX(4px)} }
 
-  .ai-visual { max-width:360px;margin:0 auto;background:#fefdfb;border:1.5px solid #e8e4de;border-radius:20px;padding:20px;box-shadow:0 4px 24px rgba(0,0,0,0.06); }
-  .ai-chat { display:flex;flex-direction:column;gap:12px; }
-  .ai-msg { display:flex;gap:8px; } .ai-user { justify-content:flex-end; }
-  .ai-avatar { width:28px;height:28px;min-width:28px;border-radius:50%;background:#fef0eb;display:flex;align-items:center;justify-content:center;font-size:14px; }
-  .ai-bubble { border-radius:14px;padding:10px 14px;max-width:85%;font-size:13px;line-height:1.4; }
-  .ai-bubble-user { background:#e86f4c;color:white;border-bottom-right-radius:4px;font-weight:500; }
-  .ai-bubble-assistant { background:white;color:#27272a;border:1px solid #f0ebe6;border-bottom-left-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,0.04); }
-  .ai-typing { font-size:12px;color:#71717a;margin-bottom:8px;font-weight:500; }
-  .ai-suggestion { display:flex;align-items:center;gap:6px;padding:6px 0;border-bottom:1px solid #faf6f1;font-size:12px;opacity:0;animation:aiSuggestIn 8s ease-out infinite; }
-  .as-1{animation-delay:0.3s}.as-2{animation-delay:0.7s}.as-3{animation-delay:1.1s}
-  @keyframes aiSuggestIn { 0%,4%{opacity:0;transform:translateY(4px)}10%,85%{opacity:1;transform:translateY(0)}92%,100%{opacity:0} }
-  .ai-swap-old { color:#a1a1aa;text-decoration:line-through;font-size:11px; }
-  .ai-swap-arrow { color:#e86f4c;font-weight:700;font-size:11px; }
-  .ai-swap-new { color:#788d61;font-weight:600; }
-  .ai-audit { margin-top:4px; }
-  .ai-audit-item { font-size:12px;padding:3px 0;opacity:0;animation:aiAuditIn 8s ease-out infinite; }
-  .aa-1{animation-delay:2s}.aa-2{animation-delay:2.5s}.aa-3{animation-delay:3s}
-  @keyframes aiAuditIn { 0%,25%{opacity:0;transform:translateX(-4px)}32%,85%{opacity:1;transform:translateX(0)}92%,100%{opacity:0} }
-  .ai-apply-btn { margin-top:12px;background:#e86f4c;color:white;text-align:center;padding:10px;border-radius:12px;font-size:13px;font-weight:600;opacity:0;animation:applyBtnIn 8s ease-out infinite;animation-delay:3.5s; }
-  @keyframes applyBtnIn { 0%,42%{opacity:0;transform:translateY(6px)}48%,85%{opacity:1;transform:translateY(0)}92%,100%{opacity:0} }
+  /* ===== Friends ===== */
+  .friends-visual { max-width:360px;margin:0 auto;display:flex;flex-direction:column;gap:8px; }
+  .friend-profile { background:white;border:1px solid #f0ebe6;border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+  .fp-info { flex:1; } .fp-name { font-size:14px;font-weight:600;color:#27272a; } .fp-stat { font-size:11px;color:#71717a; }
+  .fp-follow { font-size:12px;font-weight:600;padding:5px 14px;border-radius:8px; }
+  .fp-following { background:#f0f5eb;color:#788d61; }
+  .fp-add { background:#e86f4c;color:white; }
+  .fp-1{transition-delay:0.05s}.fp-2{transition-delay:0.15s}.fp-3{transition-delay:0.25s}.fp-4{transition-delay:0.35s}
+
+  /* ===== Notifications ===== */
+  .notif-visual { max-width:360px;margin:0 auto;background:white;border:1.5px solid #e8e4de;border-radius:20px;padding:20px;box-shadow:0 4px 24px rgba(0,0,0,0.06); }
+  .notif-header { font-size:16px;font-weight:700;color:#27272a;margin-bottom:14px; }
+  .notif-item { display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #faf6f1;font-size:13px; }
+  .notif-dot { width:8px;height:8px;min-width:8px;border-radius:50%;background:#e8e4de; }
+  .notif-dot-new { background:#e86f4c; }
+  .notif-body { flex:1;color:#27272a;line-height:1.3; }
+  .notif-body strong { font-weight:600; } .notif-body em { color:#e86f4c;font-style:normal; }
+  .notif-time { font-size:11px;color:#a1a1aa;white-space:nowrap; }
+  .ni-1{transition-delay:0.1s}.ni-2{transition-delay:0.2s}.ni-3{transition-delay:0.3s}.ni-4{transition-delay:0.4s}
+
+  /* ===== Smart parsing visual ===== */
+  .smart-parse-visual { max-width:360px;margin:0 auto; }
+  .parse-method-stack { display:flex;flex-direction:column;gap:8px;margin-bottom:16px; }
+  .parse-method { background:white;border:1.5px solid #e8e4de;border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+  .pm-status { font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:3px 8px;border-radius:6px;min-width:52px;text-align:center; }
+  .pm-try { background:#fef0eb;color:#e86f4c; }
+  .pm-skip { background:#f4f4f5;color:#a1a1aa; }
+  .pm-name { font-size:13px;font-weight:500;color:#27272a;flex:1; }
+  .pm-confidence { display:flex;align-items:center;gap:6px; }
+  .pm-bar { width:48px;height:4px;background:#f0ebe6;border-radius:2px;overflow:hidden; }
+  .pm-fill { height:100%;background:#788d61;border-radius:2px;animation:barGrow 2s ease-out forwards; }
+  .pm-fill-low { background:#e8e4de; }
+  @keyframes barGrow { from{width:0} }
+  .pm-score { font-size:11px;font-weight:700;color:#788d61;min-width:28px; }
+  .parse-result { background:#f0f5eb;border:1.5px solid #d4dcca;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px; }
+  .parse-result-icon { width:32px;height:32px;border-radius:50%;background:#788d61;color:white;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700; }
+  .parse-result-title { font-size:14px;font-weight:600;color:#4a593c; }
+  .parse-result-detail { font-size:11px;color:#5d714a; }
+  .pm-1{transition-delay:0.1s}.pm-2{transition-delay:0.3s}.pm-3{transition-delay:0.5s}
+
+  /* ===== Image filter visual ===== */
+  .image-filter-visual { max-width:300px;margin:0 auto; }
+  .img-grid { display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px; }
+  .img-cell { border-radius:10px;overflow:hidden;position:relative; }
+  .img-thumb { height:72px;background:#f4f4f5; }
+  .img-thumb-ad { background:repeating-linear-gradient(45deg,#fef6e8,#fef6e8 10px,#fcefd5 10px,#fcefd5 20px); }
+  .img-thumb-logo { background:#f4f4f5;display:flex;align-items:center;justify-content:center; }
+  .img-badge { font-size:10px;font-weight:600;padding:4px 8px;text-align:center; }
+  .img-badge-food { background:#f0f5eb;color:#4a593c; }
+  .img-badge-ad { background:#fef0eb;color:#b24224; }
+  .img-rejected { opacity:0.5; }
+  .img-filter-label { text-align:center;font-size:12px;color:#788d61;font-weight:500; }
+  .img-cell:nth-child(1){transition-delay:0.1s}.img-cell:nth-child(2){transition-delay:0.2s}.img-cell:nth-child(3){transition-delay:0.3s}.img-cell:nth-child(4){transition-delay:0.4s}
+
+  /* ===== Step ingredient highlights ===== */
+  .step-highlight-visual { max-width:360px;margin:0 auto;background:white;border:1.5px solid #e8e4de;border-radius:16px;padding:20px;box-shadow:0 4px 20px rgba(0,0,0,0.06); }
+  .sh-step { display:flex;gap:12px;margin-bottom:16px; }
+  .sh-step-num { width:28px;height:28px;min-width:28px;border-radius:50%;background:#e86f4c;color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:2px; }
+  .sh-step-text { font-size:14px;color:#27272a;line-height:1.6; }
+  .sh-ing { background:#fef0eb;color:#e86f4c;padding:1px 6px;border-radius:4px;font-weight:500; }
+  .sh-detected { border-top:1px solid #f0ebe6;padding-top:12px; }
+  .sh-detected-label { font-size:11px;color:#71717a;margin-bottom:8px;font-weight:500; }
+  .sh-pills { display:flex;flex-wrap:wrap;gap:6px; }
+  .sh-pill { font-size:12px;padding:5px 10px;background:#f0f5eb;color:#4a593c;border-radius:8px;font-weight:500;opacity:0;animation:pillIn 4s ease-out infinite; }
+  .sp-1{animation-delay:0.2s}.sp-2{animation-delay:0.5s}.sp-3{animation-delay:0.8s}
+  @keyframes pillIn { 0%,5%{opacity:0;transform:scale(0.9)}12%,85%{opacity:1;transform:scale(1)}92%,100%{opacity:0} }
+
+  /* ===== Auto-categorization ===== */
+  .autocat-visual { max-width:320px;margin:0 auto; }
+  .autocat-recipe { background:white;border:1.5px solid #e8e4de;border-radius:16px;padding:20px;box-shadow:0 4px 20px rgba(0,0,0,0.06);margin-bottom:10px; }
+  .autocat-name { font-size:16px;font-weight:700;color:#27272a;margin-bottom:10px; }
+  .autocat-divider { height:1px;background:#f0ebe6;margin-bottom:12px; }
+  .autocat-fields { display:flex;flex-direction:column;gap:8px; }
+  .autocat-field { display:flex;align-items:center;gap:8px;padding:6px 0; }
+  .af-label { font-size:12px;color:#71717a;min-width:70px; }
+  .af-value { font-size:13px;font-weight:600;color:#27272a; }
+  .af-auto { color:#788d61; }
+  .af-badge { font-size:9px;font-weight:700;color:#788d61;background:#f0f5eb;padding:2px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:0.05em; }
+  .autocat-note { text-align:center;font-size:12px;color:#71717a; }
+  .af-1{transition-delay:0.1s}.af-2{transition-delay:0.25s}.af-3{transition-delay:0.4s}.af-4{transition-delay:0.55s}
+
+  /* ===== OCR visual ===== */
+  .ocr-visual { display:flex;align-items:center;gap:16px;max-width:400px;margin:0 auto; }
+  @media(max-width:480px){.ocr-visual{flex-direction:column}.ocr-arrow{transform:rotate(90deg)}}
+  .ocr-source,.ocr-result { flex:1;text-align:center; }
+  .ocr-card-img { background:#fef8f0;border:2px dashed #e4b363;border-radius:12px;padding:14px;margin-bottom:6px; }
+  .ocr-handwriting { text-align:left; }
+  .hw-line { font-size:12px;color:#52525b;padding:2px 0;font-style:italic; }
+  .hw-1 { font-size:13px;font-weight:600;color:#27272a;font-style:normal;margin-bottom:4px; }
+  .ocr-label { font-size:11px;color:#a1a1aa;font-weight:500; }
+  .ocr-arrow { font-size:20px;color:#e86f4c;font-weight:700;flex-shrink:0; }
+  .ocr-clean-recipe { background:white;border:1.5px solid #e8e4de;border-radius:12px;padding:14px;margin-bottom:6px;text-align:left;box-shadow:0 2px 10px rgba(0,0,0,0.06); }
+  .ocr-clean-title { font-size:13px;font-weight:700;color:#27272a;margin-bottom:6px; }
+  .ocr-clean-ing { font-size:11px;color:#52525b;padding:3px 0;border-bottom:1px solid #faf6f1; }
 </style>
 
 <script>
+  // Tab switching
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-tab');
+
+      tabs.forEach(t => t.classList.remove('tab-active'));
+      tab.classList.add('tab-active');
+
+      panels.forEach(p => {
+        p.classList.remove('tab-panel-active');
+        if (p.id === `panel-${target}`) {
+          p.classList.add('tab-panel-active');
+          // Re-trigger scroll animations in new panel
+          p.querySelectorAll('.animate-on-scroll').forEach(el => {
+            el.classList.remove('in-view');
+            setTimeout(() => observer.observe(el), 50);
+          });
+        }
+      });
+
+      // Update URL hash
+      history.replaceState(null, '', `#${target}`);
+    });
+  });
+
+  // Intersection Observer
   const observer = new IntersectionObserver(
     (entries) => { entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('in-view'); }); },
-    { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
   );
   document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+
+  // Handle URL hash on load
+  const hash = window.location.hash.replace('#', '');
+  if (hash && document.querySelector(`[data-tab="${hash}"]`)) {
+    document.querySelector(`[data-tab="${hash}"]`)?.click();
+  }
 </script>
