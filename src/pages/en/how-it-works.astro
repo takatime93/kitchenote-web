@@ -530,52 +530,6 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
       </div>
     </section>
 
-    <!-- Auto-categorization -->
-    <section class="py-12 md:py-20 bg-white">
-      <div class="container-wide">
-        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div class="animate-on-scroll md:order-1">
-            <div class="autocat-visual">
-              <div class="autocat-recipe">
-                <div class="autocat-name">Chicken Tikka Masala</div>
-                <div class="autocat-divider"></div>
-                <div class="autocat-fields">
-                  <div class="autocat-field af-1 animate-on-scroll">
-                    <span class="af-label">Cuisine</span>
-                    <span class="af-value af-auto">Indian</span>
-                    <span class="af-badge">auto</span>
-                  </div>
-                  <div class="autocat-field af-2 animate-on-scroll">
-                    <span class="af-label">Difficulty</span>
-                    <span class="af-value af-auto">Medium</span>
-                    <span class="af-badge">auto</span>
-                  </div>
-                  <div class="autocat-field af-3 animate-on-scroll">
-                    <span class="af-label">Meal type</span>
-                    <span class="af-value af-auto">Dinner</span>
-                    <span class="af-badge">auto</span>
-                  </div>
-                  <div class="autocat-field af-4 animate-on-scroll">
-                    <span class="af-label">Dietary</span>
-                    <span class="af-value af-auto">Gluten-free</span>
-                    <span class="af-badge">auto</span>
-                  </div>
-                </div>
-              </div>
-              <div class="autocat-note animate-on-scroll">Fields fill themselves. Edit anytime.</div>
-            </div>
-          </div>
-          <div class="md:order-2">
-            <div class="feature-emoji">🏷️</div>
-            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">Categories fill themselves</h2>
-            <p class="text-neutral-600 leading-relaxed mb-4">
-              Cuisine, difficulty, meal type, dietary info — Kitchenote figures these out from the recipe content and fills them in automatically. If it's wrong, just tap to change. But it's usually right.
-            </p>
-            <div class="tip-box">Only fills empty fields. Never overwrites anything you've set.</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- OCR -->
     <section class="py-12 md:py-20">
@@ -628,7 +582,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
       <div class="space-y-4">
         <details class="group card"><summary class="flex items-center justify-between cursor-pointer list-none font-medium">What if a recipe doesn't import correctly?<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><p class="mt-3 text-neutral-600">Happens occasionally. You can edit any recipe manually, and we're constantly improving our parser.</p></details>
         <details class="group card"><summary class="flex items-center justify-between cursor-pointer list-none font-medium">Is sharing really free?<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><p class="mt-3 text-neutral-600">Yes! Friends, social features, and 2 shared cookbooks are free forever. Premium unlocks unlimited shared cookbooks.</p></details>
-        <details class="group card"><summary class="flex items-center justify-between cursor-pointer list-none font-medium">How does the built-in intelligence work?<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><p class="mt-3 text-neutral-600">It runs silently in the background. Core intelligence — smart parsing, image filtering, ingredient linking — is free for everyone. Premium adds enhanced features like auto-categorization and on-device AI for difficult sites.</p></details>
+        <details class="group card"><summary class="flex items-center justify-between cursor-pointer list-none font-medium">How does the built-in intelligence work?<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><p class="mt-3 text-neutral-600">It runs silently in the background. Core intelligence — smart parsing, image filtering, ingredient linking — is free for everyone. Premium adds enhanced features like on-device AI for difficult sites and recipe accuracy verification.</p></details>
       </div>
       <p class="text-center mt-8"><a href="/en/support" class="text-primary-600 hover:text-primary-700 font-medium">More questions? Full FAQ →</a></p>
     </div>
@@ -874,19 +828,6 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
   .sp-1{animation-delay:0.2s}.sp-2{animation-delay:0.5s}.sp-3{animation-delay:0.8s}
   @keyframes pillIn { 0%,5%{opacity:0;transform:scale(0.9)}12%,85%{opacity:1;transform:scale(1)}92%,100%{opacity:0} }
 
-  /* ===== Auto-categorization ===== */
-  .autocat-visual { max-width:320px;margin:0 auto; }
-  .autocat-recipe { background:white;border:1.5px solid #e8e4de;border-radius:16px;padding:20px;box-shadow:0 4px 20px rgba(0,0,0,0.06);margin-bottom:10px; }
-  .autocat-name { font-size:16px;font-weight:700;color:#27272a;margin-bottom:10px; }
-  .autocat-divider { height:1px;background:#f0ebe6;margin-bottom:12px; }
-  .autocat-fields { display:flex;flex-direction:column;gap:8px; }
-  .autocat-field { display:flex;align-items:center;gap:8px;padding:6px 0; }
-  .af-label { font-size:12px;color:#71717a;min-width:70px; }
-  .af-value { font-size:13px;font-weight:600;color:#27272a; }
-  .af-auto { color:#788d61; }
-  .af-badge { font-size:9px;font-weight:700;color:#788d61;background:#f0f5eb;padding:2px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:0.05em; }
-  .autocat-note { text-align:center;font-size:12px;color:#71717a; }
-  .af-1{transition-delay:0.1s}.af-2{transition-delay:0.25s}.af-3{transition-delay:0.4s}.af-4{transition-delay:0.55s}
 
   /* ===== OCR visual ===== */
   .ocr-visual { display:flex;align-items:center;gap:16px;max-width:400px;margin:0 auto; }

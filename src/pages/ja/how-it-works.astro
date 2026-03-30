@@ -530,52 +530,6 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
       </div>
     </section>
 
-    <!-- Auto-categorization -->
-    <section class="py-12 md:py-20 bg-white">
-      <div class="container-wide">
-        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div class="animate-on-scroll md:order-1">
-            <div class="autocat-visual">
-              <div class="autocat-recipe">
-                <div class="autocat-name">Chicken ティッカマサラ</div>
-                <div class="autocat-divider"></div>
-                <div class="autocat-fields">
-                  <div class="autocat-field af-1 animate-on-scroll">
-                    <span class="af-label">料理ジャンル</span>
-                    <span class="af-value af-auto">インド料理</span>
-                    <span class="af-badge">auto</span>
-                  </div>
-                  <div class="autocat-field af-2 animate-on-scroll">
-                    <span class="af-label">難易度</span>
-                    <span class="af-value af-auto">普通</span>
-                    <span class="af-badge">auto</span>
-                  </div>
-                  <div class="autocat-field af-3 animate-on-scroll">
-                    <span class="af-label">食事タイプ</span>
-                    <span class="af-value af-auto">夕食</span>
-                    <span class="af-badge">auto</span>
-                  </div>
-                  <div class="autocat-field af-4 animate-on-scroll">
-                    <span class="af-label">食事制限</span>
-                    <span class="af-value af-auto">グルテンフリー</span>
-                    <span class="af-badge">auto</span>
-                  </div>
-                </div>
-              </div>
-              <div class="autocat-note animate-on-scroll">フィールドが自動入力。いつでも編集可能。</div>
-            </div>
-          </div>
-          <div class="md:order-2">
-            <div class="feature-emoji">🏷️</div>
-            <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">カテゴリが自動で入る</h2>
-            <p class="text-neutral-600 leading-relaxed mb-4">
-              料理ジャンル、難易度、食事タイプ、食事制限 — レシピの内容から自動判定して入力。間違っていたらタップで変更。でもだいたい合ってます。
-            </p>
-            <div class="tip-box">空のフィールドのみ入力。設定済みの内容は上書きしません。</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- OCR -->
     <section class="py-12 md:py-20">
@@ -628,7 +582,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
       <div class="space-y-4">
         <details class="group card"><summary class="flex items-center justify-between cursor-pointer list-none font-medium">レシピが正しくインポートできない場合は？<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><p class="mt-3 text-neutral-600">まれにあります。手動で編集可能で、パーサーは常に改良中です。</p></details>
         <details class="group card"><summary class="flex items-center justify-between cursor-pointer list-none font-medium">共有は本当に無料ですか？<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><p class="mt-3 text-neutral-600">はい！フレンド、ソーシャル機能、共有レシピブック2冊はずっと無料。プレミアムで無制限に。</p></details>
-        <details class="group card"><summary class="flex items-center justify-between cursor-pointer list-none font-medium">組み込みインテリジェンスとは？<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><p class="mt-3 text-neutral-600">バックグラウンドで静かに動きます。スマート解析、画像フィルタリング、材料リンクなどのコア機能は全ユーザー無料。プレミアムで自動分類やオンデバイスAIが追加。</p></details>
+        <details class="group card"><summary class="flex items-center justify-between cursor-pointer list-none font-medium">組み込みインテリジェンスとは？<svg class="w-5 h-5 text-neutral-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><p class="mt-3 text-neutral-600">バックグラウンドで静かに動きます。スマート解析、画像フィルタリング、材料リンクなどのコア機能は全ユーザー無料。プレミアムでオンデバイスAIやレシピ精度検証が追加。</p></details>
       </div>
       <p class="text-center mt-8"><a href="/en/support" class="text-primary-600 hover:text-primary-700 font-medium">他の質問はこちら →</a></p>
     </div>
@@ -873,20 +827,6 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
   .sh-pill { font-size:12px;padding:5px 10px;background:#f0f5eb;color:#4a593c;border-radius:8px;font-weight:500;opacity:0;animation:pillIn 4s ease-out infinite; }
   .sp-1{animation-delay:0.2s}.sp-2{animation-delay:0.5s}.sp-3{animation-delay:0.8s}
   @keyframes pillIn { 0%,5%{opacity:0;transform:scale(0.9)}12%,85%{opacity:1;transform:scale(1)}92%,100%{opacity:0} }
-
-  /* ===== Auto-categorization ===== */
-  .autocat-visual { max-width:320px;margin:0 auto; }
-  .autocat-recipe { background:white;border:1.5px solid #e8e4de;border-radius:16px;padding:20px;box-shadow:0 4px 20px rgba(0,0,0,0.06);margin-bottom:10px; }
-  .autocat-name { font-size:16px;font-weight:700;color:#27272a;margin-bottom:10px; }
-  .autocat-divider { height:1px;background:#f0ebe6;margin-bottom:12px; }
-  .autocat-fields { display:flex;flex-direction:column;gap:8px; }
-  .autocat-field { display:flex;align-items:center;gap:8px;padding:6px 0; }
-  .af-label { font-size:12px;color:#71717a;min-width:70px; }
-  .af-value { font-size:13px;font-weight:600;color:#27272a; }
-  .af-auto { color:#788d61; }
-  .af-badge { font-size:9px;font-weight:700;color:#788d61;background:#f0f5eb;padding:2px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:0.05em; }
-  .autocat-note { text-align:center;font-size:12px;color:#71717a; }
-  .af-1{transition-delay:0.1s}.af-2{transition-delay:0.25s}.af-3{transition-delay:0.4s}.af-4{transition-delay:0.55s}
 
   /* ===== OCR visual ===== */
   .ocr-visual { display:flex;align-items:center;gap:16px;max-width:400px;margin:0 auto; }
