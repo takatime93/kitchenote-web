@@ -2,111 +2,375 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Privacy Policy" description="Kitchenote Privacy Policy. How we handle your data and protect your privacy.">
+<Layout title="Privacy Policy" description="Kitchenote Privacy Policy — how we collect, use, and protect your personal information.">
 
   <section class="py-16 md:py-24">
     <div class="container-narrow">
       <h1 class="mb-8">Privacy Policy</h1>
 
-      <p class="text-neutral-500 mb-8">Last updated: January 2024</p>
+      <p class="text-neutral-500 mb-8">Last updated: April 2026 &nbsp;·&nbsp; Publisher: Boldoath Co., Ltd.</p>
 
       <div class="prose prose-neutral max-w-none">
+
         <h2>The short version</h2>
         <p>
-          Your recipes are yours. We don't collect them, we don't sell them, we don't use them for advertising. They're stored on your device, period. Here's the full policy if you want the details.
+          Kitchenote is a recipe app with accounts, cloud sync, shared groups, and AI features. Your data is stored on our servers so you can access it across devices. When you use AI features, relevant content is sent to Anthropic's API to generate responses — Anthropic does not train on your data. We never sell your data. You can delete your account and all your data at any time from Settings.
         </p>
 
         <hr class="my-8" />
 
-        <h2>1. Information We Collect</h2>
-
-        <h3>Information you provide</h3>
+        <h2>1. Who We Are</h2>
         <p>
-          If you contact us via email, we'll have your email address and whatever you share in your message. That's it. We don't require account creation, so we don't have usernames, passwords, or profile information.
-        </p>
-
-        <h3>Information collected automatically</h3>
-        <p>
-          We collect basic analytics to understand how people use Kitchenote:
-        </p>
-        <ul>
-          <li>App opens and screen views (anonymized)</li>
-          <li>Feature usage patterns (which features are popular)</li>
-          <li>Crash reports and error logs</li>
-          <li>Device type and iOS version</li>
-        </ul>
-        <p>
-          This data is aggregated and anonymous—we can't identify individual users from it. We use privacy-friendly analytics that don't track you across apps or websites.
-        </p>
-
-        <h3>Information we don't collect</h3>
-        <p>
-          <strong>We do not have access to your recipes, collections, tags, or any content you create or save in the app.</strong> All of that data stays on your device. We can't see it, we can't access it, and we certainly can't sell it.
-        </p>
-
-        <h2>2. How We Use Information</h2>
-        <p>The limited information we collect is used to:</p>
-        <ul>
-          <li>Respond to your support requests</li>
-          <li>Understand how people use the app so we can make it better</li>
-          <li>Fix bugs and improve stability</li>
-        </ul>
-
-        <h2>3. Information Sharing</h2>
-        <p>
-          We don't sell, rent, or trade your personal information. We may share anonymous, aggregated analytics with third parties (like "40% of users use Cook Mode"), but never individual data.
+          Kitchenote is operated by <strong>Boldoath Co., Ltd.</strong> (株式会社Boldoath), a company registered in Japan.
         </p>
         <p>
-          We use the following third-party services:
-        </p>
-        <ul>
-          <li><strong>Analytics</strong>: For anonymous usage statistics</li>
-          <li><strong>Crash reporting</strong>: To identify and fix bugs</li>
-        </ul>
-        <p>
-          These services receive only the anonymous data described above.
-        </p>
-
-        <h2>4. Data Storage and Security</h2>
-        <p>
-          Your recipes and app data are stored locally on your device using iOS's secure storage. If you use iCloud backup, your data may be included in your device backup (managed by Apple, not by us).
+          Privacy enquiries: <a href="mailto:privacy@kitchenote.app">privacy@kitchenote.app</a><br />
+          General support: <a href="mailto:support@boldoath.com">support@boldoath.com</a>
         </p>
         <p>
-          We don't operate servers that store your personal data. The only data we have is anonymous analytics, which is stored securely with our analytics provider.
-        </p>
-
-        <h2>5. Your Rights</h2>
-        <p>You have the right to:</p>
-        <ul>
-          <li><strong>Access</strong>: All your data is already on your device—you have full access</li>
-          <li><strong>Delete</strong>: Delete the app and all local data is removed</li>
-          <li><strong>Export</strong>: Export your recipes anytime using the app's export feature</li>
-          <li><strong>Opt out of analytics</strong>: Contact us and we'll tell you how</li>
-        </ul>
-
-        <h2>6. Children's Privacy</h2>
-        <p>
-          Kitchenote is not directed at children under 13. We don't knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us.
-        </p>
-
-        <h2>7. Changes to This Policy</h2>
-        <p>
-          We may update this policy from time to time. If we make significant changes, we'll notify you through the app or by other means. Continued use after changes means you accept the new policy.
-        </p>
-
-        <h2>8. Contact Us</h2>
-        <p>
-          Questions about privacy? Email us at <a href="mailto:privacy@kitchenote.app">privacy@kitchenote.app</a>.
+          <em>New Zealand residents:</em> our designated Privacy Officer can be contacted at <a href="mailto:support@boldoath.com">support@boldoath.com</a>.
         </p>
 
         <hr class="my-8" />
 
-        <p class="text-sm text-neutral-500">
-          This policy was written in plain English because we believe you shouldn't need a law degree to understand how your data is handled.
+        <h2>2. Information We Collect</h2>
+
+        <h3>Account information</h3>
+        <p>When you create an account, we collect:</p>
+        <ul>
+          <li><strong>Email address</strong> — used for sign-in and account recovery</li>
+          <li><strong>Display name</strong> — provided by Apple or Google Sign-In, or entered directly; visible to friends and group members</li>
+          <li><strong>User ID</strong> — a unique identifier assigned by our authentication system</li>
+          <li><strong>Profile photo</strong> (optional) — if you upload one, stored in cloud storage and visible to other users</li>
+          <li><strong>Friend code</strong> — a short unique code that lets other users find and add you as a friend</li>
+          <li><strong>Device push token</strong> — an identifier used to deliver push notifications to your device; removed when you sign out</li>
+        </ul>
+
+        <h3>Recipes and content</h3>
+        <p>
+          Everything you create — recipes, ingredients, cooking steps, kitchen notes, and comments — is stored on our servers so it's available across your devices. Content you share to a group is visible to other members of that group.
         </p>
+
+        <h3>Dietary and health-related information</h3>
+        <p>
+          If you choose to set dietary preferences (such as vegan, gluten-free, or nut-free), these are stored on our servers. When you use AI features, they are included in the request sent to Anthropic's API so the AI can personalise its responses. <strong>Depending on your jurisdiction, this information may be treated as health data requiring explicit consent.</strong> We collect it only after you've acknowledged how it is used. You can withdraw consent and remove your preferences at any time from Settings → My Diet.
+        </p>
+
+        <h3>AI feature data</h3>
+        <p>When you use an AI-powered feature (ingredient explanations, technique details, or recipe Q&amp;A), the following is sent to Anthropic:</p>
+        <ul>
+          <li>Relevant recipe content (title, ingredients, steps)</li>
+          <li>Your query or the ingredient or technique you're looking up</li>
+          <li>Your cooking preferences (dietary restrictions, skill level, language, household size) — only if you've consented to dietary data sharing</li>
+        </ul>
+        <p>Anthropic processes this data to generate your response only. See Section 5 for details.</p>
+
+        <h3>Social and group features</h3>
+        <p>
+          If you use shared groups, your recipes, notes, and comments in those groups are visible to all group members. Your display name and profile photo (if set) are visible to friends and group members. Your friend code is searchable by other users.
+        </p>
+
+        <h3>Subscription information</h3>
+        <p>
+          Subscription purchases are handled entirely by Apple via StoreKit. We do not receive or store your payment card details. We receive a subscription status signal from Apple to determine whether your account has Pro access.
+        </p>
+
+        <h3>Usage data</h3>
+        <p>
+          We log feature usage counts (such as how many AI requests you've made today or how many recipes you've imported) to enforce free-tier limits. We also log AI call metadata — feature type, model used, response time, success or failure — for cost monitoring and reliability. Raw AI prompts and responses are never stored in our logs.
+        </p>
+
+        <hr class="my-8" />
+
+        <h2>3. How We Use Your Information</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Purpose</th>
+              <th>Data used</th>
+              <th>Lawful basis (UK GDPR)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Providing the app and syncing your data across devices</td>
+              <td>Account info, recipes, notes</td>
+              <td>Contract — Art. 6(1)(b)</td>
+            </tr>
+            <tr>
+              <td>Shared groups and social features</td>
+              <td>Display name, recipes, comments</td>
+              <td>Contract — Art. 6(1)(b)</td>
+            </tr>
+            <tr>
+              <td>AI-powered features</td>
+              <td>Recipe content, preferences</td>
+              <td>Contract / Explicit consent for dietary data</td>
+            </tr>
+            <tr>
+              <td>Dietary and health preferences</td>
+              <td>Dietary restrictions</td>
+              <td>Explicit consent — Art. 9(2)(a)</td>
+            </tr>
+            <tr>
+              <td>Push notifications</td>
+              <td>Device push token</td>
+              <td>Consent — Art. 6(1)(a)</td>
+            </tr>
+            <tr>
+              <td>Subscription management</td>
+              <td>Subscription status from Apple</td>
+              <td>Contract — Art. 6(1)(b)</td>
+            </tr>
+            <tr>
+              <td>Service improvement and reliability</td>
+              <td>Usage counts, AI call metadata</td>
+              <td>Legitimate interests — Art. 6(1)(f)</td>
+            </tr>
+            <tr>
+              <td>Security and fraud prevention</td>
+              <td>Account info, usage logs</td>
+              <td>Legal obligation / Legitimate interests</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr class="my-8" />
+
+        <h2>4. Dietary and Health Data</h2>
+        <p>
+          Under UK GDPR (Article 9), Japan's APPI, Australian privacy law, and other applicable regulations, information related to a person's health — including food allergies and medically-driven dietary restrictions — may be classified as sensitive personal data requiring a higher level of protection and explicit consent.
+        </p>
+        <p>
+          We collect dietary preferences only when you choose to add them in Settings → My Diet. Before your preferences are saved for the first time, you are shown a clear disclosure explaining how the data is used. You must acknowledge this disclosure before any dietary data is stored.
+        </p>
+        <p>
+          <strong>You can withdraw your consent and remove all dietary preferences at any time</strong> from Settings → My Diet. Removing your preferences immediately stops them from being included in future AI requests.
+        </p>
+
+        <hr class="my-8" />
+
+        <h2>5. AI Features — Anthropic</h2>
+        <p>
+          Kitchenote's AI features are powered by <strong>Claude</strong>, developed by <strong>Anthropic, Inc.</strong> (San Francisco, USA). When you use an AI feature, the relevant request is routed through our own server (a Supabase Edge Function) before being forwarded to Anthropic's API. Anthropic acts as our data processor.
+        </p>
+        <ul>
+          <li><strong>What is sent to Anthropic:</strong> Recipe content relevant to your query, your question or lookup term, and (with your consent) dietary and cooking preferences</li>
+          <li><strong>What is not sent:</strong> Kitchen notes you haven't linked to the recipe, your account credentials, payment information, or friend list</li>
+          <li><strong>Training:</strong> Anthropic is contractually prohibited from using API inputs to train AI models</li>
+          <li><strong>Retention:</strong> Anthropic does not retain your data beyond the API session</li>
+          <li><strong>Security:</strong> All requests are encrypted in transit (TLS 1.2+) and at rest (AES-256)</li>
+          <li><strong>International transfer (UK/EU users):</strong> Data transferred to Anthropic in the USA is covered by Standard Contractual Clauses</li>
+        </ul>
+        <p>
+          Anthropic's privacy documentation: <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">anthropic.com/legal/privacy</a>
+        </p>
+
+        <hr class="my-8" />
+
+        <h2>6. Third-Party Services</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Provider</th>
+              <th>Purpose</th>
+              <th>Data shared</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Database, authentication, and file storage</td>
+              <td>Supabase Inc. (USA)</td>
+              <td>Cloud storage, user accounts, real-time sync</td>
+              <td>All account and content data</td>
+            </tr>
+            <tr>
+              <td>AI processing</td>
+              <td>Anthropic, Inc. (USA)</td>
+              <td>AI-powered ingredient, technique, and recipe features</td>
+              <td>Recipe content, preferences (with consent)</td>
+            </tr>
+            <tr>
+              <td>Push notifications</td>
+              <td>Apple Inc. (USA)</td>
+              <td>Delivering push alerts to your device</td>
+              <td>Device push token</td>
+            </tr>
+            <tr>
+              <td>Sign in with Apple</td>
+              <td>Apple Inc. (USA)</td>
+              <td>Authentication</td>
+              <td>Email and name at sign-in only</td>
+            </tr>
+            <tr>
+              <td>Sign in with Google</td>
+              <td>Google LLC (USA)</td>
+              <td>Authentication</td>
+              <td>Email and name at sign-in only</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>We do not use advertising networks, third-party analytics SDKs, or crash reporting services that transmit your data to additional parties.</p>
+
+        <hr class="my-8" />
+
+        <h2>7. International Data Transfers</h2>
+        <p>
+          Boldoath Co., Ltd. is based in Japan. Your data is processed in Japan and transferred to service providers in the United States (Supabase and Anthropic).
+        </p>
+        <ul>
+          <li><strong>UK residents:</strong> Japan holds a UK adequacy decision, covering transfers from Boldoath to your data held in Japan. Transfers from Japan to US-based providers (Supabase, Anthropic) are covered by Standard Contractual Clauses (SCCs).</li>
+          <li><strong>Australian residents:</strong> We have entered into data processing agreements with Supabase and Anthropic that require them to handle your data in a manner consistent with the Australian Privacy Principles.</li>
+          <li><strong>New Zealand residents:</strong> Transfers to US service providers are covered by contractual data protection obligations in our data processing agreements with each provider.</li>
+          <li><strong>Japanese residents:</strong> Transfers of personal information to Supabase and Anthropic (both USA) are made under Article 28 of Japan's APPI. Both providers maintain data processing agreements consistent with APPI requirements, and both have established privacy protection systems.</li>
+        </ul>
+
+        <hr class="my-8" />
+
+        <h2>8. Data Retention</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Data type</th>
+              <th>How long we keep it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Account and profile data</td>
+              <td>Until account deletion, then permanently deleted within 30 days</td>
+            </tr>
+            <tr>
+              <td>Recipes, notes, and content</td>
+              <td>Until account deletion, then immediately removed</td>
+            </tr>
+            <tr>
+              <td>Dietary preferences</td>
+              <td>Until you remove them in Settings or delete your account</td>
+            </tr>
+            <tr>
+              <td>Device push token</td>
+              <td>Until you sign out or delete your account</td>
+            </tr>
+            <tr>
+              <td>AI call metadata (feature type, latency, success/failure)</td>
+              <td>12 months</td>
+            </tr>
+            <tr>
+              <td>Usage counters (import counts, AI request counts)</td>
+              <td>12 months</td>
+            </tr>
+            <tr>
+              <td>AI prompts and responses</td>
+              <td>Not stored by us; Anthropic session only (not retained)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr class="my-8" />
+
+        <h2>9. Your Rights</h2>
+        <p>
+          To exercise any of the rights below, contact us at <a href="mailto:privacy@kitchenote.app">privacy@kitchenote.app</a>. We will respond within 30 days.
+        </p>
+
+        <h3>All users</h3>
+        <ul>
+          <li><strong>Access:</strong> Request a copy of the personal data we hold about you</li>
+          <li><strong>Correction:</strong> Ask us to update inaccurate or incomplete data</li>
+          <li><strong>Deletion:</strong> Delete your account and all associated data from within the app (Settings → Account → Delete Account) or by contacting us. Deletion is permanent and completed within 30 days.</li>
+          <li><strong>Withdraw consent:</strong> Remove dietary preferences or revoke AI data consent at any time from Settings → My Diet</li>
+        </ul>
+
+        <h3>UK residents (UK GDPR)</h3>
+        <ul>
+          <li>Right to restrict processing in certain circumstances</li>
+          <li>Right to data portability — receive your content in a machine-readable format (JSON). Contact us to request an export.</li>
+          <li>Right to object to processing based on legitimate interests</li>
+          <li>Right to lodge a complaint with the ICO: <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> · 0303 123 1113</li>
+        </ul>
+
+        <h3>California residents (CCPA / CPRA)</h3>
+        <ul>
+          <li>We do not sell or share your personal information for advertising or commercial purposes</li>
+          <li>Right to know what categories of personal information we collect and how it is used</li>
+          <li>Right to delete personal information (subject to certain exceptions)</li>
+          <li>Right to correct inaccurate personal information</li>
+          <li>Right to limit use of sensitive personal information (including dietary data) to what is necessary to provide the service</li>
+          <li>We will not discriminate against you for exercising any of these rights</li>
+          <li>To submit a request: <a href="mailto:privacy@kitchenote.app">privacy@kitchenote.app</a></li>
+        </ul>
+
+        <h3>Australian residents</h3>
+        <ul>
+          <li>Right to access and correct personal information we hold about you (Australian Privacy Principles 12 and 13)</li>
+          <li>To lodge a complaint: Office of the Australian Information Commissioner (OAIC) — <a href="https://www.oaic.gov.au" target="_blank" rel="noopener">oaic.gov.au</a></li>
+        </ul>
+
+        <h3>New Zealand residents</h3>
+        <ul>
+          <li>Right to access and correct personal information under the New Zealand Privacy Act 2020 (Information Privacy Principles 6 and 7)</li>
+          <li>Privacy Officer: <a href="mailto:support@boldoath.com">support@boldoath.com</a></li>
+          <li>To lodge a complaint: Office of the Privacy Commissioner — <a href="https://www.privacy.org.nz" target="_blank" rel="noopener">privacy.org.nz</a></li>
+        </ul>
+
+        <hr class="my-8" />
+
+        <h2>10. Push Notifications</h2>
+        <p>
+          If you allow push notifications when prompted by iOS, we store your device's push token with Supabase and use it to send alerts — for example when a new recipe is added to a shared group or someone comments on your content. You can turn off notifications at any time in your device's Settings app, or within Kitchenote at Settings → Notifications. Your push token is deleted from our servers when you sign out or delete your account.
+        </p>
+
+        <hr class="my-8" />
+
+        <h2>11. Subscriptions</h2>
+        <p>
+          Kitchenote Pro is an auto-renewing subscription managed by Apple. All billing is handled through the App Store — we never receive or store your payment card details. We receive a subscription status from Apple to determine your access level. To manage or cancel your subscription, go to Settings → Apple ID → Subscriptions on your device. Cancellation and refund policies are governed by Apple's terms.
+        </p>
+
+        <hr class="my-8" />
+
+        <h2>12. Data Security</h2>
+        <p>
+          Your data is encrypted in transit using TLS 1.2+ and at rest using AES-256 (managed by Supabase). Row-Level Security policies ensure that only you can access your personal data — other users cannot read your recipes or notes unless you share them. Our team does not have routine access to user content. In the event of a security breach that poses a risk to your rights, we will notify you and the relevant supervisory authority as required by applicable law.
+        </p>
+
+        <hr class="my-8" />
+
+        <h2>13. Children's Privacy</h2>
+        <p>
+          Kitchenote is not directed at children under 13. We do not knowingly collect personal information from anyone under 13. If you believe a child has created an account, please contact us at <a href="mailto:privacy@kitchenote.app">privacy@kitchenote.app</a> and we will delete it promptly.
+        </p>
+
+        <hr class="my-8" />
+
+        <h2>14. Changes to This Policy</h2>
+        <p>
+          If we make material changes to this policy, we will notify you through the app before the changes take effect. The "Last updated" date at the top reflects the most recent revision. Continued use of the app after a material change takes effect constitutes acceptance of the revised policy.
+        </p>
+
+        <hr class="my-8" />
+
+        <h2>15. Contact and Supervisory Authorities</h2>
+        <p>
+          Privacy enquiries: <a href="mailto:privacy@kitchenote.app">privacy@kitchenote.app</a><br />
+          General support: <a href="mailto:support@boldoath.com">support@boldoath.com</a>
+        </p>
+        <p>Relevant supervisory authorities by region:</p>
+        <ul>
+          <li><strong>Japan:</strong> Personal Information Protection Commission (個人情報保護委員会) — <a href="https://www.ppc.go.jp" target="_blank" rel="noopener">ppc.go.jp</a></li>
+          <li><strong>UK:</strong> Information Commissioner's Office (ICO) — <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a></li>
+          <li><strong>Australia:</strong> Office of the Australian Information Commissioner (OAIC) — <a href="https://www.oaic.gov.au" target="_blank" rel="noopener">oaic.gov.au</a></li>
+          <li><strong>New Zealand:</strong> Office of the Privacy Commissioner — <a href="https://www.privacy.org.nz" target="_blank" rel="noopener">privacy.org.nz</a></li>
+        </ul>
+
       </div>
     </div>
   </section>
 
 </Layout>
-
