@@ -26,7 +26,7 @@ const painPoints = [
 <Layout title="ホーム" description="どんなサイトからでもレシピを保存。整理して、分量を調整して、すぐに料理。Kitchenoteは邪魔しないレシピ管理アプリです。">
 
   <!-- Hero Section -->
-  <section class="py-16 md:py-24 overflow-hidden">
+  <section class="py-10 md:py-16 lg:py-24 overflow-hidden">
     <div class="container-wide">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="max-w-xl">
@@ -45,7 +45,7 @@ const painPoints = [
         </div>
 
         <!-- Animated App Preview -->
-        <div class="hero-phone-wrapper animate-on-scroll">
+        <div class="hero-phone-wrapper hidden lg:block animate-on-scroll">
           <PhoneMockup>
             <div class="hero-demo">
               <div class="hero-app-bar">
@@ -79,18 +79,34 @@ const painPoints = [
             </div>
           </PhoneMockup>
         </div>
+        <!-- Mobile-only mini recipe card -->
+        <div class="lg:hidden mt-8 max-w-[280px] mx-auto">
+          <div class="bg-white rounded-2xl shadow-lg border border-cream-200 overflow-hidden">
+            <div class="h-28 bg-gradient-to-br from-primary-100 to-cream-200"></div>
+            <div class="p-4">
+              <div class="font-display font-bold text-sm text-neutral-800 mb-1">チキンティッカマサラ</div>
+              <div class="text-xs text-neutral-500 mb-3">🕐 45分 · 👤 4人前</div>
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-2"><span class="text-primary-500 text-xs">✓</span><span class="text-xs text-neutral-600">鶏もも肉 500g</span></div>
+                <div class="flex items-center gap-2"><span class="text-primary-500 text-xs">✓</span><span class="text-xs text-neutral-600">ヨーグルト 1カップ</span></div>
+                <div class="flex items-center gap-2"><span class="text-primary-500 text-xs">✓</span><span class="text-xs text-neutral-600">ガラムマサラ 大さじ2</span></div>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs text-neutral-400 text-center mt-3">広告なし。長い前置きなし。レシピだけ。</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Pain Points -->
-  <section class="py-16 bg-white">
+  <section class="py-10 md:py-16 bg-white">
     <div class="container-wide">
       <h2 class="section-title">{t('pain.title')}</h2>
       <p class="section-subtitle">{t('pain.subtitle')}</p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="mobile-carousel sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {painPoints.map(({ emoji, text }) => (
-          <div class="flex items-start gap-4 p-4 rounded-xl bg-cream-50 border border-cream-200">
+          <div class="min-w-[260px] sm:min-w-0 flex items-start gap-4 p-4 rounded-xl bg-cream-50 border border-cream-200">
             <span class="text-2xl">{emoji}</span>
             <p class="text-neutral-700">{text}</p>
           </div>
@@ -100,11 +116,11 @@ const painPoints = [
   </section>
 
   <!-- Features -->
-  <section class="py-20">
+  <section class="py-12 md:py-20">
     <div class="container-wide">
       <h2 class="section-title">{t('features.title')}</h2>
       <p class="section-subtitle">{t('features.subtitle')}</p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="mobile-carousel sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map(({ icon, titleKey, descKey }) => (
           <FeatureCard icon={icon} title={t(titleKey)} description={t(descKey)} />
         ))}
@@ -116,7 +132,7 @@ const painPoints = [
   </section>
 
   <!-- How It Works -->
-  <section class="py-20 bg-white">
+  <section class="py-12 md:py-20 bg-white">
     <div class="container-narrow">
       <h2 class="section-title">{t('how.title')}</h2>
       <p class="section-subtitle">{t('how.subtitle')}</p>
@@ -129,32 +145,32 @@ const painPoints = [
   </section>
 
   <!-- Differentiators -->
-  <section class="py-20">
+  <section class="py-12 md:py-20">
     <div class="container-wide">
       <h2 class="section-title">{t('diff.title')}</h2>
       <p class="section-subtitle">{t('diff.subtitle')}</p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="card p-6 border-l-4 border-l-primary-400">
+      <div class="mobile-carousel sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="min-w-[280px] sm:min-w-0 card p-6 border-l-4 border-l-primary-400">
           <h3 class="font-display font-bold text-lg mb-2">{t('diff.offline.title')}</h3>
           <p class="text-neutral-600 text-sm">{t('diff.offline.desc')}</p>
         </div>
-        <div class="card p-6 border-l-4 border-l-sage-400">
+        <div class="min-w-[280px] sm:min-w-0 card p-6 border-l-4 border-l-sage-400">
           <h3 class="font-display font-bold text-lg mb-2">{t('diff.units.title')}</h3>
           <p class="text-neutral-600 text-sm">{t('diff.units.desc')}</p>
         </div>
-        <div class="card p-6 border-l-4 border-l-primary-400">
+        <div class="min-w-[280px] sm:min-w-0 card p-6 border-l-4 border-l-primary-400">
           <h3 class="font-display font-bold text-lg mb-2">{t('diff.ocr.title')}</h3>
           <p class="text-neutral-600 text-sm">{t('diff.ocr.desc')}</p>
         </div>
-        <div class="card p-6 border-l-4 border-l-sage-400">
+        <div class="min-w-[280px] sm:min-w-0 card p-6 border-l-4 border-l-sage-400">
           <h3 class="font-display font-bold text-lg mb-2">{t('diff.versions.title')}</h3>
           <p class="text-neutral-600 text-sm">{t('diff.versions.desc')}</p>
         </div>
-        <div class="card p-6 border-l-4 border-l-primary-400">
+        <div class="min-w-[280px] sm:min-w-0 card p-6 border-l-4 border-l-primary-400">
           <h3 class="font-display font-bold text-lg mb-2">{t('diff.focus.title')}</h3>
           <p class="text-neutral-600 text-sm">{t('diff.focus.desc')}</p>
         </div>
-        <div class="card p-6 border-l-4 border-l-sage-400">
+        <div class="min-w-[280px] sm:min-w-0 card p-6 border-l-4 border-l-sage-400">
           <h3 class="font-display font-bold text-lg mb-2">{t('diff.free.title')}</h3>
           <p class="text-neutral-600 text-sm">{t('diff.free.desc')}</p>
         </div>
@@ -163,7 +179,7 @@ const painPoints = [
   </section>
 
   <!-- International -->
-  <section class="py-20 bg-white">
+  <section class="py-12 md:py-20 bg-white">
     <div class="container-wide">
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="section-title">{t('intl.title')}</h2>
@@ -183,7 +199,7 @@ const painPoints = [
   </section>
 
   <!-- CTA -->
-  <section id="download" class="py-20 bg-gradient-to-br from-primary-500 to-primary-600 text-white">
+  <section id="download" class="py-12 md:py-20 bg-gradient-to-br from-primary-500 to-primary-600 text-white">
     <div class="container-narrow text-center">
       <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 text-white">
         リリースをお知らせ

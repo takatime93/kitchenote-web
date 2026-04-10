@@ -21,7 +21,7 @@ const legalLinks = [
 ] as const;
 ---
 
-<footer class="bg-neutral-900 text-neutral-300 py-16">
+<footer class="bg-neutral-900 text-neutral-300 py-10 md:py-16">
   <div class="container-wide">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
       <!-- Brand Column -->
@@ -50,7 +50,7 @@ const legalLinks = [
             <li>
               <a
                 href={getLocalizedPath(path, lang)}
-                class="text-sm text-neutral-400 hover:text-white transition-colors"
+                class="text-xs sm:text-sm text-neutral-400 hover:text-white transition-colors"
               >
                 {t(key)}
               </a>
@@ -67,7 +67,7 @@ const legalLinks = [
             <li>
               <a
                 href={getLocalizedPath(path, lang)}
-                class="text-sm text-neutral-400 hover:text-white transition-colors"
+                class="text-xs sm:text-sm text-neutral-400 hover:text-white transition-colors"
               >
                 {t(key)}
               </a>
@@ -84,7 +84,7 @@ const legalLinks = [
             <li>
               <a
                 href={getLocalizedPath(path, lang)}
-                class="text-sm text-neutral-400 hover:text-white transition-colors"
+                class="text-xs sm:text-sm text-neutral-400 hover:text-white transition-colors"
               >
                 {t(key)}
               </a>

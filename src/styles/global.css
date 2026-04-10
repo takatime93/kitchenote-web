@@ -84,17 +84,17 @@
   }
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     letter-spacing: -0.025em;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     letter-spacing: -0.02em;
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
   }
 
   p {
@@ -219,6 +219,20 @@
 }
 
 /* Responsive typography */
+@media (min-width: 640px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
 @media (min-width: 768px) {
   h1 {
     font-size: 3.5rem;
@@ -300,4 +314,67 @@
 
 .prose-lg ul li {
   margin-bottom: 0.5rem;
+}
+
+/* Mobile carousel — horizontal scroll-snap for card grids */
+.mobile-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.mobile-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-carousel > * {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+/* On sm+ screens, revert to grid */
+@media (min-width: 640px) {
+  .mobile-carousel {
+    display: grid;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding-bottom: 0;
+  }
+}
+
+/* Sticky bottom CTA bar */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  background: var(--color-primary-500);
+  padding: 0.625rem 1.5rem;
+  padding-bottom: calc(0.625rem + env(safe-area-inset-bottom, 0px));
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sticky-cta.visible {
+  transform: translateY(0);
+}
+
+/* Safe area inset for notched devices */
+body {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

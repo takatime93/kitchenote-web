@@ -5,7 +5,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
 
 <Layout title="料金" description="Kitchenoteは無料で使えます。プレミアムにアップグレードすると、共有レシピブック無制限、AIアシスタント、OCRスキャンなど。">
 
-  <section class="py-16 md:py-24">
+  <section class="py-10 md:py-16 lg:py-24">
     <div class="container-narrow text-center">
       <h1 class="mb-4">シンプルで正直な料金</h1>
       <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
@@ -80,10 +80,13 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
     </div>
   </section>
 
-  <section class="py-16 bg-white">
+  <!-- Comparison -->
+  <section class="py-10 md:py-16 bg-white">
     <div class="container-wide">
       <h2 class="text-2xl font-display font-bold text-center mb-10">プランを比較</h2>
-      <div class="comparison-table-wrapper">
+
+      <!-- Desktop table -->
+      <div class="comparison-table-wrapper hidden sm:block">
         <table class="comparison-table">
           <thead>
             <tr><th>機能</th><th>フリー</th><th class="th-premium">プレミアム</th></tr>
@@ -105,10 +108,28 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
           </tbody>
         </table>
       </div>
+
+      <!-- Mobile comparison cards -->
+      <div class="sm:hidden space-y-3 max-w-sm mx-auto">
+        <div class="compare-row"><span class="compare-feat">レシピインポート</span><span class="compare-val">無制限</span><span class="compare-val compare-val-p">無制限</span></div>
+        <div class="compare-row"><span class="compare-feat">整理＆検索</span><span class="compare-val">フル</span><span class="compare-val compare-val-p">フル</span></div>
+        <div class="compare-row"><span class="compare-feat">クックモード</span><span class="compare-val">フル</span><span class="compare-val compare-val-p">フル</span></div>
+        <div class="compare-row"><span class="compare-feat">人数調整</span><span class="compare-val">フル</span><span class="compare-val compare-val-p">フル</span></div>
+        <div class="compare-row"><span class="compare-feat">オフライン</span><span class="compare-val">フル</span><span class="compare-val compare-val-p">フル</span></div>
+        <div class="compare-row"><span class="compare-feat">フレンド＆ソーシャル</span><span class="compare-val">フル</span><span class="compare-val compare-val-p">フル</span></div>
+        <div class="compare-row"><span class="compare-feat">買い物リスト</span><span class="compare-val">フル</span><span class="compare-val compare-val-p">フル</span></div>
+        <div class="compare-row"><span class="compare-feat">共有レシピブック</span><span class="compare-val">2冊</span><span class="compare-val compare-val-p">無制限</span></div>
+        <div class="compare-row"><span class="compare-feat">バージョン管理</span><span class="compare-val">—</span><span class="compare-val compare-val-p">✓</span></div>
+        <div class="compare-row"><span class="compare-feat">OCR / スキャン</span><span class="compare-val">—</span><span class="compare-val compare-val-p">✓</span></div>
+        <div class="compare-row"><span class="compare-feat">リッチテキスト</span><span class="compare-val">—</span><span class="compare-val compare-val-p">✓</span></div>
+        <div class="compare-row"><span class="compare-feat">拡張AI</span><span class="compare-val">—</span><span class="compare-val compare-val-p">✓</span></div>
+        <div class="compare-row"><span class="compare-feat">優先サポート</span><span class="compare-val">—</span><span class="compare-val compare-val-p">✓</span></div>
+        <div class="compare-legend"><span class="compare-legend-dot"></span> フリー <span class="compare-legend-dot compare-legend-dot-p"></span> プレミアム</div>
+      </div>
     </div>
   </section>
 
-  <section class="py-16">
+  <section class="py-10 md:py-16">
     <div class="container-narrow">
       <h2 class="text-2xl font-display font-bold text-center mb-10">料金のよくある質問</h2>
       <div class="space-y-4">
@@ -132,7 +153,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
     </div>
   </section>
 
-  <section id="waitlist" class="py-20 bg-gradient-to-br from-primary-500 to-primary-600 text-white">
+  <section id="waitlist" class="py-12 md:py-20 bg-gradient-to-br from-primary-500 to-primary-600 text-white">
     <div class="container-narrow text-center">
       <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 text-white">リリースをお知らせ</h2>
       <p class="text-lg text-primary-100 mb-8 max-w-xl mx-auto">Kitchenoteはもうすぐ完成。App Storeに公開されたらすぐにお知らせします。</p>
@@ -176,6 +197,15 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
   .comparison-table td { padding:10px 16px;border-bottom:1px solid #f0ebe6;color:#52525b; }
   .comparison-table td:not(:first-child) { text-align:center;color:#27272a;font-weight:500; }
   .comparison-table tr:hover { background:#fefdfb; }
+
+  /* Mobile comparison cards */
+  .compare-row { display:flex;align-items:center;gap:8px;padding:10px 14px;background:white;border-radius:12px;border:1px solid #f0ebe6; }
+  .compare-feat { flex:1;font-size:13px;color:#52525b;font-weight:500; }
+  .compare-val { font-size:12px;font-weight:600;color:#27272a;background:#f4f4f5;padding:2px 10px;border-radius:8px;min-width:44px;text-align:center; }
+  .compare-val-p { background:#fef5f2;color:#e86f4c; }
+  .compare-legend { display:flex;align-items:center;justify-content:center;gap:6px;font-size:11px;color:#71717a;margin-top:8px; }
+  .compare-legend-dot { width:8px;height:8px;border-radius:50%;background:#f4f4f5;display:inline-block; }
+  .compare-legend-dot-p { background:#fef5f2;margin-left:8px; }
 </style>
 
 <script>

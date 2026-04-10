@@ -79,5 +79,38 @@ const fullTitle = title === 'Home' || title === 'ホーム'
       <slot />
     </main>
     <Footer />
+
+    <!-- Sticky mobile CTA -->
+    <div id="sticky-cta" class="sticky-cta md:hidden">
+      <a href="#download" class="btn-primary w-full justify-center text-sm py-3">
+        Join Waitlist
+      </a>
+    </div>
+
+    <script>
+      const stickyCta = document.getElementById('sticky-cta');
+      const hero = document.querySelector('section');
+      const ctaSection = document.getElementById('download') || document.getElementById('waitlist');
+
+      if (stickyCta && hero) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            stickyCta.classList.toggle('visible', !entry.isIntersecting);
+          },
+          { threshold: 0 }
+        );
+        observer.observe(hero);
+
+        if (ctaSection) {
+          const ctaObserver = new IntersectionObserver(
+            ([entry]) => {
+              if (entry.isIntersecting) stickyCta.classList.remove('visible');
+            },
+            { threshold: 0.3 }
+          );
+          ctaObserver.observe(ctaSection);
+        }
+      }
+    </script>
   </body>
 </html>

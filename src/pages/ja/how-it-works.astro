@@ -7,7 +7,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
 <Layout title="使い方" description="Kitchenoteでのレシピ保存、共有、調理がいかに簡単か。あらゆるサイトからインポート、家族とコラボ、静かに賢いインテリジェンス。">
 
   <!-- Hero -->
-  <section class="py-12 md:py-20">
+  <section class="py-8 md:py-12 lg:py-20">
     <div class="container-narrow text-center">
       <h1 class="mb-4">Kitchenoteの使い方</h1>
       <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
@@ -22,15 +22,18 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
       <div class="tab-bar">
         <button class="tab-btn tab-active" data-tab="import">
           <span class="tab-icon">📥</span>
+          <span class="tab-label-short">保存</span>
           <span class="tab-label">保存＆調理</span>
         </button>
         <button class="tab-btn" data-tab="sharing">
           <span class="tab-icon">👨‍👩‍👧‍👦</span>
+          <span class="tab-label-short">共有</span>
           <span class="tab-label">共有＆コラボ</span>
         </button>
         <button class="tab-btn" data-tab="ai">
           <span class="tab-icon">🧠</span>
-          <span class="tab-label">組み込み知能</span>
+          <span class="tab-label-short">AI</span>
+          <span class="tab-label">組み込みAI</span>
         </button>
       </div>
     </div>
@@ -42,7 +45,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
   <div class="tab-panel tab-panel-active" id="panel-import">
 
     <!-- Step 1: Find -->
-    <section class="py-12 md:py-20 bg-white">
+    <section class="py-8 md:py-12 lg:py-20 bg-white">
       <div class="container-wide">
         <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
@@ -53,7 +56,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
             </p>
             <div class="tip-box">コピー制限のあるサイトを含め、95%のレシピサイトに対応。</div>
           </div>
-          <div class="animate-on-scroll">
+          <div class="animate-on-scroll hidden md:block">
             <PhoneMockup>
               <div class="demo-browse">
                 <div class="demo-safari-bar">
@@ -80,10 +83,10 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
     </section>
 
     <!-- Step 2: Share -->
-    <section class="py-12 md:py-20">
+    <section class="py-8 md:py-12 lg:py-20">
       <div class="container-wide">
         <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div class="animate-on-scroll md:order-1">
+          <div class="animate-on-scroll hidden md:block md:order-1">
             <PhoneMockup>
               <div class="demo-share">
                 <div class="share-backdrop"></div>
@@ -117,7 +120,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
     </section>
 
     <!-- Step 3: Extract -->
-    <section class="py-12 md:py-20 bg-white">
+    <section class="py-8 md:py-12 lg:py-20 bg-white">
       <div class="container-wide">
         <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
@@ -128,7 +131,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
             </p>
             <div class="tip-box">保存後はいつでも編集やメモの追加ができます。</div>
           </div>
-          <div class="animate-on-scroll">
+          <div class="animate-on-scroll hidden md:block">
             <PhoneMockup>
               <div class="demo-extract">
                 <div class="demo-kn-header"><span class="demo-kn-title">取り込み中...</span></div>
@@ -152,7 +155,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
     </section>
 
     <!-- Comparison: Website vs App -->
-    <section class="py-12 md:py-20">
+    <section class="py-8 md:py-12 lg:py-20">
       <div class="container-wide">
         <div class="text-center mb-12">
           <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">違いを見てください</h2>
@@ -162,6 +165,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
           <div class="comparison-grid">
             <div class="compare-side">
               <div class="compare-label compare-label-bad">レシピサイト</div>
+              <div class="hidden md:block">
               <PhoneMockup>
                 <div class="web-mess">
                   <div class="web-mess-bar"><div class="web-mess-dots"><span></span><span></span><span></span></div><div class="web-mess-url">foodblog.com/best-ever-tikka</div></div>
@@ -179,10 +183,12 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
                   </div>
                 </div>
               </PhoneMockup>
+              </div>
               <div class="compare-list"><div class="issue">❌ 長い前置き</div><div class="issue">❌ ポップアップと広告</div><div class="issue">❌ ネット接続が必要</div><div class="issue">❌ 人数変更できない</div></div>
             </div>
             <div class="compare-side">
               <div class="compare-label compare-label-good">Kitchenoteなら</div>
+              <div class="hidden md:block">
               <PhoneMockup>
                 <div class="app-clean">
                   <div class="app-clean-header"><span class="app-clean-back">‹</span><span class="app-clean-title">Chicken ティッカマサラ</span><span class="app-clean-edit">✎</span></div>
@@ -203,6 +209,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
                   <div class="app-clean-cook-btn">🍳 Start Cook Mode</div>
                 </div>
               </PhoneMockup>
+              </div>
               <div class="compare-list"><div class="win">✅ レシピだけ</div><div class="win">✅ 広告なし</div><div class="win">✅ オフライン対応</div><div class="win">✅ 人数分の自動計算</div></div>
             </div>
           </div>
@@ -211,10 +218,10 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
     </section>
 
     <!-- Step 4: Cook -->
-    <section class="py-12 md:py-20 bg-white">
+    <section class="py-8 md:py-12 lg:py-20 bg-white">
       <div class="container-wide">
         <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div class="animate-on-scroll md:order-1">
+          <div class="animate-on-scroll hidden md:block md:order-1">
             <PhoneMockup>
               <div class="demo-final">
                 <div class="demo-kn-header"><span class="demo-kn-title">マイレシピ</span></div>
@@ -249,7 +256,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
   <div class="tab-panel" id="panel-sharing">
 
     <!-- Shared Cookbooks -->
-    <section class="py-12 md:py-20 bg-white">
+    <section class="py-8 md:py-12 lg:py-20 bg-white">
       <div class="container-wide">
         <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
@@ -279,7 +286,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
     </section>
 
     <!-- Versioning -->
-    <section class="py-12 md:py-20">
+    <section class="py-8 md:py-12 lg:py-20">
       <div class="container-wide">
         <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div class="animate-on-scroll md:order-1">
@@ -310,7 +317,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
     </section>
 
     <!-- Friends & アクティビティ -->
-    <section class="py-12 md:py-20 bg-white">
+    <section class="py-8 md:py-12 lg:py-20 bg-white">
       <div class="container-wide">
         <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
@@ -350,7 +357,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
     </section>
 
     <!-- Notifications -->
-    <section class="py-12 md:py-20">
+    <section class="py-8 md:py-12 lg:py-20">
       <div class="container-wide">
         <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div class="animate-on-scroll md:order-1">
@@ -411,7 +418,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
     </section>
 
     <!-- Smart parsing -->
-    <section class="py-12 md:py-20">
+    <section class="py-8 md:py-12 lg:py-20">
       <div class="container-wide">
         <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
@@ -458,7 +465,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
     </section>
 
     <!-- Image filtering -->
-    <section class="py-12 md:py-20 bg-white">
+    <section class="py-8 md:py-12 lg:py-20 bg-white">
       <div class="container-wide">
         <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div class="animate-on-scroll md:order-1">
@@ -497,7 +504,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
     </section>
 
     <!-- Ingredient extraction from steps -->
-    <section class="py-12 md:py-20">
+    <section class="py-8 md:py-12 lg:py-20">
       <div class="container-wide">
         <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
@@ -532,7 +539,7 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
 
 
     <!-- OCR -->
-    <section class="py-12 md:py-20">
+    <section class="py-8 md:py-12 lg:py-20">
       <div class="container-wide">
         <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
@@ -614,7 +621,8 @@ import WaitlistForm from '../../components/WaitlistForm.astro';
   .tab-active { background: #e86f4c; color: white; border-color: #e86f4c; font-weight: 600; }
   .tab-active:hover { border-color: #d5532e; }
   .tab-icon { font-size: 16px; }
-  @media (max-width: 640px) { .tab-label { display: none; } .tab-btn { padding: 10px 16px; } .tab-icon { font-size: 20px; } }
+  .tab-label-short { display: none; }
+  @media (max-width: 640px) { .tab-label { display: none; } .tab-label-short { display: inline; } .tab-btn { padding: 10px 14px; } .tab-icon { font-size: 18px; } }
 
   /* ===== Tab panels ===== */
   .tab-panel { display: none; }
